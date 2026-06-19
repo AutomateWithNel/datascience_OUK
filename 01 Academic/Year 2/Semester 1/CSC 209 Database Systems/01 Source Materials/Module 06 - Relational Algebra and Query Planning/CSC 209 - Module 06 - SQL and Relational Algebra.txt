@@ -1,0 +1,129 @@
+--- PAGE 1 ---
+Relationship 
+between
+ 
+SQL and Relational Algebra
+ 
+SQL (Structured Query Language) and relational algebra are closely related 
+concepts in the field of relational databases, with SQL being a practical 
+implementation of the theoretical foundation provided by 
+relational algebra. 
+Here’s a breakdown of their relationship:
+ 
+1. Relational Algebra as the Foundation
+ 
+
+ 
+Relational algebra is a formal system of operations (like selection, 
+projection, join, union, and intersection) used to manipulate relations in a 
+database
+.
+ 
+
+ 
+It provides a set of operations that define how data can be retrieved and 
+manipulated, forming the theoretical foundation of relational databases.
+ 
+
+ 
+These operations work on sets or tables and produce a new table 
+(relation) as a result.
+ 
+2. SQL as an Implem
+entation of Relational Algebra
+ 
+
+ 
+SQL is a high
+-
+level language for querying and managing relational 
+databases, created to implement and execute relational algebra 
+operations.
+ 
+
+ 
+SQL commands like 
+SELECT
+, 
+JOIN
+, 
+UNION
+, 
+INTERSECT
+, and 
+WHERE
+ 
+correspond to 
+relational
+ 
+algebra operations, allowing users to perform similar operations.
+ 
+
+ 
+SQL is often more expressive and user
+-
+friendly, making it accessible to a 
+broader audience, while relational algebra is more formal and 
+mathematical.
+ 
+3. Differences Between SQL and Relation
+al Algebra
+ 
+
+ 
+Declarative vs. Procedural
+: SQL is declarative, meaning you specify 
+what
+ 
+you want, not 
+how
+ 
+it should be done. Relational algebra, however, is 
+procedural; it specifies the steps needed to retrieve or manipulate data.
+ 
+
+ 
+Set vs. Multiset (Bag) Operat
+ions
+: Relational algebra operates on pure sets 
+with no duplicates, while SQL operates on multisets (bags), meaning 
+duplicates are allowed unless explicitly removed with commands like 
+DISTINCT
+.
+ 
+
+ 
+Null Handling
+: SQL supports null values, while classical 
+relational algebra 
+does not have a concept of nulls.
+ 
+4. Optimization and Query Execution
+
+--- PAGE 2 ---
+
+ 
+The database engine uses relational algebra to optimize SQL queries. 
+When a query is written in SQL, the database converts it into an internal 
+relational algebra repre
+sentation.
+ 
+
+ 
+The engine then applies optimization techniques based on relational 
+algebra rules (like reordering joins, reducing selections early) to execute 
+the query efficiently.
+ 
+Summary
+ 
+Relational algebra provides the theoretical backbone for SQL, defining
+ 
+the set 
+of operations needed to query relational databases. SQL, as a practical 
+implementation, enables database users to work with data using similar 
+operations but with added flexibility, user
+-
+friendliness, and optimizations suitable 
+for practical datab
+ase management.
+

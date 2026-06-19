@@ -1,0 +1,16 @@
+# Obsidian workspace files (contains local window states, open tabs, etc.)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Local Python virtual environment
+.venv-pdf/
+__pycache__/
+*.pyc
+
+# Local agents/AI configuration files if temporary
+.antigravitycli/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

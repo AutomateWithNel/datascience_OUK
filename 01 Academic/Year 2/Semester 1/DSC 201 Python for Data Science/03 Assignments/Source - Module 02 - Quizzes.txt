@@ -1,0 +1,153 @@
+Module 2 Mastery quiz
+
+How do you select the 'name' and 'age' columns from a DataFrame df? Select all that apply
+
+Question 1Answer
+
+A.
+df.loc[:,'name', 'age']]
+
+
+B.
+df[['name', 'age']]
+
+
+C.
+df.loc[:, ['name', 'age']]
+
+
+D.
+df['name', 'age']
+
+Which command creates a Pandas Series from a list [1, 2, 3, 4]?
+Question 2Answer
+
+a.
+pd.Series{1, 2, 3, 4}
+
+b.
+pd.DataFrame([1, 2, 3, 4])
+
+c.
+pd.Series([1, 2, 3, 4])
+
+d.
+pd.Series(1, 2, 3, 4)
+
+Which command sorts a DataFrame df by the column 'salary' in ascending order?
+Question 3Answer
+
+a.
+df.sort_values('salary')
+
+b.
+df.sort_by('salary')
+
+c.
+df.sort_values(by='salary')
+
+d.
+df.sort('salary')
+
+Which of the following commands correctly reads a CSV file named data.csv into a Pandas DataFrame?
+Question 4Answer
+
+a.
+df = pd.read.csv('data.csv')
+
+b.
+df = pd.read_csv('data.csv')
+
+c.
+df = pd.read('data.csv')
+
+d.
+df = pd.load_csv('data.csv')
+
+Write the code that will filter rows in a DataFrame named df where the column 'age' is greater than 30?
+
+Answer: Question 5
+
+
+
+Module 2: Practical task
+It is time to practice the learned concepts by attempting this hands on exercise.
+
+you this provided dataset named Admission_predict.csv, answer the questions in this quiz
+
+
+What is the sum of all the TOEFL Score.  
+
+Answer: Question 1
+
+What is the overall mean of the GRE Score
+
+Answer: Question 2
+
+
+Write the code to display the the first five rows of the first two columns ("GRE Score","TOEFL Score").
+
+Answer:(penalty regime: 1, 2, ... %)
+Ace editor not ready. Perhaps reload page?
+Falling back to raw text area.
+
+Display the top five scores for the "GRE Score" column.
+
+Answer:(penalty regime: 1, 2, ... %)
+
+
+
+Module 2_end quiz
+
+Which command creates a Pandas Series from a list [1, 2, 3, 4]?
+Question 1Answer
+
+a.
+pd.Series{1, 2, 3, 4}
+
+b.
+pd.DataFrame([1, 2, 3, 4])
+
+c.
+pd.Series(1, 2, 3, 4)
+
+d.
+pd.Series([1, 2, 3, 4])
+
+
+
+Which command shows the first 5 rows of a DataFrame called df? Select all that apply
+Question 2Answer
+
+a.
+df.head(5)
+
+b.
+df.show(5)
+
+c.
+df.head()
+
+d.
+df.first(5)
+
+Given the dictionary {'A': [1, 2], 'B': [3, 4]}Answer Question 3
+ will convert it to a dataframe
+
+The command df.Answer Question 4
+returns The number of rows and columns as a tuple
+
+
+Write a command for selecting the name and age from a dataframe called df. 
+
+
+
+Answer: Question 5
+
+
+Display the last four rows of the columns Hours Studied and Previous Scores in the dataset Student_Performance.csv
+
+
+Write a command that will only extract the rows where the Previous Scores is above or equal to 70. Display only the first five rows for the "Previous score". Use the Student_Performance.csv
+
+

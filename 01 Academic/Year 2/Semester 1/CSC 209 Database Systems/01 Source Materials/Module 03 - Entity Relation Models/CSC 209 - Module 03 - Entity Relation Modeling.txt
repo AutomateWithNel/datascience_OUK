@@ -1,0 +1,1162 @@
+--- PAGE 1 ---
+1
+Database System Concepts, 7
+th
+Ed
+.
+©Silberschatz, Korth and Sudarshan
+See 
+www.db
+-
+book.com
+for conditions on re
+-
+use 
+Database 
+Design Using the E
+-
+R Model
+©Silberschatz, Korth and Sudarshan
+6.
+2
+Database System Concepts 
+-
+7
+th
+Edition
+Outline
+
+Extended E
+-
+R Features
+
+Entity
+-
+Relationship Design Issues
+
+Alternative Notations for Modeling Data
+
+Other Aspects of Database Design
+©Silberschatz, Korth and Sudarshan
+6.
+3
+Database System Concepts 
+-
+7
+th
+Edition
+Design Phases
+
+Initial phase 
+--
+characterize fully the data needs of the prospective 
+database users. 
+
+Second phase  
+--
+choosing  a data model
+•
+Applying the concepts of the chosen data model
+•
+Translating  these requirements into a conceptual schema of the 
+database.
+•
+A fully developed conceptual schema indicates the functional 
+requirements of the enterprise. 
+
+Describe the kinds of operations (or transactions) that will be 
+performed on the data.
+©Silberschatz, Korth and Sudarshan
+6.
+4
+Database System Concepts 
+-
+7
+th
+Edition
+Design Phases (Cont.)
+
+Final Phase 
+--
+Moving from an abstract data model to the implementation 
+of the database
+•
+Logical Design 
+–
+Deciding on the database schema. 
+
+Database design requires that we find a “good” collection of 
+relation schemas.
+
+Business decision 
+–
+What attributes should we record in the 
+database?
+
+Computer Science decision 
+–
+What relation schemas should we 
+have and how should the attributes be distributed among the 
+various relation schemas?
+•
+Physical Design 
+–
+Deciding on the physical layout of the database                
+©Silberschatz, Korth and Sudarshan
+6.
+5
+Database System Concepts 
+-
+7
+th
+Edition
+Design Alternatives
+
+In designing a database schema, we must ensure that we avoid two 
+major pitfalls:
+•
+Redundancy:  a bad design  may result in repeat information.  
+
+Redundant representation of information may lead to data 
+inconsistency among the various copies of information 
+•
+Incompleteness: a bad design may make certain aspects of the 
+enterprise difficult or impossible to model.
+
+Avoiding bad designs is not enough. There may be a  large number  of  
+good designs from which we must choose.
+©Silberschatz, Korth and Sudarshan
+6.
+6
+Database System Concepts 
+-
+7
+th
+Edition
+Design Approaches
+
+Entity Relationship 
+Model 
+
+Models 
+an enterprise as a collection of 
+entities 
+and 
+relationships
+
+Entity: a “thing” or “object” in the enterprise that is distinguishable 
+from other objects
+•
+Described by a set of 
+attributes
+
+Relationship: an association among several entities
+•
+Represented diagrammatically by an 
+entity
+-
+relationship diagram:
+
+Normalization Theory 
+
+Formalize 
+what designs are bad, and test for them
+
+--- PAGE 2 ---
+2
+©Silberschatz, Korth and Sudarshan
+6.
+7
+Database System Concepts 
+-
+7
+th
+Edition
+Outline of the ER Model
+©Silberschatz, Korth and Sudarshan
+6.
+8
+Database System Concepts 
+-
+7
+th
+Edition
+ER model 
+--
+Database Modeling
+
+The ER data mode was developed to facilitate database design by 
+allowing specification of an 
+enterprise schema 
+that represents the 
+overall logical structure of a database.
+
+The ER data model employs three basic concepts: 
+•
+entity sets,
+•
+relationship sets, 
+•
+attributes.
+
+The ER model also has an associated diagrammatic representation, the 
+ER diagram
+, which can express the overall logical structure of a 
+database graphically
+.
+©Silberschatz, Korth and Sudarshan
+6.
+9
+Database System Concepts 
+-
+7
+th
+Edition
+Entity Sets
+
+An 
+entity
+is an object that exists and is distinguishable from other 
+objects.
+•
+Example:  specific person, company, event, plant
+
+An 
+entity set
+is a set of entities of the same type that share the same 
+properties.
+•
+Example: set of all persons, companies, trees, holidays
+
+An entity is represented by a set of attributes; i.e., descriptive properties 
+possessed by all members of an entity set.
+•
+Example: 
+instructor = 
+(
+ID, name, salary 
+)
+course= 
+(
+course_id
+, title, credits
+)
+
+A subset of the attributes form a  
+primary key 
+of the entity set; i.e., 
+uniquely identifying each member of the set.
+©Silberschatz, Korth and Sudarshan
+6.
+10
+Database System Concepts 
+-
+7
+th
+Edition
+Entity Sets 
+--
+instructor 
+and 
+student
+©Silberschatz, Korth and Sudarshan
+6.
+11
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Entity sets in ER Diagram
+
+Entity sets can be represented graphically as follows:
+•
+Rectangles represent entity sets.
+•
+Attributes listed inside entity rectangle
+•
+Underline indicates primary key attributes
+©Silberschatz, Korth and Sudarshan
+6.
+12
+Database System Concepts 
+-
+7
+th
+Edition
+Relationship Sets
+
+A 
+relationship
+is an association among several entities
+Example:
+44553 (Peltier
+)
+advisor
+22222 (
+Einstein)
+student
+entity
+relationship set
+instructor
+entity
+
+A 
+relationship set
+is a mathematical relation among 
+n
+
+2 entities, each 
+taken from entity sets
+{(
+e
+1
+, 
+e
+2
+, … 
+e
+n
+) | 
+e
+1
+
+E
+1
+, 
+e
+2
+
+E
+2
+, …, 
+e
+n
+
+E
+n
+}
+where (
+e
+1
+, 
+e
+2
+, …, 
+e
+n
+) is a relationship
+•
+Example: 
+(44553,22222) 
+
+advisor
+
+--- PAGE 3 ---
+3
+©Silberschatz, Korth and Sudarshan
+6.
+13
+Database System Concepts 
+-
+7
+th
+Edition
+Relationship Sets (Cont.)
+
+Example: we define the relationship set  
+advisor
+to denote the 
+associations between students and the instructors who act as their 
+advisors.
+
+Pictorially, we draw a line between related entities.
+©Silberschatz, Korth and Sudarshan
+6.
+14
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Relationship  Sets via ER Diagrams 
+
+Diamonds represent relationship sets.
+©Silberschatz, Korth and Sudarshan
+6.
+15
+Database System Concepts 
+-
+7
+th
+Edition
+Relationship Sets (Cont.)
+
+An attribute can also be associated with a relationship set.
+
+For instance, the 
+advisor 
+relationship set between entity sets 
+instructor 
+and 
+student 
+may have the attribute 
+date 
+which tracks when the student 
+started being associated with the advisor
+instructor
+student
+76766
+Crick
+Katz
+Srinivasan
+Kim
+Singh
+Einstein
+45565
+10101
+98345
+76543
+22222
+98988
+12345
+00128
+76543
+44553
+Tanaka
+Shankar
+Zhang
+Brown
+Aoi
+Chavez
+Peltier
+3 May 2008
+10 June 2007
+12 June 2006
+6 June 2009
+30 June 2007
+31 May 2007
+4 May 2006
+76653
+23121
+©Silberschatz, Korth and Sudarshan
+6.
+16
+Database System Concepts 
+-
+7
+th
+Edition
+Relationship Sets with Attributes
+©Silberschatz, Korth and Sudarshan
+6.
+17
+Database System Concepts 
+-
+7
+th
+Edition
+Roles
+
+Entity sets of a relationship need not be distinct
+•
+Each occurrence of an entity set plays a “role” in the relationship
+
+The labels “
+course_id
+”
+and 
+“
+prereq_id
+”
+are called 
+roles
+.
+©Silberschatz, Korth and Sudarshan
+6.
+18
+Database System Concepts 
+-
+7
+th
+Edition
+Degree of a Relationship Set
+
+Binary relationship
+•
+involve two entity sets (or degree two). 
+•
+most relationship sets in a database system are binary.
+
+Relationships between more than two entity sets are rare.  Most 
+relationships are binary. (More on this later.)
+•
+Example: 
+students
+work on research 
+projects
+under the guidance of 
+an 
+instructor
+. 
+•
+relationship 
+proj_guide
+is a ternary relationship between 
+instructor, 
+student, 
+and 
+project
+
+--- PAGE 4 ---
+4
+©Silberschatz, Korth and Sudarshan
+6.
+19
+Database System Concepts 
+-
+7
+th
+Edition
+Non
+-
+binary Relationship Sets
+
+Most relationship sets are binary
+
+There are  occasions when it is more convenient to represent 
+relationships as non
+-
+binary.
+
+E
+-
+R Diagram with a Ternary Relationship
+©Silberschatz, Korth and Sudarshan
+6.
+20
+Database System Concepts 
+-
+7
+th
+Edition
+Complex Attributes
+
+Attribute types:
+•
+Simple
+and 
+composite
+attributes.
+•
+Single
+-
+valued
+and 
+multivalued
+attributes
+
+Example: multivalued attribute: 
+phone_numbers
+•
+Derived
+attributes
+
+Can be computed from other attributes
+
+Example:  age, given 
+date_of_birth
+
+Domain
+–
+the set of permitted values for each attribute 
+©Silberschatz, Korth and Sudarshan
+6.
+21
+Database System Concepts 
+-
+7
+th
+Edition
+Composite Attributes
+
+Composite attributes allow us to divided attributes  into subparts (other 
+attributes).
+name
+address
+first_name
+m
+iddle_initial
+last_name
+street
+city
+state
+postal_code
+street_number
+street_name
+a
+p
+artment_number
+composite
+attributes
+component
+attributes
+©Silberschatz, Korth and Sudarshan
+6.
+22
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Complex Attributes  in ER Diagram
+©Silberschatz, Korth and Sudarshan
+6.
+23
+Database System Concepts 
+-
+7
+th
+Edition
+Mapping Cardinality Constraints
+
+Express the number of entities to which another entity can be associated 
+via a relationship set.
+
+Most useful in describing binary relationship sets
+.
+
+The cardinality of a relationship is the number of related rows for 
+each of the two objects in the relationship
+.
+
+For a binary relationship set the mapping cardinality must be one of the 
+following types:
+•
+One to one
+•
+One to many
+•
+Many to one
+•
+Many to many 
+©Silberschatz, Korth and Sudarshan
+6.
+24
+Database System Concepts 
+-
+7
+th
+Edition
+Mapping Cardinalities
+One to one
+One to many
+Note: Some elements in 
+A
+and 
+B
+may not be mapped to any 
+elements in the other set
+
+--- PAGE 5 ---
+5
+©Silberschatz, Korth and Sudarshan
+6.
+25
+Database System Concepts 
+-
+7
+th
+Edition
+Mapping Cardinalities 
+Many to one
+Many to many
+Note: Some elements in A and B may not be mapped to any 
+elements in the other set
+©Silberschatz, Korth and Sudarshan
+6.
+26
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Cardinality Constraints in ER Diagram
+
+We express cardinality constraints by drawing either a directed line (
+
+), 
+signifying “one,” or an undirected line (
+—
+), signifying “many,” between the 
+relationship set and the entity set.
+
+One
+-
+to
+-
+one relationship between an 
+instructor
+and a 
+student 
+:
+•
+A student is associated with at most one 
+instructor
+via the relationship 
+advisor
+•
+A 
+student
+is associated with at most one 
+department
+via 
+stud_dept
+©Silberschatz, Korth and Sudarshan
+6.
+27
+Database System Concepts 
+-
+7
+th
+Edition
+One
+-
+to
+-
+Many Relationship
+
+one
+-
+to
+-
+many relationship between an 
+instructor
+and a 
+student
+•
+an instructor is associated with several (including 0) students via 
+advisor 
+•
+a student is associated with at most one instructor via advisor, 
+©Silberschatz, Korth and Sudarshan
+6.
+28
+Database System Concepts 
+-
+7
+th
+Edition
+Many
+-
+to
+-
+One Relationships
+
+In a many
+-
+to
+-
+one relationship between an 
+instructor
+and a 
+student, 
+•
+an instructor
+is associated with at most one student via 
+advisor
+, 
+•
+and a student is associated with several (including 0) instructors via 
+advisor
+©Silberschatz, Korth and Sudarshan
+6.
+29
+Database System Concepts 
+-
+7
+th
+Edition
+Many
+-
+to
+-
+Many Relationship
+
+An instructor is associated with several (possibly 0) students via 
+advisor
+
+A student is associated with several (possibly 0) instructors via 
+advisor
+©Silberschatz, Korth and Sudarshan
+6.
+30
+Database System Concepts 
+-
+7
+th
+Edition
+E
+-
+R Diagram for a University Enterprise
+
+--- PAGE 6 ---
+6
+©Silberschatz, Korth and Sudarshan
+6.
+31
+Database System Concepts 
+-
+7
+th
+Edition
+Reduction to Relation Schemas
+©Silberschatz, Korth and Sudarshan
+6.
+32
+Database System Concepts 
+-
+7
+th
+Edition
+Reduction to Relation Schemas
+
+Entity sets and relationship sets can be expressed uniformly as 
+relation 
+schemas 
+that represent the contents of the database.
+
+A database which conforms to an E
+-
+R diagram can be represented by a 
+collection of schemas.
+
+For each entity set and relationship set there is a unique schema that is 
+assigned the name of the corresponding entity set or relationship set.
+
+Each schema has a number of columns (generally corresponding to 
+attributes), which have unique names.
+©Silberschatz, Korth and Sudarshan
+6.
+33
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Entity Sets
+
+A strong entity set reduces to a schema with the same attributes
+student(
+ID
+, name, 
+tot_cred
+)
+
+A weak entity set becomes a table that includes a column for the primary 
+key of the identifying strong entity set 
+section ( 
+course_id
+, 
+sec_id
+, 
+sem
+, year
+)
+
+Example
+©Silberschatz, Korth and Sudarshan
+6.
+34
+Database System Concepts 
+-
+7
+th
+Edition
+Representation of Entity Sets with Composite Attributes
+
+Composite attributes are flattened out by creating a 
+separate attribute for each component attribute
+•
+Example: given entity set 
+instructor
+with composite 
+attribute 
+name
+with component attributes 
+first_name
+and 
+last_name
+the schema corresponding to the 
+entity set has two attributes 
+name_first_name
+and 
+name_last_name
+
+Prefix omitted if there is no ambiguity 
+(
+name_first_name
+could be 
+first_name
+)
+
+Ignoring multivalued attributes, extended instructor 
+schema is
+•
+instructor(ID, 
+first_name
+, 
+middle_initial
+,  
+last_name
+,
+street_number
+, 
+street_name
+,  
+apt_number
+, city, state, 
+zip_code
+,  
+date_of_birth
+)
+©Silberschatz, Korth and Sudarshan
+6.
+35
+Database System Concepts 
+-
+7
+th
+Edition
+Representation of Entity Sets with Multivalued Attributes
+
+A multivalued attribute 
+M
+of an entity 
+E
+is represented by a separate 
+schema 
+EM
+
+Schema 
+EM
+has attributes corresponding to the primary key of 
+E
+and an 
+attribute corresponding to multivalued attribute 
+M
+
+Example:  Multivalued attribute 
+phone_number
+of 
+instructor
+is 
+represented by a schema:
+inst_phone
+= 
+(
+ID
+, 
+phone_number
+)
+
+Each value of the multivalued attribute maps to a separate tuple of the 
+relation on schema 
+EM
+•
+For example, an 
+instructor
+entity with primary key  22222 and phone 
+numbers 456
+-
+7890 and 123
+-
+4567 maps to two tuples:   
+(22222, 456
+-
+7890) and (22222, 123
+-
+4567) 
+©Silberschatz, Korth and Sudarshan
+6.
+36
+Database System Concepts 
+-
+7
+th
+Edition
+Representing Relationship Sets
+
+A many
+-
+to
+-
+many relationship set is represented as a schema with 
+attributes for the primary keys of the two participating entity sets, and 
+any descriptive attributes of the relationship set. 
+
+Example: schema for relationship set 
+advisor
+advisor = 
+(
+s_id
+, 
+i_id
+)
+
+--- PAGE 7 ---
+7
+©Silberschatz, Korth and Sudarshan
+6.
+37
+Database System Concepts 
+-
+7
+th
+Edition
+Redundancy of Schemas
+
+Many
+-
+to
+-
+one and one
+-
+to
+-
+many relationship sets that are total on the many
+-
+side can be represented by adding an extra attribute to the “many” side, 
+containing the primary key of the “one” side
+
+Example: Instead of creating a schema for relationship set 
+inst_dept
+, add 
+an attribute 
+dept_name
+to the schema arising from entity set 
+instructor
+
+Example
+©Silberschatz, Korth and Sudarshan
+6.
+38
+Database System Concepts 
+-
+7
+th
+Edition
+Redundancy of Schemas (Cont.)
+
+For one
+-
+to
+-
+one relationship sets, either side can be chosen to act as the 
+“many” side
+•
+That is, an extra attribute can be added to either of the tables 
+corresponding to the two entity sets 
+
+If participation is 
+partial
+on the “many” side, replacing a schema by an 
+extra attribute in the schema corresponding to the “many” side could 
+result in null values
+©Silberschatz, Korth and Sudarshan
+6.
+39
+Database System Concepts 
+-
+7
+th
+Edition
+Redundancy of Schemas (Cont.)
+
+The schema corresponding to a relationship set linking a weak entity set 
+to its identifying strong entity set is redundant.
+
+Example: The 
+section 
+schema already contains the attributes that would 
+appear in the 
+sec_course
+schema
+©Silberschatz, Korth and Sudarshan
+6.
+40
+Database System Concepts 
+-
+7
+th
+Edition
+UML
+
+UML
+: Unified Modeling Language
+
+UML has many components to graphically model different aspects of an 
+entire software system
+
+UML Class Diagrams correspond to E
+-
+R Diagram, but several 
+differences.
+©Silberschatz, Korth and Sudarshan
+6.
+41
+Database System Concepts 
+-
+7
+th
+Edition
+ER vs. UML Class Diagrams
+* 
+Note reversal of position in cardinality constraint depiction
+©Silberschatz, Korth and Sudarshan
+6.
+42
+Database System Concepts 
+-
+7
+th
+Edition
+ER vs. UML Class Diagrams
+ER Diagram Notation
+Equivalent in UML
+*
+Generalization can use merged or separate arrows independent
+of disjoint/overlapping
+
+--- PAGE 8 ---
+8
+©Silberschatz, Korth and Sudarshan
+6.
+43
+Database System Concepts 
+-
+7
+th
+Edition
+UML Class Diagrams (Cont.)
+
+Binary relationship sets are represented in UML by just drawing a line 
+connecting the entity sets. The relationship set name is written adjacent 
+to the line.  
+
+The role played by an entity set in a relationship set may also be 
+specified by writing the role name on the line, adjacent to the entity set. 
+
+The relationship set name may alternatively be written in a box, along 
+with attributes of the relationship set, and the box is connected, using a 
+dotted line, to the line depicting the  relationship set.
+©Silberschatz, Korth and Sudarshan
+6.
+44
+Database System Concepts 
+-
+7
+th
+Edition
+ER vs. UML Class Diagrams
+

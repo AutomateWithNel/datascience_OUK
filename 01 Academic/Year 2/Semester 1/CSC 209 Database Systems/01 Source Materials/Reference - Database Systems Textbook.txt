@@ -1,0 +1,1261 @@
+--- PAGE 1 ---
+52 | Chapter 1  Introduction to Databases
+to be addressed. Moreover, as the applications of database systems become even 
+more complex we will have to rethink many of the algorithms currently being used, 
+such as the algorithms for file storage, file access, and query optimization. These 
+original algorithms have made significant contributions in software engineering 
+and, without doubt, the development of new algorithms will have similar effects. In 
+this first chapter, we introduce the database system.
+“As a result of its importance, many computing and business courses cover the 
+study of database systems. In this book, we explore a range of issues associated with 
+the implementation and applications of database systems. We also focus on how to 
+design a database and present a methodology that should help you design both 
+simply and complex databases.
+1.1 Introduction
+The database is now such an integral part of our day-to-day life that often we are 
+not aware that we are using one. To start our discussion of databases, in this sec-
+tion we examine some applications of database systems. For the purposes of this 
+discussion, we consider a database to be a collection of related data and a database 
+management system (DBMS) to be the software that manages and controls access 
+to the database. A database application is simply a program that interacts with 
+the database at some point in its execution. We also use the more inclusive term 
+database system as a collection of application programs that interact with the 
+database along with the DBMS and the database itself. We provide more accurate 
+definitions in Section 1.3.
+Structure of this Chapter In Section 1.1, we examine some uses of 
+database systems that we find in everyday life but are not necessarily aware of. 
+In Sections 1.2 and 1.3, we compare the early file-based approach to computer-
+izing the manual file system with the modern, and more usable, database ap-
+proach. In Section 1.4, we discuss the four types of role that people perform in 
+the database environment, namely: data and database administrators, database 
+designers, application developers, and end-users. In Section 1.5, we provide a 
+brief history of database systems, and follow that in Section 1.6 with a discussion 
+of the advantages and disadvantages of database systems.
+Throughout this book, we illustrate concepts using a case study based on 
+a fictitious property management company called DreamHome. We provide 
+a detailed description of this case study in Section 11.4 and Appendix A. In 
+Appendix B, we present further case studies that are intended to provide ad-
+ditional realistic projects for the reader. There will be exercises based on these 
+case studies at the end of many chapters.
+M01_CONN3067_06_SE_C01.indd   52 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 2 ---
+1.1 Introduction | 53
+Purchases from the supermarket
+When you purchase goods from your local supermarket, it is likely that a database 
+is accessed. The checkout assistant uses a bar code reader to scan each of your 
+purchases. This reader is linked to a database application that uses the bar code 
+to find out the price of the item from a product database. The application then 
+reduces the number of such items in stock and displays the price on the cash reg-
+ister. If the reorder level falls below a specified threshold, the database system may 
+automatically place an order to obtain more of that item. If a customer telephones 
+the supermarket, an assistant can check whether an item is in stock by running an 
+application program that determines availability from the database.
+Purchases using your credit card
+When you purchase goods using your credit card, the assistant normally checks 
+whether you have sufficient credit left to make the purchase. This check may be 
+carried out by telephone or automatically by a card reader linked to a computer sys-
+tem. In either case, there is a database somewhere that contains information about 
+the purchases that you have made using your credit card. To check your credit, 
+there is a database application that uses your credit card number to check that the 
+price of the goods you wish to buy, together with the sum of the purchases that 
+you have already made this month, is within your credit limit. When the purchase 
+is confirmed, the details of the purchase are added to this database. The database 
+application also accesses the database to confirm that the credit card is not on the 
+list of stolen or lost cards before authorizing the purchase. There are other data-
+base applications to send out monthly statements to each cardholder and to credit 
+accounts when payment is received.
+Booking a vacation with a travel agent
+When you make inquiries about a vacation, your travel agent may access several 
+databases containing vacation and flight details. When you book your vacation, the 
+database system has to make all the necessary booking arrangements. In this case, 
+the system has to ensure that two different agents do not book the same vacation or 
+overbook the seats on the flight. For example, if there is only one seat left on the 
+flight from New York to London and two agents try to reserve the last seat at the 
+same time, the system has to recognize this situation, allow one booking to proceed, 
+and inform the other agent that there are now no seats available. The travel agent 
+may have another, usually separate, database for invoicing.
+Using the local library
+Your local library probably has a database containing details of the books in the 
+library, details of the readers, reservations, and so on. There will be a computer-
+ized index that allows readers to find a book based on its title, authors, or subject 
+area. The database system handles reservations to allow a reader to reserve a book 
+and to be informed by mail or email when the book is available. The system also 
+sends reminders to borrowers who have failed to return books by the due date. 
+Typically, the system will have a bar code reader, similar to that used by the 
+M01_CONN3067_06_SE_C01.indd   53 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 3 ---
+54 | Chapter 1  Introduction to Databases
+supermarket described earlier, that is used to keep track of books coming in and 
+going out of the library.
+Taking out insurance
+Whenever you wish to take out insurance—for example personal insurance, prop-
+erty insurance, or auto insurance, your agent may access several databases con-
+taining figures for various insurance organizations. The personal details that you 
+supply, such as name, address, age, and whether you drink or smoke, are used by 
+the database system to determine the cost of the insurance. An insurance agent can 
+search several databases to find the organization that gives you the best deal.
+Renting a DVD
+When you wish to rent a DVD from a DVD rental company, you will probably find 
+that the company maintains a database consisting of the DVD titles that it stocks, 
+details on the copies it has for each title, whether the copy is available for rent or 
+is currently on loan, details of its members (the renters), and which DVDs they are 
+currently renting and date they are returned. The database may even store more 
+detailed information on each DVD, such as its director and its actors. The company 
+can use this information to monitor stock usage and predict future buying trends 
+based on historic rental data.
+Using the Internet
+Many of the sites on the Internet are driven by database applications. For example, 
+you may visit an online bookstore that allows you to browse and buy books, such 
+as Amazon.com. The bookstore allows you to browse books in different categories, 
+such as computing or management, or by author name. In either case, there is 
+a database on the organization’s Web server that consists of book details, avail-
+ability, shipping information, stock levels, and order history. Book details include 
+book titles, ISBNs, authors, prices, sales histories, publishers, reviews, and detailed 
+descriptions. The database allows books to be cross-referenced: for example, a 
+book may be listed under several categories, such as computing, programming 
+languages, bestsellers, and recommended titles. The cross-referencing also allows 
+Amazon to give you information on other books that are typically ordered along 
+with the title you are interested in.
+As with an earlier example, you can provide your credit card details to purchase 
+one or more books online. Amazon.com personalizes its service for customers who 
+return to its site by keeping a record of all previous transactions, including items 
+purchased, shipping, and credit card details. When you return to the site, you 
+might be greeted by name and presented with a list of recommended titles based 
+on previous purchases.
+Studying at College
+If you are at college, there will be a database system containing information about 
+yourself, your major and minor fields, the courses you are enrolled in, details 
+about your financial aid, the classes you have taken in previous years or are taking 
+M01_CONN3067_06_SE_C01.indd   54 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 4 ---
+1.2 Traditional File-Based Systems | 55
+this year, and details of all your examination results. There may also be a database 
+containing details relating to the next year’s admissions and a database containing 
+details of the staff working at the university, giving personal details and salary-
+related details for the payroll office.
+These are only a few of the applications for database systems, and you will no 
+doubt know of plenty of others. Though we now take such applications for granted, 
+the database system is a highly complex technology that has been developed over 
+the past 40 years. In the next section, we discuss the precursor to the database sys-
+tem: the file-based system.
+1.2 Traditional File-Based Systems
+It is almost a tradition that comprehensive database books introduce the database 
+system with a review of its predecessor, the file-based system. We will not depart 
+from this tradition. Although the file-based approach is largely obsolete, there are 
+good reasons for studying it:
+• Understanding the problems inherent in file-based systems may prevent us from 
+repeating these problems in database systems. In other words, we should learn 
+from our earlier mistakes. Actually, using the word “mistakes” is derogatory and 
+does not give any cognizance to the work that served a useful purpose for many 
+years. However, we have learned from this work that there are better ways to 
+handle data.
+• If you wish to convert a file-based system to a database system, understanding 
+how the file system works will be extremely useful, if not essential.
+1.2.1 File-Based Approach
+File-based 
+system
+A collection of application programs that perform services for the 
+end-users, such as the production of reports. Each program defines 
+and manages its own data.
+File-based systems were an early attempt to computerize the manual filing system 
+that we are all familiar with. For example, an organization might have physical files 
+set up to hold all external and internal correspondence relating to a project, prod-
+uct, task, client, or employee. Typically, there are many such files, and for safety 
+they are labeled and stored in one or more cabinets. For security, the cabinets may 
+have locks or may be located in secure areas of the building. In our own home, we 
+probably have some sort of filing system that contains receipts, warranties, 
+invoices, bank statements, and so on. When we need to look something up, we go 
+to the filing system and search through the system, starting at the first entry, until 
+we find what we want. Alternatively, we might have an indexing system that helps 
+locate what we want more quickly. For example, we might have divisions in the 
+filing system or separate folders for different types of items that are in some way 
+logically related.
+The manual filing system works well as long as the number of items to be stored 
+is small. It even works adequately when there are large numbers of items and we 
+only have to store and retrieve them. However, the manual filing system breaks 
+down when we have to cross-reference or process the information in the files. For 
+M01_CONN3067_06_SE_C01.indd   55 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 5 ---
+56 | Chapter 1  Introduction to Databases
+example, a typical real estate agent’s office might have a separate file for each 
+property for sale or rent, each potential buyer and renter, and each member of 
+staff. Consider the effort that would be required to answer the following questions:
+• What three-bedroom properties do you have for sale with an acre of land and a 
+garage?
+• What apartments do you have for rent within three miles of downtown?
+• What is the average rent for a two-bedroom apartment?
+• What is the annual total for staff salaries?
+• How does last month’s net income compare with the projected figure for this 
+month?
+• What is the expected monthly net income for the next financial year?
+Increasingly nowadays, clients, senior managers, and staff want more and more 
+information. In some business sectors, there is a legal requirement to produce 
+detailed monthly, quarterly, and annual reports. Clearly, the manual system is 
+inadequate for this type of work. The file-based system was developed in response 
+to the needs of industry for more efficient data access. However, rather than 
+establish a centralized store for the organization’s operational data, a decentral-
+ized approach was taken, where each department, with the assistance of Data 
+Processing (DP) staff, stored and controlled its own data. To understand what this 
+means, consider the DreamHome example.
+The Sales Department is responsible for the selling and renting of properties. 
+For example, whenever a client who wishes to offer his or her property as a rental 
+approaches the Sales Department, a form similar to the one shown in Figure 1.1(a) 
+is completed. The completed form contains details on the property, such as address, 
+number of rooms, and the owner’s contact information. The Sales Department also 
+handles inquiries from clients, and a form similar to the one shown in Figure l.l (b) 
+is completed for each one. With the assistance of the DP Department, the Sales 
+Department creates an information system to handle the renting of property. The 
+system consists of three files containing property, owner, and client details, as illus-
+trated in Figure 1.2. For simplicity, we omit details relating to members of staff, 
+branch offices, and business owners.
+The Contracts Department is responsible for handling the lease agreements asso-
+ciated with properties for rent. Whenever a client agrees to rent a property, a form 
+with the client and property details is filled in by one of the sales staff, as shown 
+in Figure 1.3. This form is passed to the Contracts Department, which allocates a 
+lease number and completes the payment and rental period details. Again, with the 
+assistance of the DP Department, the Contracts Department creates an information 
+system to handle lease agreements. The system consists of three files that store 
+lease, property, and client details, and that contain similar data to that held by the 
+Sales Department, as illustrated in Figure 1.4
+The process is illustrated in Figure 1.5. It shows each department accessing 
+their own files through application programs written especially for them. Each 
+set of departmental application programs handles data entry, file maintenance, 
+and the generation of a fixed set of specific reports. More important, the physical 
+structure and storage of the data files and records are defined in the application 
+code.
+M01_CONN3067_06_SE_C01.indd   56 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 6 ---
+Figure 1.1  Sales Department forms; (a) Property for Rent Details form; (b) Client Details form.
+57
+M01_CONN3067_06_SE_C01.indd   57 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 7 ---
+58 | Chapter 1  Introduction to Databases
+Figure 1.2 The PropertyForRent, PrivateOwner, and Client files used by Sales.
+Figure 1.3  
+Lease Details 
+form used 
+by Contracts 
+Department.
+M01_CONN3067_06_SE_C01.indd   58 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 8 ---
+1.2 Traditional File-Based Systems | 59
+We can find similar examples in other departments. For example, the Payroll 
+Department stores details relating to each member of staff’s salary:
+StaffSalary(staffNo, fName, IName, sex, salary, branchNo)
+The Human Resources (HR) Department also stores staff details:
+Staff(staffNo, fName, IName, position, sex, dateOfBirth, salary, branchNo)
+Figure 1.4  
+The Lease, 
+PropertyForRent, 
+and Client 
+files used by 
+the Contracts 
+Department.
+Figure 1.5  
+File-based 
+processing.
+M01_CONN3067_06_SE_C01.indd   59 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 9 ---
+60 | Chapter 1  Introduction to Databases
+It can be seen quite clearly that there is a significant amount of duplication of data 
+in these departments, and this is generally true of file-based systems. Before we 
+discuss the limitations of this approach, it may be useful to understand the termi-
+nology used in file-based systems. A file is simply a collection of records, which 
+contains logically related data. For example, the 
+PropertyForRent file in Figure 1.2 
+contains six records, one for each property. Each record contains a logically con-
+nected set of one or more fields, where each field represents some characteristic 
+of the real-world object that is being modeled. In Figure 1.2, the fields of the 
+PropertyForRent file represent characteristics of properties, such as address, property 
+type, and number of rooms.
+1.2.2 Limitations of the File-Based Approach
+This brief description of traditional file-based systems should be sufficient to discuss 
+the limitations of this approach. We list five problems in Table 1.1.
+Separation and isolation of data
+When data is isolated in separate files, it is more difficult to access data that should 
+be available. For example, if we want to produce a list of all houses that match the 
+requirements of clients, we first need to create a temporary file of those clients who 
+have “house” as the preferred type. We then search the 
+PropertyForRent file for those 
+properties where the property type is “house” and the rent is less than the client’s 
+maximum rent. With file systems, such processing is difficult. The application 
+developer must synchronize the processing of two files to ensure that the correct 
+data is extracted. This difficulty is compounded if we require data from more than 
+two files.
+Duplication of data
+Owing to the decentralized approach taken by each department, the file-based 
+approach encouraged, if not necessitated, the uncontrolled duplication of data. For 
+example, in Figure 1.5 we can clearly see that there is duplication of both property 
+and client details in the Sales and Contracts Departments. Uncontrolled duplica-
+tion of data is undesirable for several reasons, including:
+• Duplication is wasteful. It costs time and money to enter the data more than once.
+• It takes up additional storage space, again with associated costs. Often, the dupli-
+cation of data can be avoided by sharing data files.
+TaBle 1.1  Limitations of file-based systems.
+Separation and isolation of data
+Duplication of data
+Data dependence
+Incompatible file formats
+Fixed queries/proliferation of application programs
+M01_CONN3067_06_SE_C01.indd   60 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 10 ---
+1.2 Traditional File-Based Systems | 61
+• Perhaps more importantly, duplication can lead to loss of data integrity; in 
+other words, the data is no longer consistent. For example, consider the dupli-
+cation of data between the Payroll and HR Departments described previously. 
+If a member of staff moves and the change of address is communicated only to 
+HR and not to Payroll, the person’s paycheck will be sent to the wrong address. 
+A more serious problem occurs if an employee is promoted with an associated 
+increase in salary. Again, let’s assume that the change is announced to HR, but 
+the change does not filter through to Payroll. Now, the employee is receiv-
+ing the wrong salary. When this error is detected, it will take time and effort to 
+resolve. Both these examples illustrate inconsistencies that may result from the 
+duplication of data. As there is no automatic way for HR to update the data in 
+the Payroll files, it is not difficult to foresee such inconsistencies arising. Even 
+if Payroll is notified of the changes, it is possible that the data will be entered 
+incorrectly.
+Data dependence
+As we have already mentioned, the physical structure and storage of the data files 
+and records are defined in the application code. This means that changes to an 
+existing structure are difficult to make. For example, increasing the size of the 
+PropertyForRent address field from 40 to 41 characters sounds like a simple change, 
+but it requires the creation of a one-off program (that is, a program that is run only 
+once and can then be discarded) that converts the 
+PropertyForRent file to the new 
+format. This program has to:
+• Open the original PropertyForRent file for reading
+• Open a temporary file with the new structure
+• Read a record from the original file, convert the data to conform to the new 
+structure, and write it to the temporary file, then repeat this step for all records 
+in the original file
+• Delete the original PropertyForRent file
+• Rename the temporary file as PropertyForRent
+In addition, all programs that access the PropertyForRent file must be modified to 
+conform to the new file structure. There might be many such programs that access 
+the PropertyForRent file. Thus, the programmer needs to identify all the affected 
+programs, modify them, and then retest them. Note that a program does not even 
+have to use the address field to be affected: it only has to use the 
+PropertyForRent 
+file. Clearly, this process could be very time-consuming and subject to error. This 
+characteristic of file-based systems is known as program–data dependence.
+Incompatible file formats
+Because the structure of files is embedded in the application programs, the struc-
+tures are dependent on the application programming language. For example, 
+the structure of a file generated by a COBOL program may be different from the 
+structure of a file generated by a C program. The direct incompatibility of such files 
+makes them difficult to process jointly.
+For example, suppose that the Contracts Department wants to find the names and 
+addresses of all owners whose property is currently rented out. Unfortunately, 
+M01_CONN3067_06_SE_C01.indd   61 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 11 ---
+62 | Chapter 1  Introduction to Databases
+Contracts does not hold the details of property owners; only the Sales 
+Department holds these. However, Contracts has the property number ( prop-
+ertyNo), which can be used to find the corresponding property number in the 
+Sales Department’s PropertyForRent file. This file holds the owner number  
+(ownerNo), which can be used to find the owner details in the PrivateOwner file. The 
+Contracts Department programs in COBOL and the Sales Department programs 
+in C. Therefore, matching 
+propertyNo fields in the two PropertyForRent files requires 
+that an application developer write software to convert the files to some common 
+format to facilitate processing. Again, this process can be time-consuming and 
+expensive.
+Fixed queries/proliferation of application programs
+From the end-user’s point of view, file-based systems were a great improvement 
+over manual systems. Consequently, the requirement for new or modified queries 
+grew. However, file-based systems are very dependent upon the application devel-
+oper, who has to write any queries or reports that are required. As a result, two 
+things happened. In some organizations, the type of query or report that could be 
+produced was fixed. There was no facility for asking unplanned (that is, spur-of-
+the-moment or ad hoc) queries either about the data itself or about which types of 
+data were available.
+In other organizations, there was a proliferation of files and application pro-
+grams. Eventually, this reached a point where the DP Department, with its existing 
+resources, could not handle all the work. This put tremendous pressure on the 
+DP staff, resulting in programs that were inadequate or inefficient in meeting the 
+demands of the users, limited documentation, and difficult maintenance. Often, 
+certain types of functionality were omitted:
+• There was no provision for security or integrity.
+• Recovery, in the event of a hardware or software failure, was limited or  
+nonexistent.
+• Access to the files was restricted to one user at a time—there was no provision for 
+shared access by staff in the same department.
+In either case, the outcome was unacceptable. Another solution was required.
+1.3 Database approach
+All of the previously mentioned limitations of the file-based approach can be attrib-
+uted to two factors:
+(1) The definition of the data is embedded in the application programs, rather 
+than being stored separately and independently.
+(2) There is no control over the access and manipulation of data beyond that 
+imposed by the application programs.
+To become more effective, a new approach was required. What emerged were the 
+database and the Database Management System (DBMS). In this section, we provide 
+a more formal definition of these terms, and examine the components that we might 
+expect in a DBMS environment.
+M01_CONN3067_06_SE_C01.indd   62 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 12 ---
+1.3 Database Approach | 63
+1.3.1 The Database
+Database A shared collection of logically related data and its description, 
+designed to meet the information needs of an organization.
+We now examine the definition of a database so that you can understand the 
+concept fully. The database is a single, possibly large repository of data that can 
+be used simultaneously by many departments and users. Instead of disconnected 
+files with redundant data, all data items are integrated with a minimum amount of 
+duplication. The database is no longer owned by one department but is a shared 
+corporate resource. The database holds not only the organization’s operational 
+data, but also a description of this data. For this reason, a database is also defined 
+as a self-describing collection of integrated records. The description of the data is known 
+as the system catalog (or data dictionary or metadata—the “data about data”). It is 
+the self-describing nature of a database that provides program–data independence.
+The approach taken with database systems, where the definition of data is sepa-
+rated from the application programs, is similar to the approach taken in modern 
+software development, where an internal definition of an object and a separate 
+external definition are provided. The users of an object see only the external 
+definition and are unaware of how the object is defined and how it functions. One 
+advantage of this approach, known as data abstraction, is that we can change the 
+internal definition of an object without affecting the users of the object, provided 
+that the external definition remains the same. In the same way, the database 
+approach separates the structure of the data from the application programs and 
+stores it in the database. If new data structures are added or existing structures are 
+modified, then the application programs are unaffected, provided that they do not 
+directly depend upon what has been modified. For example, if we add a new field 
+to a record or create a new file, existing applications are unaffected. However, if we 
+remove a field from a file that an application program uses, then that application 
+program is affected by this change and must be modified accordingly.
+Another expression in the definition of a database that we should explain is 
+“logically related.” When we analyze the information needs of an organization, 
+we attempt to identify entities, attributes, and relationships. An entity is a distinct 
+object (a person, place, thing, concept, or event) in the organization that is to be 
+represented in the database. An attribute is a property that describes some aspect 
+of the object that we wish to record, and a relationship is an association between 
+entities. For example, Figure 1.6 shows an Entity–Relationship (ER) diagram for 
+part of the DreamHome case study. It consists of:
+•	 six entities (the rectangles): Branch, Staff, PropertyForRent, Client, PrivateOwner,  and 
+Lease;
+•	 seven relationships (the names adjacent to the lines): Has, Offers, Oversees, Views, 
+Owns, LeasedBy, and Holds;
+•	 six attributes, one for each entity: branchNo, staffNo, propertyNo, clientNo, ownerNo, and 
+leaseNo.
+The database represents the entities, the attributes, and the logical relationships 
+between the entities. In other words, the database holds data that is logically 
+related. We discuss the ER model in detail in Chapters 12 and 13.
+M01_CONN3067_06_SE_C01.indd   63 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 13 ---
+64 | Chapter 1  Introduction to Databases
+branchNo
+Branch
+1..1
+1..1
+Offers
+staffNo
+Staff
+0..1
+Oversees
+Has
+1..*
+propertyNo
+PropertyForRent
+0..*
+1..1
+LeasedBy
+clientNo
+Client
+1..1
+Holds
+Views
+0..*
+ownerNo
+PrivateOwner
+leaseNo
+Lease 0..*
+Owns
+0..1
+0..*
+1..*
+1..*
+0..100
+Figure 1.6 example entity–Relationship diagram.
+1.3.2 The Database Management System (DBMS)
+DBMS A software system that enables users to define, create, maintain, and 
+control access to the database.
+The DBMS is the software that interacts with the users’ application programs and 
+the database. Typically, a DBMS provides the following facilities:
+• It allows users to define the database, usually through a Data Definition 
+Language (DDL). The DDL allows users to specify the data types and structures 
+and the constraints on the data to be stored in the database.
+• It allows users to insert, update, delete, and retrieve data from the database, usu-
+ally through a Data Manipulation Language (DML). Having a central repository 
+for all data and data descriptions allows the DML to provide a general inquiry 
+facility to this data, called a query language. The provision of a query language 
+alleviates the problems with file-based systems where the user has to work with a 
+fixed set of queries or there is a proliferation of programs, causing major software 
+management problems. The most common query language is the Structured 
+Query Language (SQL, pronounced “S-Q-L”, or sometimes “See-Quel”), which 
+is now both the formal and de facto standard language for relational DBMSs. To 
+emphasize the importance of SQL, we devote Chapters 6–9 and Appendix I to a 
+comprehensive study of this language.
+• It provides controlled access to the database. For example, it may provide:
+– a security system, which prevents unauthorized users accessing the database;
+– an integrity system, which maintains the consistency of stored data;
+– a concurrency control system, which allows shared access of the database;
+– a recovery control system, which restores the database to a previous consistent 
+state following a hardware or software failure;
+– a user-accessible catalog, which contains descriptions of the data in the database.
+M01_CONN3067_06_SE_C01.indd   64 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 14 ---
+1.3 Database Approach | 65
+1.3.3 (Database) Application Programs
+application 
+Programs
+A computer program that interacts with the database by issuing 
+an appropriate request (typically an SQL statement) to the DBMS.
+Users interact with the database through a number of application programs that 
+are used to create and maintain the database and to generate information. These 
+programs can be conventional batch applications or, more typically nowadays, 
+online applications. The application programs may be written in a programming 
+language or in higher-level fourth-generation language.
+The database approach is illustrated in Figure 1.7, based on the file approach 
+of Figure 1.5. It shows the Sales and Contracts Departments using their applica-
+tion programs to access the database through the DBMS. Each set of departmental 
+application programs handles data entry, data maintenance, and the generation of 
+reports. However, as opposed to the file-based approach, the physical structure and 
+storage of the data are now managed by the DBMS.
+Views
+With this functionality, the DBMS is an extremely powerful and useful tool. 
+However, as the end-users are not too interested in how complex or easy a task is 
+for the system, it could be argued that the DBMS has made things more complex, 
+because they now see more data than they actually need or want. For example, the 
+details that the Contracts Department wants to see for a rental property, as shown 
+in Figure 1.5, have changed in the database approach, shown in Figure 1.7. Now 
+the database also holds the property type, the number of rooms, and the owner 
+details. In recognition of this problem, a DBMS provides another facility known 
+as a view mechanism, which allows each user to have his or her own view of the 
+Figure 1.7  Database processing.
+M01_CONN3067_06_SE_C01.indd   65 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 15 ---
+66 | Chapter 1  Introduction to Databases
+database (a view is, in essence, some subset of the database). For example, we could 
+set up a view that allows the Contracts Department to see only the data that they 
+want to see for rental properties.
+As well as reducing complexity by letting users see the data in the way they want 
+to see it, views have several other benefits:
+• Views provide a level of security. Views can be set up to exclude data that some users 
+should not see. For example, we could create a view that allows a branch manager 
+and the Payroll Department to see all staff data, including salary details, and we 
+could create a second view that other staff would use that excludes salary details.
+• Views provide a mechanism to customize the appearance of the database. For example, 
+the Contracts Department may wish to call the monthly rent field (
+rent) by the 
+more obvious name, Monthly Rent.
+• A view can present a consistent, unchanging picture of the structure of the database, even 
+if the underlying database is changed (for example, fields added or removed, 
+relationships changed, files split, restructured, or renamed). If fields are added 
+or removed from a file, and these fields are not required by the view, the view is 
+not affected by this change. Thus, a view helps provide the program–data inde-
+pendence we mentioned previously.
+The previous discussion is general and the actual level of functionality offered by 
+a DBMS differs from product to product. For example, a DBMS for a personal 
+computer may not support concurrent shared access, and may provide only lim-
+ited security, integrity, and recovery control. However, modern, large multi-user 
+DBMS products offer all the functions mentioned and much more. Modern sys-
+tems are extremely complex pieces of software consisting of millions of lines of 
+code, with documentation comprising many volumes. This complexity is a result 
+of having to provide software that handles requirements of a more general nature. 
+Furthermore, the use of DBMSs nowadays requires a system that provides almost 
+total reliability and 24/7 availability (24 hours a day, 7 days a week), even in the 
+presence of hardware or software failure. The DBMS is continually evolving and 
+expanding to cope with new user requirements. For example, some applications 
+now require the storage of graphic images, video, sound, and so on. To reach this 
+market, the DBMS must change. It is likely that new functionality will always be 
+required, so the functionality of the DBMS will never become static. We discuss the 
+basic functions provided by a DBMS in later chapters.
+1.3.4 Components of the DBMS Environment
+We can identify five major components in the DBMS environment: hardware, soft-
+ware, data, procedures, and people, as illustrated in Figure 1.8.Figure 1.8  The DBMS environment.
+M01_CONN3067_06_SE_C01.indd   66 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 16 ---
+1.3 Database Approach | 67
+Hardware
+The DBMS and the applications require hardware to run. The hardware can range 
+from a single personal computer to a single mainframe or a network of comput-
+ers. The particular hardware depends on the organization’s requirements and the 
+DBMS used. Some DBMSs run only on particular hardware or operating systems, 
+while others run on a wide variety of hardware and operating systems. A DBMS 
+requires a minimum amount of main memory and disk space to run, but this mini-
+mum configuration may not necessarily give acceptable performance. A simplified 
+hardware configuration for DreamHome is illustrated in Figure 1.9. It consists of 
+a network of small servers, with a central server located in London running the 
+backend of the DBMS, that is, the part of the DBMS that manages and controls 
+access to the database. It also shows several computers at various locations running 
+the frontend of the DBMS, that is, the part of the DBMS that interfaces with the 
+user. This is called a client–server architecture: the backend is the server and the 
+frontends are the clients. We discuss this type of architecture in Section 3.1.
+Figure 1.9  DreamHome hardware configuration.
+M01_CONN3067_06_SE_C01.indd   67 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 17 ---
+68 | Chapter 1  Introduction to Databases
+Software
+The software component comprises the DBMS software itself and the application 
+programs, together with the operating system, including network software if the 
+DBMS is being used over a network. Typically, application programs are written 
+in a third-generation programming language (3GL), such as C, C++, C#, Java, 
+Visual Basic, COBOL, Fortran, Ada, or Pascal, or a fourth-generation language 
+(4GL), such as SQL, embedded in a third-generation language. The target DBMS 
+may have its own fourth-generation tools that allow rapid development of appli-
+cations through the provision of nonprocedural query languages, reports genera-
+tors, forms generators, graphics generators, and application generators. The use 
+of fourth-generation tools can improve productivity significantly and produce 
+programs that are easier to maintain. We discuss fourth-generation tools in  
+Section 2.2.3.
+Data
+Perhaps the most important component of the DBMS environment—certainly from 
+the end-users’ point of view—is the data. In Figure 1.8, we observe that the data 
+acts as a bridge between the machine components and the human components. 
+The database contains both the operational data and the metadata, the “data about 
+data.” The structure of the database is called the schema. In Figure 1.7, the schema 
+consists of four files, or tables, namely: 
+PropertyForRent, PrivateOwner , Client, and 
+Lease. The PropertyForRent table has eight fields, or attributes, namely: propertyNo,  
+street, city, zipCode, type (the property type), rooms (the number of rooms), rent (the 
+monthly rent), and ownerNo. The ownerNo attribute models the relationship between 
+PropertyForRent and PrivateOwner:  that is, an owner Owns a property for rent, as 
+depicted in the ER diagram of Figure 1.6. For example, in Figure 1.2 we observe 
+that owner CO46, Joe Keogh, owns property PA14.
+The data also incorporates the system catalog, which we discuss in detail in 
+Section 2.4.
+Procedures
+Procedures refer to the instructions and rules that govern the design and use of the 
+database. The users of the system and the staff who manage the database require 
+documented procedures on how to use or run the system. These may consist of 
+instructions on how to:
+• Log on to the DBMS.
+• Use a particular DBMS facility or application program.
+• Start and stop the DBMS.
+• Make backup copies of the database.
+• Handle hardware or software failures. This may include procedures on how to 
+identify the failed component, how to fix the failed component (for example, 
+telephone the appropriate hardware engineer), and, following the repair of the 
+fault, how to recover the database.
+• Change the structure of a table, reorganize the database across multiple disks, 
+improve performance, or archive data to secondary storage.
+M01_CONN3067_06_SE_C01.indd   68 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 18 ---
+1.4 Roles in the Database Environment | 69
+People
+The final component is the people involved with the system. We discuss this com-
+ponent in Section 1.4.
+1.3.5 Database Design: The Paradigm Shift
+Until now, we have taken it for granted that there is a structure to the data in the 
+database. For example, we have identified four tables in Figure 1.7: 
+PropertyForRent, 
+PrivateOwner, Client,  and Lease. But how did we get this structure? The answer is 
+quite simple: the structure of the database is determined during database design. 
+However, carrying out database design can be extremely complex. To produce a 
+system that will satisfy the organization’s information needs requires a different 
+approach from that of file-based systems, where the work was driven by the appli-
+cation needs of individual departments. For the database approach to succeed, the 
+organization now has to think of the data first and the application second. This 
+change in approach is sometimes referred to as a paradigm shift. For the system 
+to be acceptable to the end-users, the database design activity is crucial. A poorly 
+designed database will generate errors that may lead to bad decisions, which may 
+have serious repercussions for the organization. On the other hand, a well-designed 
+database produces a system that provides the correct information for the decision-
+making process to succeed in an efficient way.
+The objective of this book is to help effect this paradigm shift. We devote several 
+chapters to the presentation of a complete methodology for database design (see 
+Chapters 16–19). It is presented as a series of simple-to-follow steps, with guidelines 
+provided throughout. For example, in the ER diagram of Figure 1.6, we have iden-
+tified six entities, seven relationships, and six attributes. We provide guidelines to 
+help identify the entities, attributes, and relationships that have to be represented 
+in the database.
+Unfortunately, database design methodologies are not very popular. Many organ-
+izations and individual designers rely very little on methodologies for conducting 
+the design of databases, and this is commonly considered a major cause of failure in 
+the development of database systems. Owing to the lack of structured approaches to 
+database design, the time or resources required for a database project are typically 
+underestimated, the databases developed are inadequate or inefficient in meeting 
+the demands of applications, documentation is limited, and maintenance is difficult.
+1.4 Roles in the Database environment
+In this section, we examine what we listed in the previous section as the fifth compo-
+nent of the DBMS environment: the people. We can identify four distinct types of 
+people who participate in the DBMS environment: data and database administra-
+tors, database designers, application developers, and end-users.
+1.4.1 Data and Database Administrators
+The database and the DBMS are corporate resources that must be managed 
+like any other resource. Data and database administration are the roles gener-
+ally associated with the management and control of a DBMS and its data. The 
+M01_CONN3067_06_SE_C01.indd   69 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 19 ---
+70 | Chapter 1  Introduction to Databases
+Data Administrator (DA) is responsible for the management of the data resource, 
+including database planning; development and maintenance of standards, policies 
+and procedures; and conceptual/logical database design. The DA consults with and 
+advises senior managers, ensuring that the direction of database development will 
+ultimately support corporate objectives.
+The Database Administrator (DBA) is responsible for the physical realization of 
+the database, including physical database design and implementation, security and 
+integrity control, maintenance of the operational system, and ensuring satisfactory 
+performance of the applications for users. The role of the DBA is more technically 
+oriented than the role of the DA, requiring detailed knowledge of the target DBMS 
+and the system environment. In some organizations there is no distinction between 
+these two roles; in others, the importance of the corporate resources is reflected in 
+the allocation of teams of staff dedicated to each of these roles. We discuss data and 
+database administration in more detail in Section 20.15.
+1.4.2 Database Designers
+In large database design projects, we can distinguish between two types of 
+designer: logical database designers and physical database designers. The logical 
+database designer is concerned with identifying the data (that is, the entities and 
+attributes), the relationships between the data, and the constraints on the data that 
+is to be stored in the database. The logical database designer must have a thor-
+ough and complete understanding of the organization’s data and any constraints 
+on this data (the constraints are sometimes called business rules). These con-
+straints describe the main characteristics of the data as viewed by the organization. 
+Examples of constraints for DreamHome are:
+• a member of staff cannot manage more than 100 properties for rent or sale at the 
+same time;
+• a member of staff cannot handle the sale or rent of his or her own property;
+•	 a solicitor cannot act for both the buyer and seller of a property.
+To be effective, the logical database designer must involve all prospective database 
+users in the development of the data model, and this involvement should begin as 
+early in the process as possible. In this book, we split the work of the logical data-
+base designer into two stages:
+• conceptual database design, which is independent of implementation details, 
+such as the target DBMS, application programs, programming languages, or any 
+other physical considerations;
+•	 logical database design, which targets a specific data model, such as relational, 
+network, hierarchical, or object-oriented.
+The physical database designer decides how the logical database design is to be 
+physically realized. This involves:
+•	 mapping the logical database design into a set of tables and integrity constraints;
+• selecting specific storage structures and access methods for the data to achieve 
+good performance;
+• designing any security measures required on the data.
+M01_CONN3067_06_SE_C01.indd   70 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 20 ---
+1.5 History of Database Management Systems | 71
+Many parts of physical database design are highly dependent on the target DBMS, 
+and there may be more than one way of implementing a mechanism. Consequently, 
+the physical database designer must be fully aware of the functionality of the target 
+DBMS and must understand the advantages and disadvantages of each alternative 
+implementation. The physical database designer must be capable of selecting a suit-
+able storage strategy that takes account of usage. Whereas conceptual and logical 
+database design are concerned with the what, physical database design is concerned 
+with the how. It requires different skills, which are often found in different people. 
+We present a methodology for conceptual database design in Chapter 16, for logi-
+cal database design in Chapter 17, and for physical database design in Chapters 
+18 and 19.
+1.4.3 Application Developers
+Once the database has been implemented, the application programs that provide 
+the required functionality for the end-users must be implemented. This is the 
+responsibility of the application developers. Typically, the application developers 
+work from a specification produced by systems analysts. Each program contains 
+statements that request the DBMS to perform some operation on the database, 
+which includes retrieving data, inserting, updating, and deleting data. The pro-
+grams may be written in a third-generation or fourth-generation programming 
+language, as discussed previously.
+1.4.4 End-Users
+The end-users are the “clients” of the database, which has been designed and 
+implemented and is being maintained to serve their information needs. End-users 
+can be classified according to the way they use the system:
+• Naïve users are typically unaware of the DBMS. They access the database through 
+specially written application programs that attempt to make the operations as 
+simple as possible. They invoke database operations by entering simple com-
+mands or choosing options from a menu. This means that they do not need to 
+know anything about the database or the DBMS. For example, the checkout 
+assistant at the local supermarket uses a bar code reader to find out the price of 
+the item. However, there is an application program present that reads the bar 
+code, looks up the price of the item in the database, reduces the database field 
+containing the number of such items in stock, and displays the price on the till.
+• Sophisticated users. At the other end of the spectrum, the sophisticated end-user 
+is familiar with the structure of the database and the facilities offered by the 
+DBMS. Sophisticated end-users may use a high-level query language such as SQL 
+to perform the required operations. Some sophisticated end-users may even write 
+application programs for their own use.
+1.5 History of Database Management Systems
+We have already seen that the predecessor to the DBMS was the file-based sys-
+tem. However, there was never a time when the database approach began and 
+the file-based system ceased. In fact, the file-based system still exists in specific 
+areas. It has been suggested that the DBMS has its roots in the 1960s Apollo 
+M01_CONN3067_06_SE_C01.indd   71 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 21 ---
+72 | Chapter 1  Introduction to Databases
+moon-landing project, which was initiated in response to President Kennedy’s 
+objective of landing a man on the moon by the end of that decade. At that time, 
+there was no system available that would be able to handle and manage the vast 
+amounts of information that the project would generate.
+As a result, North American Aviation (NAA, now Rockwell International), 
+the prime contractor for the project, developed software known as GUAM (for 
+Generalized Update Access Method). GUAM was based on the concept that smaller 
+components come together as parts of larger components, and so on, until the 
+final product is assembled. This structure, which conforms to an upside-down tree, 
+is also known as a hierarchical structure. In the mid-1960s, IBM joined NAA to 
+develop GUAM into what is now known as IMS (for Information Management 
+System). The reason that IBM restricted IMS to the management of hierarchies of 
+records was to allow the use of serial storage devices; most notably magnetic tape, 
+which was a market requirement at that time. This restriction was subsequently 
+dropped. Although one of the earliest commercial DBMSs, IMS is still the main 
+hierarchical DBMS used by most large mainframe installations.
+In the mid-1960s, another significant development was the emergence of IDS (or 
+Integrated Data Store) from General Electric. This work was headed by one of the 
+early pioneers of database systems, Charles Bachmann. This development led to a 
+new type of database system known as the network DBMS, which had a profound 
+effect on the information systems of that generation. The network database was 
+developed partly to address the need to represent more complex data relationships 
+than could be modeled with hierarchical structures, and partly to impose a data-
+base standard. To help establish such standards, the Conference on Data Systems 
+Languages (CODASYL), comprising representatives of the U.S. government and 
+the world of business and commerce, formed a List Processing Task Force in 1965, 
+subsequently renamed the Data Base Task Group (DBTG) in 1967. The terms of 
+reference for the DBTG were to define standard specifications for an environment 
+that would allow database creation and data manipulation. A draft report was issued 
+in 1969, and the first definitive report was issued in 1971. The DBTG proposal 
+identified three components:
+• the network schema—the logical organization of the entire database as seen by 
+the DBA—which includes a definition of the database name, the type of each 
+record, and the components of each record type;
+• the subschema—the part of the database as seen by the user or application program;
+• a data management language to define the data characteristics and the data 
+structure, and to manipulate the data.
+For standardization, the DBTG specified three distinct languages:
+• a schema DDL, which enables the DBA to define the schema;
+• a subschema DDL, which allows the application programs to define the parts of 
+the database they require;
+• a DML, to manipulate the data.
+Although the report was not formally adopted by the American National Standards 
+Institute (ANSI), a number of systems were subsequently developed following the DBTG 
+proposal. These systems are now known as CODASYL or DBTG systems. The 
+CODASYL and hierarchical approaches represented the first generation of DBMSs. 
+M01_CONN3067_06_SE_C01.indd   72 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 22 ---
+1.5 History of Database Management Systems | 73
+We look more closely at these systems on the Web site for this book (see the Preface 
+for the URL). However, these two models have some fundamental disadvantages:
+• complex programs have to be written to answer even simple queries based on 
+navigational record-oriented access;
+• there is minimal data independence;
+• there is no widely accepted theoretical foundation.
+In 1970, E. F. Codd of the IBM Research Laboratory produced his highly influ-
+ential paper on the relational data model (“A relational model of data for large 
+shared data banks,” Codd, 1970). This paper was very timely and addressed the 
+disadvantages of the former approaches. Many experimental relational DBMSs 
+were implemented thereafter, with the first commercial products appearing in the 
+late 1970s and early 1980s. Of particular note is the System R project at IBM’s San 
+José Research Laboratory in California, which was developed during the late 1970s 
+(Astrahan et al., 1976). This project was designed to prove the practicality of the 
+relational model by providing an implementation of its data structures and opera-
+tions, and led to two major developments:
+• the development of a structured query language called SQL, which has since 
+become the standard language for relational DBMSs;
+• the production of various commercial relational DBMS products during the 1980s, 
+for example DB2 and SQL/DS from IBM and Oracle from Oracle Corporation.
+Now there are several hundred relational DBMSs for both mainframe and PC envi-
+ronments, though many are stretching the definition of the relational model. Other 
+examples of multi-user relational DBMSs are MySQL from Oracle Corporation, 
+Ingres from Actian Corporation, SQL Server from Microsoft, and Informix from 
+IBM. Examples of PC-based relational DBMSs are Office Access and Visual FoxPro 
+from Microsoft, Interbase from Embarcadero Technologies, and R:Base from 
+R:Base Technologies. Relational DBMSs are referred to as second-generation 
+DBMSs. We discuss the relational data model in Chapter 4.
+The relational model is not without its failings; in particular, its limited modeling 
+capabilities. There has been much research since then attempting to address this 
+problem. In 1976, Chen presented the Entity–Relationship model, which is now a 
+widely accepted technique for database design and the basis for the methodology 
+presented in Chapters 16 and 17 of this book. In 1979, Codd himself attempted to 
+address some of the failings in his original work with an extended version of the 
+relational model called RM/T (1979) and subsequently RM/V2 (1990). The attempts 
+to provide a data model that represents the “real world” more closely have been 
+loosely classified as semantic data modeling.
+In response to the increasing complexity of database applications, two “new” 
+systems have emerged: the object-oriented DBMS (OODBMS) and the object-
+relational DBMS (ORDBMS). However, unlike previous models, the actual com-
+position of these models is not clear. This evolution represents third-generation 
+DBMSs, which we discuss in Chapters 9 and 27–28.
+The 1990s also saw the rise of the Internet, the three-tier client-server archi-
+tecture, and the demand to allow corporate databases to be integrated with Web 
+applications. The late 1990s saw the development of XML (eXtensible Markup 
+Language), which has had a profound effect on many aspects of IT, including 
+M01_CONN3067_06_SE_C01.indd   73 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 23 ---
+74 | Chapter 1  Introduction to Databases
+database integration, graphical interfaces, embedded systems, distributed systems, 
+and database systems. We will discuss Web–database integration and XML in 
+Chapters 29–30.
+Specialized DBMSs have also been created, such as data warehouses, which can 
+store data drawn from several data sources, possibly maintained by different oper-
+ating units of an organization. Such systems provide comprehensive data analysis 
+facilities to allow strategic decisions to be made based on, for example, histori-
+cal trends. All the major DBMS vendors provide data warehousing solutions. We 
+discuss data warehouses in Chapters 31–32. Another example is the enterprise 
+resource planning (ERP) system, an application layer built on top of a DBMS that 
+integrates all the business functions of an organization, such as manufacturing, 
+sales, finance, marketing, shipping, invoicing, and human resources. Popular ERP 
+systems are SAP R/3 from SAP and PeopleSoft from Oracle. Figure 1.10 provides a 
+summary of historical development of database systems.
+TIMeFRaMe DeVelOPMeNT COMMeNTS
+1960s (onwards) File-based systems Precursor to the database system. Decentralized approach: each 
+department stored and controlled its own data.
+Mid-1960s hierarchical and 
+network data 
+models
+Represents first-generation DBMSs. Main hierarchical system is IMS  
+from IBM and the main network system is IDMS/R from Computer 
+ Associates. Lacked data independence and required complex 
+programs to be developed to process the data.
+1970 Relational model 
+proposed
+Publication of e. F. Codd’s seminal paper “A relational model of 
+data for large shared data banks,” which addresses the weaknesses  
+of first-generation systems.
+1970s Prototype RDBMSs 
+developed
+During this period, two main prototypes emerged: the Ingres 
+project at the University of California at Berkeley (started in 1970) 
+and the System R project at IBM’s San José Research Laboratory in 
+California (started in 1974), which led to the development of SQL.
+1976 eR model proposed Publication of Chen’s paper “The entity-Relationship model—
+Toward a unified view of data.” eR modeling becomes a significant 
+component in methodologies for database design.
+1979 Commercial 
+RDBMSs appear
+Commercial RDBMSs like Oracle, Ingres, and DB2 appear. These 
+represent the second generation of DBMSs.
+1987 ISO SQL standard SQL is standardized by the ISO (International Standards Organization). 
+There are subsequent releases of the standard in 1989, 1992 (SQL2), 
+1999 (SQL:1999), 2003 (SQL:2003), 2008 (SQL:2008), and  
+2011 (SQL:2011).
+1990s OODBMS and 
+ORDBMSs appear
+This period initially sees the emergence of OODBMSs and later 
+ORDBMSs (Oracle 8, with object features released in 1997).
+1990s Data warehousing 
+systems appear
+This period also see releases from the major DBMS vendors of 
+data warehousing systems and thereafter data mining products.
+Mid-1990s Web–database 
+integration
+The first Internet database applications appear. DBMS vendors and 
+third-party vendors recognize the significance of the Internet and 
+support web–database integration.
+1998 XML XML 1.0 ratified by the W3C. XML becomes integrated with 
+DBMS products and native XML databases are developed.
+Figure 1.10  historical development of database systems.
+M01_CONN3067_06_SE_C01.indd   74 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 24 ---
+1.6 Advantages and Disadvantages of DBMSs | 75
+1.6 advantages and Disadvantages of DBMSs
+The database management system has promising potential advantages. 
+Unfortunately, there are also disadvantages. In this section, we examine these 
+advantages and disadvantages.
+advantages
+The advantages of database management systems are listed in Table 1.2.
+Control of data redundancy  As we discussed in Section 1.2, traditional file-based 
+systems waste space by storing the same information in more than one file. For 
+example, in Figure 1.5, we stored similar data for properties for rent and clients 
+in both the Sales and Contracts Departments. In contrast, the database approach 
+attempts to eliminate the redundancy by integrating the files so that multiple 
+copies of the same data are not stored. However, the database approach does not 
+eliminate redundancy entirely, but controls the amount of redundancy inherent in 
+the database. Sometimes it is necessary to duplicate key data items to model rela-
+tionships; at other times, it is desirable to duplicate some data items to improve 
+performance. The reasons for controlled duplication will become clearer as you 
+read the next few chapters.
+Data consistency  By eliminating or controlling redundancy, we reduce the risk of 
+inconsistencies occurring. If a data item is stored only once in the database, any update to 
+its value has to be performed only once and the new value is available immediately 
+to all users. If a data item is stored more than once and the system is aware of this, 
+the system can ensure that all copies of the item are kept consistent. Unfortunately, 
+many of today’s DBMSs do not automatically ensure this type of consistency.
+More information from the same amount of data  With the integration of the 
+operational data, it may be possible for the organization to derive additional 
+information from the same data. For example, in the file-based system illustrated 
+in Figure 1.5, the Contracts Department does not know who owns a leased prop-
+erty. Similarly, the Sales Department has no knowledge of lease details. When we 
+TaBle 1.2   Advantages of DBMSs.
+Control of data redundancy economy of scale
+Data consistency Balance of conflicting requirements
+More information from the same 
+amount of data
+Improved data accessibility and responsiveness
+Sharing of data Increased productivity
+Improved data integrity Improved maintenance through data independence
+Improved security Increased concurrency
+enforcement of standards Improved backup and recovery services
+M01_CONN3067_06_SE_C01.indd   75 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 25 ---
+76 | Chapter 1  Introduction to Databases
+integrate these files, the Contracts Department has access to owner details and the 
+Sales Department has access to lease details. We may now be able to derive more 
+information from the same amount of data.
+Sharing of data  Typically, files are owned by the people or departments that use 
+them. On the other hand, the database belongs to the entire organization and can 
+be shared by all authorized users. In this way, more users share more of the data. 
+Furthermore, new applications can build on the existing data in the database and 
+add only data that is not currently stored, rather than having to define all data 
+requirements again. The new applications can also rely on the functions provided 
+by the DBMS, such as data definition and manipulation, and concurrency and 
+recovery control, rather than having to provide these functions themselves.
+Improved data integrity  Database integrity refers to the validity and consistency 
+of stored data. Integrity is usually expressed in terms of constraints, which are con-
+sistency rules that the database is not permitted to violate. Constraints may apply to 
+data items within a single record or to relationships between records. For example, 
+an integrity constraint could state that a member of staff’s salary cannot be greater 
+than $40,000 or that the branch number contained in a staff record, representing 
+the branch where the member of staff works, must correspond to an existing branch 
+office. Again, integration allows the DBA to define integrity constraints, and the 
+DBMS to enforce them.
+Improved security  Database security is the protection of the database from unau-
+thorized users. Without suitable security measures, integration makes the data more 
+vulnerable than file-based systems. However, integration allows the DBA to define 
+database security, and the DBMS to enforce it. This security may take the form of 
+user names and passwords to identify people authorized to use the database. The 
+access that an authorized user is allowed on the data may be restricted by the opera-
+tion type (retrieval, insert, update, delete). For example, the DBA has access to all 
+the data in the database; a branch manager may have access to all data that relates 
+to his or her branch office; and a sales assistant may have access to all data relating 
+to properties but no access to sensitive data such as staff salary details.
+enforcement of standards  Again, integration allows the DBA to define and 
+the DBMS to enforce the necessary standards. These may include departmental, 
+organizational, national, or international standards for such things as data formats 
+to facilitate exchange of data between systems, naming conventions, documentation 
+standards, update procedures, and access rules.
+economy of scale  Combining all the organization’s operational data into one 
+database and creating a set of applications that work on this one source of data can 
+result in cost savings. In this case, the budget that would normally be allocated to 
+each department for the development and maintenance of its file-based system can 
+be combined, possibly resulting in a lower total cost, leading to an economy of scale. 
+The combined budget can be used to buy a system configuration that is more suited 
+to the organization’s needs. This may consist of one large, powerful computer or a 
+network of smaller computers.
+M01_CONN3067_06_SE_C01.indd   76 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 26 ---
+1.6 Advantages and Disadvantages of DBMSs | 77
+Balance of conflicting requirements  Each user or department has needs that 
+may be in conflict with the needs of other users. Because the database is under the 
+control of the DBA, the DBA can make decisions about the design and operational 
+use of the database that provide the best use of resources for the organization as 
+a whole. These decisions will provide optimal performance for important applica-
+tions, possibly at the expense of less-critical ones.
+Improved data accessibility and responsiveness  Again, as a result of integra-
+tion, data that crosses departmental boundaries is directly accessible to the end-
+users. This provides a system with potentially much more functionality that can, for 
+example, be used to provide better services to the end-user or the organization’s 
+clients. Many DBMSs provide query languages or report writers that allow users to 
+ask ad hoc questions and to obtain the required information almost immediately at 
+their terminal, without requiring a programmer to write some software to extract 
+this information from the database. For example, a branch manager could list all 
+flats with a monthly rent greater than £400 by entering the following SQL com-
+mand at a terminal:
+SELECT *
+FROM 
+PropertyForRent
+WHERE type 5 ‘Flat’ AND rent . 400;
+Increased productivity  As mentioned previously, the DBMS provides many of 
+the standard functions that the programmer would normally have to write in a file-
+based application. At a basic level, the DBMS provides all the low-level file-handling 
+routines that are typical in application programs. The provision of these functions 
+allows the programmer to concentrate on the specific functionality required by the 
+users without having to worry about low-level implementation details. Many DBMSs 
+also provide a fourth-generation environment, consisting of tools to simplify the 
+development of database applications. This results in increased programmer pro-
+ductivity and reduced development time (with associated cost savings).
+Improved maintenance through data independence  In file-based systems, the 
+descriptions of the data and the logic for accessing the data are built into each 
+application program, making the programs dependent on the data. A change to 
+the structure of the data—such as making an address 41 characters instead of 40 
+characters, or a change to the way the data is stored on disk—can require sub-
+stantial alterations to the programs that are affected by the change. In contrast, 
+a DBMS separates the data descriptions from the applications, thereby making 
+applications immune to changes in the data descriptions. This is known as data 
+independence and is discussed further in Section 2.1.5. The provision of data 
+independence simplifies database application maintenance.
+Increased concurrency  In some file-based systems, if two or more users are 
+allowed to access the same file simultaneously, it is possible that the accesses will 
+interfere with each other, resulting in loss of information or even loss of integrity. 
+Many DBMSs manage concurrent database access and ensure that such problems 
+cannot occur. We discuss concurrency control in Chapter 22.
+M01_CONN3067_06_SE_C01.indd   77 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 27 ---
+78 | Chapter 1  Introduction to Databases
+Improved backup and recovery services  Many file-based systems place the 
+responsibility on the user to provide measures to protect the data from failures 
+to the computer system or application program. This may involve performing 
+a nightly backup of the data. In the event of a failure during the next day, the 
+backup is restored and the work that has taken place since this backup is lost and 
+has to be re-entered. In contrast, modern DBMSs provide facilities to minimize the 
+amount of processing that is lost following a failure. We discuss database recovery 
+in Section 22.3.
+Disadvantages
+The disadvantages of the database approach are summarized in Table 1.3.
+Complexity  The provision of the functionality that we expect of a good DBMS 
+makes the DBMS an extremely complex piece of software. Database designers and 
+developers, data and database administrators, and end-users must understand this 
+functionality to take full advantage of it. Failure to understand the system can lead 
+to bad design decisions, which can have serious consequences for an organization.
+Size  The complexity and breadth of functionality makes the DBMS an extremely 
+large piece of software, occupying many megabytes of disk space and requiring 
+substantial amounts of memory to run efficiently.
+Cost of DBMSs  The cost of DBMSs varies significantly, depending on the envi-
+ronment and functionality provided. For example, a single-user DBMS for a per-
+sonal computer may only cost $100. However, a large mainframe multi-user DBMS 
+servicing hundreds of users can be extremely expensive, perhaps $100,000 or even 
+$1,000,000. There is also the recurrent annual maintenance cost, which is typically 
+a percentage of the list price.
+additional hardware costs  The disk storage requirements for the DBMS and the 
+database may necessitate the purchase of additional storage space. Furthermore, 
+to achieve the required performance, it may be necessary to purchase a larger 
+machine, perhaps even a machine dedicated to running the DBMS. The procure-
+ment of additional hardware results in further expenditure.
+TaBle 1.3  Disadvantages of DBMSs.
+Complexity
+Size
+Cost of DBMSs
+Additional hardware costs
+Cost of conversion
+Performance
+Greater impact of a failure
+M01_CONN3067_06_SE_C01.indd   78 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 28 ---
+Chapter Summary | 79
+Cost of conversion  In some situations, the cost of the DBMS and extra hardware 
+may be relatively small compared with the cost of converting existing applications 
+to run on the new DBMS and hardware. This cost also includes the cost of training 
+staff to use these new systems, and possibly the employment of specialist staff to 
+help with the conversion and running of the systems. This cost is one of the main 
+reasons why some organizations feel tied to their current systems and cannot switch 
+to more modern database technology. The term legacy system is sometimes used 
+to refer to an older, and usually inferior, system.
+Performance  Typically, a file-based system is written for a specific application, 
+such as invoicing. As a result, performance is generally very good. However, the 
+DBMS is written to be more general, to cater for many applications rather than just 
+one. The result is that some applications may not run as fast as they used to.
+Greater impact of a failure  The centralization of resources increases the vulner-
+ability of the system. Because all users and applications rely on the availability of the 
+DBMS, the failure of certain components can bring operations to a halt.
+Chapter Summary
+• The Database Management System (DBMS) is now the underlying framework of the information system 
+and has fundamentally changed the way in which many organizations operate. The database system remains a 
+very active research area and many significant problems remain.
+• The predecessor to the DBMS was the file-based system, which is a collection of application programs that 
+perform services for the end-users, usually the production of reports. each program defines and manages its own 
+data. Although the file-based system was a great improvement over the manual filing system, it still has significant 
+problems, mainly the amount of data redundancy present and program—data dependence.
+• The database approach emerged to resolve the problems with the file-based approach. A database is a shared 
+collection of logically related data and a description of this data, designed to meet the information needs of an 
+organization. A DBMS is a software system that enables users to define, create, maintain, and control access 
+to the database. An application program is a computer program that interacts with the database by issuing 
+an appropriate request (typically a SQL statement) to the DBMS. The more inclusive term database system 
+is used to define a collection of application programs that interact with the database along with the DBMS and 
+database itself.
+• All access to the database is through the DBMS. The DBMS provides a Data Definition language (DDl), 
+which allows users to define the database, and a Data Manipulation language (DMl), which allows users 
+to insert, update, delete, and retrieve data from the database.
+• The DBMS provides controlled access to the database. It provides security, integrity, concurrency and recovery 
+control, and a user-accessible catalog. It also provides a view mechanism to simplify the data that users have to 
+deal with.
+• The DBMS environment consists of hardware (the computer), software (the DBMS, operating system, and appli-
+cations programs), data, procedures, and people. The people include data and database administrators, database 
+designers, application developers, and end-users.
+• The roots of the DBMS lie in file-based systems. The hierarchical and CODASYL systems represent the first 
+generation of DBMSs. The hierarchical model is typified by IMS (Information Management System) and the 
+M01_CONN3067_06_SE_C01.indd   79 10/06/14   4:09 PM
+www.EBooksWorld.ir
+
+--- PAGE 29 ---
+network or CODaSYl model by IDS (Integrated Data Store), both developed in the mid-1960s. The 
+ relational model, proposed by e. F. Codd in 1970, represents the second generation of DBMSs. It has had a  
+fundamental effect on the DBMS community and there are now over one hundred relational DBMSs. The third  
+generation of DBMSs are represented by the Object-Relational DBMS and the Object-Oriented DBMS.
+• Some advantages of the database approach include control of data redundancy, data consistency, sharing of 
+data, and improved security and integrity. Some disadvantages include complexity, cost, reduced performance, 
+and higher impact of a failure.
+Review Questions
+ 1.1 List four government sectors in your country that use database systems..
+  1.2 Discuss each of the following terms:
+(a) data
+(b) database
+(c) database management system
+(d) database application program
+(e) data independence
+(f) security
+(g) integrity
+(h) views
+  1.3 Describe the role of database management systems (DBMS) in the database approach. Discuss why knowledge of 
+DBMS is important for database administrators.
+  
+1.4 Describe the main characteristics of the database approach and contrast it with the file-based approach.
+  1.5 Describe the five components of the DBMS environment and discuss how they relate to each other.
+  1.6 Discuss the roles of the following personnel in the database environment:
+(a) data administrator
+(b) database administrator
+(c) logical database designer
+(d) physical database designer
+(e) application developer
+(f)  end-users
+ 1.7 Discuss the three generations of DBMSs.
+ 1.8 Why are views an important aspect of database management systems?
+exercises
+  1.9  Interview some users of database systems. Which DBMS features do they find most useful and why? Which DBMS 
+facilities do they find least useful and why? What do these users perceive to be the advantages and  
+disadvantages of the DBMS?
+ 1.10   A database approach addresses several of the problems and challenges associated with the traditional file-based 
+approach. Using a DBMS to control how data is shared with different applications and users, through applications 
+such as views, has a number of advantages. however, the implementation of a database approach has its own 
+80 | Chapter 1  Introduction to Databases
+M01_CONN3067_06_SE_C01.indd   80 10/06/14   4:09 PM
+www.EBooksWorld.ir
+

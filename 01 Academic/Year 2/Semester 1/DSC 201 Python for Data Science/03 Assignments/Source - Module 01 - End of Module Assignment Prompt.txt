@@ -1,0 +1,4 @@
+End of module 1 assigmnemt
+Create a NumPy array from the list of the following integers [4, 8, 15, 16, 23, 42] and culculate the mean, meadian and standard deviation.
+Create two NumPy arrays with the elements 1, 2, 3, 4, 5 and 5, 4, 3, 2, 1. Use the created arrays and calculate; element-wise addition, subtraction, multiplication, and division of these arrays.
+Create a NumPy array with the following values [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. Use the array and Calculate and display the square root. The format of the output should be; Square Roots: [ 1. 5. 9. 4. 5. 6. 7. 10. 9. 10.]

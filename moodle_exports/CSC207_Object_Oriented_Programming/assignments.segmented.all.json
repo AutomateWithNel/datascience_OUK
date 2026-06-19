@@ -1,0 +1,184 @@
+[
+  {
+    "section": 1,
+    "section_name": "Module 1: Introduction to Object-Oriented Programming (OOP) and Benefits",
+    "cmid": 9339,
+    "assignment_instance": 739,
+    "assignment_name": "Case Study",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9339",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": [
+      {
+        "label": "Opened:",
+        "timestamp": 1727989200,
+        "dataid": "allowsubmissionsfromdate"
+      }
+    ]
+  },
+  {
+    "section": 1,
+    "section_name": "Module 1: Introduction to Object-Oriented Programming (OOP) and Benefits",
+    "cmid": 9345,
+    "assignment_instance": 740,
+    "assignment_name": "Programming Paradigms for Library Management System",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9345",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 2,
+    "section_name": "Module 2: Classes and Objects",
+    "cmid": 9360,
+    "assignment_instance": 741,
+    "assignment_name": "OUK Library Management System (LMS) Design and Implementation",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9360",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 3,
+    "section_name": "Module 3: Methods and Encapsulation",
+    "cmid": 9374,
+    "assignment_instance": 742,
+    "assignment_name": "Library Management System  Implementation with Encapsulation",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9374",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 4,
+    "section_name": "Module 4: Polymorphism and Overloading",
+    "cmid": 9389,
+    "assignment_instance": 745,
+    "assignment_name": "CASE STUDY",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9389",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 4,
+    "section_name": "Module 4: Polymorphism and Overloading",
+    "cmid": 9384,
+    "assignment_instance": 743,
+    "assignment_name": "Employee Management System (EMS) Implementation",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9384",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 4,
+    "section_name": "Module 4: Polymorphism and Overloading",
+    "cmid": 9387,
+    "assignment_instance": 744,
+    "assignment_name": "MASTERY  EXERCISE",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9387",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 4,
+    "section_name": "Module 4: Polymorphism and Overloading",
+    "cmid": 9392,
+    "assignment_instance": 746,
+    "assignment_name": "PRACTICALS",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9392",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 5,
+    "section_name": "Module 5: Inheritance",
+    "cmid": 9404,
+    "assignment_instance": 747,
+    "assignment_name": "Example of inheritance in Java",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9404",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 6,
+    "section_name": "Module 6: Object Relationships",
+    "cmid": 9417,
+    "assignment_instance": 748,
+    "assignment_name": "Comprehensive example of how object relationships can be implemented in Java",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9417",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 7,
+    "section_name": "Module 7: Abstract Classes and Interfaces",
+    "cmid": 9429,
+    "assignment_instance": 749,
+    "assignment_name": "Practical application of abstract classes and interfaces in Java",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9429",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 8,
+    "section_name": "Module 8: Libraries and Packages",
+    "cmid": 9436,
+    "assignment_instance": 750,
+    "assignment_name": "Demonstrating the Implementation of Libraries and Packages: A Practical Example",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9436",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": [
+      {
+        "label": "Opened:",
+        "timestamp": 1727989200,
+        "dataid": "allowsubmissionsfromdate"
+      },
+      {
+        "label": "Due:",
+        "timestamp": 1728594000,
+        "dataid": "duedate"
+      }
+    ]
+  },
+  {
+    "section": 8,
+    "section_name": "Module 8: Libraries and Packages",
+    "cmid": 9443,
+    "assignment_instance": 751,
+    "assignment_name": "Practical application of libraries and packages in Java",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9443",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 9,
+    "section_name": "Module 9: Error Handling with Exceptions",
+    "cmid": 9454,
+    "assignment_instance": 752,
+    "assignment_name": "Importance and application of error handling with exceptions in Java",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9454",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  },
+  {
+    "section": 10,
+    "section_name": "Module 10: Object-Oriented Analysis and Design (OOAD)",
+    "cmid": 9464,
+    "assignment_instance": 753,
+    "assignment_name": "Apply What You've Learned",
+    "url": "https://somas.ouk.ac.ke/mod/assign/view.php?id=9464",
+    "visible": 1,
+    "uservisible": true,
+    "due_dates": []
+  }
+]
