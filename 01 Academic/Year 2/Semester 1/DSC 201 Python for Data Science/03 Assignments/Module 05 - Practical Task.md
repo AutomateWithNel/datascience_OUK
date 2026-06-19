@@ -27,34 +27,24 @@ Maximum number of files is 1, so submit one Python script. The runnable script i
 This script loads the January and February CSV files, uses `pd.concat()` to merge them vertically along the row axis, aggregates `sales_amount` using `.groupby()` to calculate total sales per product, and then uses `pd.merge()` to link the combined transactions with `products.csv` on the `product_id` key.
 
 ```python
-import os
 import pandas as pd
 
-# Define paths to source files (using relative paths from 03 Assignments)
-source_dir = os.path.join("..", "01 Source Materials", "Module 05 - Data Wrangling")
-
-jan_path = os.path.join(source_dir, "january_sales.csv")
-feb_path = os.path.join(source_dir, "february_sales.csv")
-prod_path = os.path.join(source_dir, "products.csv")
-
 # Load datasets
-jan_df = pd.read_csv(jan_path)
-feb_df = pd.read_csv(feb_path)
-prod_df = pd.read_csv(prod_path)
+jan_df = pd.read_csv("january_sales.csv")
+feb_df = pd.read_csv("february_sales.csv")
+prod_df = pd.read_csv("products.csv")
 
-# Task 1: Combine the two datasets (January and February Sales)
+# Task 1: Combine the two datasets
 combined_df = pd.concat([jan_df, feb_df], axis=0, ignore_index=True)
-print("Combined sales DataFrame shape:", combined_df.shape)
+print(combined_df.head())
 
 # Task 2: Display the total sales for each product
 total_sales = combined_df.groupby(by="product_id", as_index=False)["sales_amount"].sum()
-print("\nTotal Sales per Product:")
-print(total_sales.to_string(index=False))
+print(total_sales)
 
 # Task 3: Merge the products dataset with the concatenated dataset using product_id
 merged_df = pd.merge(combined_df, prod_df, on="product_id", how="inner", sort=True)
-print("\nMerged dataset head:")
-print(merged_df.head().to_string(index=False))
+print(merged_df.head())
 ```
 
 ## Notes
