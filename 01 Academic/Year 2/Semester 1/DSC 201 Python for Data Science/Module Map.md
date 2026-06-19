@@ -17,12 +17,13 @@ created: 2026-06-19
 | 2 | Introduction to Pandas | Open in Moodle / Present locally | Pandas notes, quizzes, and datasets present |
 | 3 | Data Loading and File Formats in Pandas | Open in Moodle / Present locally | Moodle learning resource imported and summarized; practical task and mastery quiz are exposed |
 | 4 | Data Cleaning and Preparation | Open in Moodle / Present locally | Moodle learning resource imported and summarized; mastery quiz is exposed |
+| 5 | Data Wrangling | Open in Moodle / Present locally | Moodle learning resource imported and summarized; practical assignment and test your knowledge quiz are exposed |
 | Foundation | Introduction to Python | Present | Supporting notes on Python, programming, development environments, comments, and indentation |
 | Foundation | Data Types, Variables, and Operators | Present | Supporting notes PDF, class slides, and quiz present; not counted as the official Pandas module |
 
 ## Current Moodle Scope
-- Open: Modules 1, 2, 3, and 4.
-- Visible but empty: Modules 5 to 10.
+- Open: Modules 1, 2, 3, 4, and 5.
+- Visible but empty: Modules 6 to 10.
 - Final examination section is visible, but it is not part of the current module-note workflow.
 
 ## Source Folders
@@ -30,6 +31,7 @@ created: 2026-06-19
 - [[01 Source Materials/Module 02 - Introduction to Pandas]]
 - [[01 Source Materials/Module 03 - Data Loading and File Formats in Pandas]]
 - [[01 Source Materials/Module 04 - Data Cleaning and Preparation]]
+- [[01 Source Materials/Module 05 - Data Wrangling]]
 - [[01 Source Materials/Foundation - Introduction to Python]]
 - [[01 Source Materials/Foundation - Data Types Variables and Operators]]
 
@@ -38,5 +40,6 @@ created: 2026-06-19
 - [[02 Notes/Module 02 - Introduction to Pandas]]
 - [[02 Notes/Module 03 - Data Loading and File Formats in Pandas]]
 - [[02 Notes/Module 04 - Data Cleaning and Preparation]]
+- [[02 Notes/Module 05 - Data Wrangling]]
 - [[02 Notes/Foundation - Introduction to Python]]
 - [[02 Notes/Foundation - Data Types Variables and Operators]]

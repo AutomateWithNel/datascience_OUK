@@ -23,3 +23,7 @@ Store quiz answers, practical tasks, drafts, and final submission notes for `DSC
 
 ## Module 04 - Data Cleaning and Preparation
 - [[Module 04 - Quizzes]]
+
+## Module 05 - Data Wrangling
+- [[Module 05 - Quizzes]]
+- [[Module 05 - Practical Task]]

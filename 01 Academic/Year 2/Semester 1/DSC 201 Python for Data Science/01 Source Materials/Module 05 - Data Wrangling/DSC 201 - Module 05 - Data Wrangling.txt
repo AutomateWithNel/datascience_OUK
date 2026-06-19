@@ -1,0 +1,1689 @@
+Document: DSC 211_module5.md |
+Theme Customisation
+Dark
+Pastel
+Light
+Font size (
+100%
+)
+Reset
+Spacing (
+100%
+)
+Reset
+Download as PDF
+Module 5: Data wrangling
+This module delves into the essential concepts and techniques of data wrangling using Pandas. You will learn how to perform various data wrangling tasks, such as joining, combining, reshaping, filtering, and reducing data. At the end of the module, you are expected to have acquired the skills necessary to clean, reshape, and prepare datasets for analysis.
+Learning outcomes
+Indetify the different data wrangling operations available in Pandas
+Explain the purpose and functionality of data joins, reshaping techniques, and filtering methods in Pandas.
+Apply data wrangling techniques to real-world datasets using Pandas
+Evaluate the effectiveness of different data wrangling techniques in achieving specific data manipulation objectives
+Learning content
+Data wrangling: Join; combine; reshape; filter; data reduction
+Learning activities
+WHY DATA WRANGLING
+In real life applications, data comes from different sources in different formats. There is always a need to rearrange, combine, reshape, filter the data before carrying out any analysis on it. In this section we are going to be looking at the techniques for carrying out this particular tasks.
+What is data wrangling
+The process of changing, or transforming data from one particular shape to another particular shape is usually reffered to us data wrangling. Some people refer to this process as data mugging. Data wrangling involves restructuring, cleaning and converting it into a format that makes it easy to analayse the data.
+Combining dataframes
+: Pyhton offers several methods for combining dataframes. You can combine dataframes using the merge() function, the join function and the concatenate function.
+Join
+Sometimes you might have data in different files. You can load the data into two different dataframes and use the join method to combine the two dataframes. The join function is used when you have a common column or a common index. It is more easy to use the join function using an index rather than a column.
+The syntax for the join method is as follows;
+DataFrame.join(other, on=None, how='left', lsuffix='', rsuffix='', sort=False)
+Parameters
+other
+: This is the name of the the other dataframe to be combined
+how
+: This indicates the type of the join to be performed. There are different types of joins that will result in different dataframes.
+left
+: Use the keys found in the first dataframe. Get all the things from the left dataframe and only the matching values from the right(other) dataframe
+right
+: Use the keys found in the other dataframe. Gets all the values from the right dataframes and only those that match in the right daaframes.
+outer
+: Uses the keys from both dataframes, returns both the elements in both dataframes
+inner
+: Uses the intersection of keys from both dataframes, it returns only the data elements that are have the same keys in both dataframes
+sort
+: Indicates if the resultant dataframes will be sorted. A value of "false" will indicate that the dataframe will not be sorted and a value of "True" will sort the resultant dataframe.
+rsuffix:
+This is the suffix to be used for overlapping columns
+Example
+Lets say for example we have two dataframes, one cointaining the list of products and another one cointaining the customer list and the products they purchased. We can use the join function to combine the two dataframes to form one dataframe with the the list of all the products purchased by the different customers.
+To demenstrate this, we are going to generate two dataframes; the products and the customers dataframe.
+#Products dataframe
+import
+pandas
+as
+pd
+import
+numpy
+as
+np
+#Generating a product list
+products
+=
+pd
+.
+DataFrame
+({
+'Product_ID'
+:
+range
+(
+100
+,
+150
+),
+'Product_name'
+:
+[
+f
+'Product_
+{
+i
+}
+'
+for
+i
+in
+range
+(
+1
+,
+51
+)],
+'Category'
+:
+np
+.
+random
+.
+choice
+([
+'Fashion'
+,
+'Electronics'
+,
+'Study'
+,
+'Grocery'
+],
+50
+),
+'Price'
+:
+np
+.
+round
+(
+np
+.
+random
+.
+uniform
+(
+50
+,
+50000
+,
+50
+),
+2
+),
+'Seller_City'
+:
+np
+.
+random
+.
+choice
+([
+'Nairobi'
+,
+'Nakuru'
+,
+'Mombasa'
+,
+'Kisumu'
+,
+'Eldoret'
+],
+50
+)
+})
+products
+.
+head
+()
+Product_ID
+Product_name
+Category
+Price
+Seller_City
+0
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+1
+101
+Product_2
+Study
+9074.69
+Mombasa
+2
+102
+Product_3
+Grocery
+2580.94
+Nakuru
+3
+103
+Product_4
+Study
+37801.44
+Mombasa
+4
+104
+Product_5
+Electronics
+21120.68
+Eldoret
+customer_ids
+=
+range
+(
+1
+,
+201
+)
+customer_names
+=
+[
+f
+'Customer_
+{
+i
+}
+'
+for
+i
+in
+customer_ids
+]
+ages
+=
+np
+.
+random
+.
+randint
+(
+18
+,
+70
+,
+size
+=
+200
+)
+product_ids
+=
+np
+.
+random
+.
+choice
+(
+products
+[
+'Product_ID'
+],
+200
+)
+cities
+=
+np
+.
+random
+.
+choice
+([
+'Nairobi'
+,
+'Nakuru'
+,
+'Mombasa'
+,
+'Kisumu'
+,
+'Eldoret'
+])
+# Create the customer DataFrame
+customer
+=
+pd
+.
+DataFrame
+({
+'Id'
+:
+customer_ids
+,
+'Name'
+:
+customer_names
+,
+'Age'
+:
+ages
+,
+'Product_ID'
+:
+product_ids
+,
+'City'
+:
+cities
+})
+customer
+.
+head
+()
+Id
+Name
+Age
+Product_ID
+City
+0
+1
+Customer_1
+68
+145
+Mombasa
+1
+2
+Customer_2
+60
+106
+Mombasa
+2
+3
+Customer_3
+59
+119
+Mombasa
+3
+4
+Customer_4
+63
+149
+Mombasa
+4
+5
+Customer_5
+20
+113
+Mombasa
+Now that we have te two dataframes, lets now combine them using the join() method
+join_innerdf
+=
+products
+.
+join
+(
+customer
+,
+on
+=
+'Product_ID'
+,
+rsuffix
+=
+'product_id_customer'
+,
+lsuffix
+=
+"product_id"
+,
+how
+=
+"inner"
+)
+join_innerdf
+.
+head
+()
+Product_ID
+Product_IDproduct_id
+Product_name
+Category
+Price
+Seller_City
+Id
+Name
+Age
+Product_IDproduct_id_customer
+City
+0
+100
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+101
+Customer_101
+67
+113
+Mombasa
+1
+101
+101
+Product_2
+Study
+9074.69
+Mombasa
+102
+Customer_102
+33
+133
+Mombasa
+2
+102
+102
+Product_3
+Grocery
+2580.94
+Nakuru
+103
+Customer_103
+43
+129
+Mombasa
+3
+103
+103
+Product_4
+Study
+37801.44
+Mombasa
+104
+Customer_104
+32
+105
+Mombasa
+4
+104
+104
+Product_5
+Electronics
+21120.68
+Eldoret
+105
+Customer_105
+20
+127
+Mombasa
+join_innerdf
+.
+shape
+(50, 11)
+join_outer
+=
+products
+.
+join
+(
+customer
+,
+on
+=
+'Product_ID'
+,
+rsuffix
+=
+'_other'
+,
+how
+=
+"outer"
+)
+join_outer
+.
+shape
+(200, 10)
+Setting the index on the dataframe makes it easier to use thejoin function
+new_data_index
+=
+customer
+.
+set_index
+(
+"Product_ID"
+)
+.
+join
+(
+products
+.
+set_index
+(
+"Product_ID"
+),
+how
+=
+"inner"
+,
+sort
+=
+True
+)
+new_data_index
+.
+head
+()
+Id
+Name
+Age
+City
+Product_name
+Category
+Price
+Seller_City
+Product_ID
+100
+43
+Customer_43
+58
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+100
+78
+Customer_78
+25
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+100
+169
+Customer_169
+33
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+100
+177
+Customer_177
+39
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+100
+189
+Customer_189
+23
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+merge
+: Simillar to the join() function, the merge function enables you to combine two dataframes. The merge function makes it easier to combine dataframes using the columns. The syntax for the merge function is as follows.
+pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'), copy=True, indicator=False, validate=None)
+left
+: The first dataframe
+right
+: The second dataframe
+how
+: The type of join to be performed. Just like in the join function, it can be "inner","outer", "right", "left"
+on
+: Indicates the column or index on which the combnation will be based on. This column must be found on both dataframes
+sort
+: Indicates whether the dataframe should be sorted or not.
+Example
+In this example we are using the same data we generated in the previous example to demonstrate the use of the merge function.
+#inner join
+df_merger
+=
+pd
+.
+merge
+(
+customer
+,
+products
+,
+on
+=
+"Product_ID"
+,
+how
+=
+"inner"
+,
+sort
+=
+True
+)
+df_merger
+.
+head
+()
+Id
+Name
+Age
+Product_ID
+City
+Product_name
+Category
+Price
+Seller_City
+0
+43
+Customer_43
+58
+100
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+1
+78
+Customer_78
+25
+100
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+2
+169
+Customer_169
+33
+100
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+3
+177
+Customer_177
+39
+100
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+4
+189
+Customer_189
+23
+100
+Mombasa
+Product_1
+Grocery
+13653.12
+Eldoret
+df_merger
+.
+shape
+(200, 9)
+#outer join
+df_merger_outer
+=
+pd
+.
+merge
+(
+products
+,
+customer
+,
+on
+=
+"Product_ID"
+,
+how
+=
+"outer"
+,
+sort
+=
+True
+)
+df_merger_outer
+.
+head
+()
+Product_ID
+Product_name
+Category
+Price
+Seller_City
+Id
+Name
+Age
+City
+0
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+43.0
+Customer_43
+58.0
+Mombasa
+1
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+78.0
+Customer_78
+25.0
+Mombasa
+2
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+169.0
+Customer_169
+33.0
+Mombasa
+3
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+177.0
+Customer_177
+39.0
+Mombasa
+4
+100
+Product_1
+Grocery
+13653.12
+Eldoret
+189.0
+Customer_189
+23.0
+Mombasa
+df_merger_outer
+.
+shape
+(202, 9)
+concat() function
+The other method provided in pandas for combining two dataframes are the concat() function. As opposed to join and merge functions, concat can combine more that two dataframes. The focus of the concat method is to combine data along the axis i.e the rows and the columns.
+The syntax for concat function is as follows
+pd.concat(objs, axis=0, join='outer', ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, sort=False, copy=True)
+objs
+: are the dataframes or the series to be combined.
+axis
+: Determines the axis a long which data is combined.0 Indicates a long the rows and 1 indicates a long the column. Along the rows stacks the rows of the dataframes together. Along the axis, stacks the collumns of the provided dataframes together.
+verify_integrity
+: Check whether the new concatenated axis contains duplicates
+data_concat
+=
+pd
+.
+concat
+([
+customer
+,
+products
+]
+,
+axis
+=
+0
+)
+data_concat
+.
+head
+()
+Id
+Name
+Age
+Product_ID
+City
+Product_name
+Category
+Price
+Seller_City
+0
+1.0
+Customer_1
+68.0
+145
+Mombasa
+NaN
+NaN
+NaN
+NaN
+1
+2.0
+Customer_2
+60.0
+106
+Mombasa
+NaN
+NaN
+NaN
+NaN
+2
+3.0
+Customer_3
+59.0
+119
+Mombasa
+NaN
+NaN
+NaN
+NaN
+3
+4.0
+Customer_4
+63.0
+149
+Mombasa
+NaN
+NaN
+NaN
+NaN
+4
+5.0
+Customer_5
+20.0
+113
+Mombasa
+NaN
+NaN
+NaN
+NaN
+data_concat_1
+=
+pd
+.
+concat
+([
+customer
+,
+products
+]
+,
+axis
+=
+1
+)
+data_concat_1
+.
+head
+()
+Id
+Name
+Age
+Product_ID
+City
+Product_ID
+Product_name
+Category
+Price
+Seller_City
+0
+1
+Customer_1
+68
+145
+Mombasa
+100.0
+Product_1
+Grocery
+13653.12
+Eldoret
+1
+2
+Customer_2
+60
+106
+Mombasa
+101.0
+Product_2
+Study
+9074.69
+Mombasa
+2
+3
+Customer_3
+59
+119
+Mombasa
+102.0
+Product_3
+Grocery
+2580.94
+Nakuru
+3
+4
+Customer_4
+63
+149
+Mombasa
+103.0
+Product_4
+Study
+37801.44
+Mombasa
+4
+5
+Customer_5
+20
+113
+Mombasa
+104.0
+Product_5
+Electronics
+21120.68
+Eldoret
+RESHAPING
+Reshaping a dataframe means changing the shape, structure or layout of the dataframe for the purpose of carrying out specific analysis.
+The common reshaping strategies include;
+Grouping
+Pivoting
+Stacking
+Transposing
+Grouping
+In some instances you will need to create the grouping of dataset. This can be done using the groupby() function in pandas. The groupby function, groups data into categories. Various functions can then be used to the generated groups such as culculating the mean, the sum and so on.
+We are going to demonstrate the use of groupby function using the airline dataset. The dataset cointains the results of a satisfaction survey done by the airlines. We will start by loading the dataset
+import
+pandas
+as
+pd
+data_airline
+=
+pd
+.
+read_csv
+(
+"C:/Users/User/Desktop/Airline_train.csv"
+)
+data_airline
+.
+info
+()
+RangeIndex: 103904 entries, 0 to 103903
+Data columns (total 25 columns):
+# Column Non-Null Count Dtype
+--- ------ -------------- -----
+0 Unnamed: 0 103904 non-null int64
+1 id 103904 non-null int64
+2 Gender 103904 non-null object
+3 Customer Type 103904 non-null object
+4 Age 103904 non-null int64
+5 Type of Travel 103904 non-null object
+6 Class 103904 non-null object
+7 Flight Distance 103904 non-null int64
+8 Inflight wifi service 103904 non-null int64
+9 Departure/Arrival time convenient 103904 non-null int64
+10 Ease of Online booking 103904 non-null int64
+11 Gate location 103904 non-null int64
+12 Food and drink 103904 non-null int64
+13 Online boarding 103904 non-null int64
+14 Seat comfort 103904 non-null int64
+15 Inflight entertainment 103904 non-null int64
+16 On-board service 103904 non-null int64
+17 Leg room service 103904 non-null int64
+18 Baggage handling 103904 non-null int64
+19 Checkin service 103904 non-null int64
+20 Inflight service 103904 non-null int64
+21 Cleanliness 103904 non-null int64
+22 Departure Delay in Minutes 103904 non-null int64
+23 Arrival Delay in Minutes 103594 non-null float64
+24 satisfaction 103904 non-null object
+dtypes: float64(1), int64(19), object(5)
+memory usage: 19.8+ MB
+The syntax for the groupby function is as follows
+DataFrame.groupby(by=None, axis=_NoDefault.no_default, level=None, as_index=True, sort=True, group_keys=True, observed=_NoDefault.no_default, dropna=True)[source]
+by
+: Indicates the column that the grouping will be based on.
+axis
+: This indicates where the grouping will be split on 0 indicates a row and 1 indicates a column. The default value for this is usually 0. That means if the axis is not provided the data will be split based on the rows.
+To demonstrate the gropuby function, groupby gender and lests count the number of each customer type per each gender
+data_airline
+.
+groupby
+(
+by
+=
+"Gender"
+,
+as_index
+=
+False
+)[
+"Customer Type"
+]
+.
+count
+()
+Gender
+Customer Type
+0
+Female
+52727
+1
+Male
+51177
+We can also groupby more than two columns and specify which column to count. For example if we want to get how many of each gender travelled for business or personal travel, we can groupby type of travel and gender as follows
+data_airline
+.
+groupby
+(
+by
+=
+[
+"Type of Travel"
+,
+"Gender"
+])[
+'Type of Travel'
+]
+.
+count
+()
+Type of Travel Gender
+Business travel Female 36528
+Male 35127
+Personal Travel Female 16199
+Male 16050
+Name: Type of Travel, dtype: int64
+Pivoting
+Pivoting is a data transformation process commonly used in data analysis to reshape data. In pandas, pivoting involves converting a DataFrame from a long or tall format (where rows represent individual observations) to a wide format (where each unique value in a column becomes a new column). This is useful for creating summary tables and for visualizing data more effectively.
+Pivot:
+This creates a new DataFrame by rearranging the data such that unique values from one column become the columns of the new DataFrame, and values from another column become the rows.
+Pivot Table:
+This is Similar to a pivot, but it allows for the aggregation of data. For example, it can sum, average, or count values within each group of the new table.
+Example
+To demonstrate this concepts lets create a simple data frame below
+import
+pandas
+as
+pd
+data
+=
+{
+'date'
+:
+[
+'2024-06-01'
+,
+'2024-06-01'
+,
+'2024-06-02'
+,
+'2024-06-02'
+],
+'region'
+:
+[
+'North'
+,
+'South'
+,
+'North'
+,
+'South'
+],
+'sales'
+:
+[
+100
+,
+150
+,
+200
+,
+250
+]
+}
+df
+=
+pd
+.
+DataFrame
+(
+data
+)
+#Pivot
+pivot_df
+=
+df
+.
+pivot
+(
+index
+=
+'date'
+,
+columns
+=
+'region'
+,
+values
+=
+'sales'
+)
+print
+(
+pivot_df
+)
+region North South
+date
+2024-06-01 100 150
+2024-06-02 200 250
+#Pivot_table
+data
+=
+{
+'date'
+:
+[
+'2024-06-01'
+,
+'2024-06-01'
+,
+'2024-06-02'
+,
+'2024-06-02'
+,
+'2024-06-01'
+],
+'region'
+:
+[
+'North'
+,
+'South'
+,
+'North'
+,
+'South'
+,
+'North'
+],
+'sales'
+:
+[
+100
+,
+150
+,
+200
+,
+250
+,
+300
+],
+'quantity'
+:
+[
+10
+,
+15
+,
+20
+,
+25
+,
+30
+]
+}
+df
+=
+pd
+.
+DataFrame
+(
+data
+)
+pivot_table_df
+=
+pd
+.
+pivot_table
+(
+df
+,
+values
+=
+'sales'
+,
+index
+=
+'date'
+,
+columns
+=
+'region'
+,
+aggfunc
+=
+'sum'
+)
+print
+(
+pivot_table_df
+)
+region North South
+date
+2024-06-01 400 150
+2024-06-02 200 250
+Stacking
+Stacking is another data transformation process in pandas, used to convert a DataFrame from a wide format to a long format. It's the opposite of unstacking or pivoting, where you might go from a long format to a wide format. Stacking is particularly useful when you need to perform operations on data that is easier to handle in a long format or when preparing data for certain types of analyses or visualizations.
+There are two main concepts in stacking: Stacking and Unstacking
+Stacking
+: Stacking reshapes the dataframe by converting the data into a stacked form. This involves creating a pivot of the innermost column index into the innermost row index.
+Example
+import
+pandas
+as
+pd
+data
+=
+{
+'date'
+:
+[
+'2024-06-01'
+,
+'2024-06-01'
+,
+'2024-06-02'
+,
+'2024-06-02'
+],
+'North_sales'
+:
+[
+100
+,
+200
+,
+300
+,
+400
+],
+'South_sales'
+:
+[
+150
+,
+250
+,
+350
+,
+450
+]
+}
+df
+=
+pd
+.
+DataFrame
+(
+data
+)
+stacked_df
+=
+df
+.
+set_index
+(
+'date'
+)
+.
+stack
+()
+print
+(
+stacked_df
+)
+date
+2024-06-01 North_sales 100
+South_sales 150
+North_sales 200
+South_sales 250
+2024-06-02 North_sales 300
+South_sales 350
+North_sales 400
+South_sales 450
+dtype: int64
+Unstacking
+Unstacking reverses the stacking process
+Example
+import
+pandas
+as
+pd
+data
+=
+{
+'date'
+:
+[
+'2024-06-01'
+,
+'2024-06-01'
+,
+'2024-06-02'
+,
+'2024-06-02'
+],
+'North_sales'
+:
+[
+100
+,
+200
+,
+300
+,
+400
+],
+'South_sales'
+:
+[
+150
+,
+250
+,
+350
+,
+450
+],
+'North_quantity'
+:
+[
+10
+,
+20
+,
+30
+,
+40
+],
+'South_quantity'
+:
+[
+15
+,
+25
+,
+35
+,
+45
+]
+}
+df
+=
+pd
+.
+DataFrame
+(
+data
+)
+# Reset the index to ensure uniqueness
+df
+.
+reset_index
+(
+inplace
+=
+True
+)
+# Set a new unique index
+df
+.
+set_index
+([
+'index'
+,
+'date'
+],
+inplace
+=
+True
+)
+# Perform stacking
+stacked_df
+=
+df
+.
+stack
+()
+print
+(
+stacked_df
+)
+unstacked_df
+=
+stacked_df
+.
+unstack
+()
+print
+(
+"
+\n
+Unstacked DataFrame:
+\n
+"
+,
+unstacked_df
+)
+index date
+0 2024-06-01 North_sales 100
+South_sales 150
+North_quantity 10
+South_quantity 15
+1 2024-06-01 North_sales 200
+South_sales 250
+North_quantity 20
+South_quantity 25
+2 2024-06-02 North_sales 300
+South_sales 350
+North_quantity 30
+South_quantity 35
+3 2024-06-02 North_sales 400
+South_sales 450
+North_quantity 40
+South_quantity 45
+dtype: int64
+Unstacked DataFrame:
+North_sales South_sales North_quantity South_quantity
+index date
+0 2024-06-01 100 150 10 15
+1 2024-06-01 200 250 20 25
+2 2024-06-02 300 350 30 35
+3 2024-06-02 400 450 40 45
+Transposing
+It involves flipping the rows and columns of a DataFrame. It is useful when you want to change the orientation of your data for analysis or visualization.
+In pandas the The transpose() method or the .T attribute can be used to transpose a DataFrame.
+Example
+import
+pandas
+as
+pd
+data
+=
+{
+'date'
+:
+[
+'2024-06-01'
+,
+'2024-06-02'
+,
+'2024-06-03'
+],
+'North_sales'
+:
+[
+100
+,
+200
+,
+300
+],
+'South_sales'
+:
+[
+150
+,
+250
+,
+350
+]
+}
+df
+=
+pd
+.
+DataFrame
+(
+data
+)
+print
+(
+"Original Dataset"
+)
+print
+(
+df
+)
+print
+(
+""
+)
+print
+(
+"Transposed dataset"
+)
+transposed_df
+=
+df
+.
+transpose
+()
+print
+(
+transposed_df
+)
+Original Dataset
+date North_sales South_sales
+0 2024-06-01 100 150
+1 2024-06-02 200 250
+2 2024-06-03 300 350
+Transposed dataset
+0 1 2
+date 2024-06-01 2024-06-02 2024-06-03
+North_sales 100 200 300
+South_sales 150 250 350
+FILTERING
+Filtering refers to the process of selecting a portion of the datasets based on certain conditions. For instance if you want to get the numbers of curstomers who bought commodities above certain amount, we can use filtering to achieve that. There are various ways provided for filtering data.
+1. Filtering based on columns
+We can select a portion of the columns or a portion of the dataset based on a condition applied to a column.
+Example
+We are going to demonstrate this techniques using the irish flower dataset. We are going to read the data then demonstrate the techniques
+import
+pandas
+as
+pd
+data
+=
+pd
+.
+read_csv
+(
+"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/IRIS.csv"
+)
+data
+.
+head
+(
+2
+)
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
+0
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+1
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+If we want to just get the sepel_legth and sepel_width we will select using the following code
+dta_select
+=
+data
+[[
+"sepal_length"
+,
+"sepal_width"
+]]
+dta_select
+.
+head
+(
+2
+)
+sepal_length
+sepal_width
+0
+5.1
+3.5
+1
+4.9
+3.0
+2. Filtering using the query() method
+The query() method in Pandas provides a way to query the DataFrame using a boolean expression. This method can be more readable and convenient for complex conditions compared to the traditional indexing method. The syntax for the query method is
+DataFrame.query('boolean_expression')
+filtered_data
+=
+data
+.
+query
+(
+'sepal_length >=5'
+)
+filtered_data
+.
+head
+(
+2
+)
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
+0
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+4
+5.0
+3.6
+1.4
+0.2
+Iris-setosa
+You can also use two different conditions
+data_two_query
+=
+data
+.
+query
+(
+'sepal_length > 3 and species == "Iris-setosa"'
+)
+data_two_query
+.
+head
+(
+2
+)
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
+0
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+1
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+Key things to note
+The query() method only works if the DataFrame’s column names are valid Python identifiers (no spaces or special characters). If not, use backticks to enclose column names.
+When using variables inside the query string, prefix them with @.
+String operations like .str.contains() can be used within query() by referring to the column as a string attribute.
+Filtering based on the index
+Filtering rows based on the index in a Pandas DataFrame can be very useful when you need to select or manipulate data according to specific index values or ranges.
+The basic methods for filtering using index are
+loc[]
+iloc[]
+Boolean Indexing on the Index
+Filtering with Index Methods
+Using .loc[]
+The .loc[] method allows you to select rows (and columns) by label (index) or a boolean array.
+data_loc
+=
+data
+.
+loc
+[[
+10
+]]
+print
+(
+data_loc
+)
+sepal_length sepal_width petal_length petal_width species
+10 5.4 3.7 1.5 0.2 Iris-setosa
+Using .iloc[]
+The .iloc[] method allows you to select rows (and columns) by integer-location based indexing (position).
+filtered_data
+=
+data
+.
+iloc
+[[
+1
+,
+5
+]]
+print
+(
+filtered_data
+)
+sepal_length sepal_width petal_length petal_width species
+1 4.9 3.0 1.4 0.2 Iris-setosa
+5 5.4 3.9 1.7 0.4 Iris-setosa

@@ -10,8 +10,8 @@ created: 2026-06-19
 Use this course-specific workflow together with [[../../../../00 Home/Moodle Workflow]].
 
 ## Current Scope
-- Active open modules: 1, 2, 3, and 4.
-- Do not treat Modules 5 to 10 as active until Moodle exposes files or activities inside them.
+- Active open modules: 1, 2, 3, 4, and 5.
+- Do not treat Modules 6 to 10 as active until Moodle exposes files or activities inside them.
 - Do not use the final examination quiz in normal module-note work.
 
 ## Read-Only Sync Checklist
@@ -40,3 +40,4 @@ Quiz questions before any attempt exists should come from the user as copied tex
 - [[02 Notes/Module 02 - Introduction to Pandas/Module 02 - Introduction to Pandas]]
 - [[02 Notes/Module 03 - Data Loading and File Formats in Pandas/Module 03 - Data Loading and File Formats in Pandas]]
 - [[02 Notes/Module 04 - Data Cleaning and Preparation/Module 04 - Data Cleaning and Preparation]]
+- [[02 Notes/Module 05 - Data Wrangling/Module 05 - Data Wrangling]]

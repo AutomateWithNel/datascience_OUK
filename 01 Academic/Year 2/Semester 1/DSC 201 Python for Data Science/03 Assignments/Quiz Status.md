@@ -23,12 +23,14 @@ Read-only Moodle check. No quiz attempt was started, saved, or submitted during 
 | Module 2: Introduction to Pandas | Module 2_end quiz | in progress | 1/2 | - | 10 |
 | Module 3: Data Loading and File Formats in Pandas | Module 3 Mastery quiz | in progress | 1/2 | - | 10 |
 | Module 4: Data Cleaning and Preparation | Module 4 Mastery quiz | in progress | 1/2 | - | 10 |
+| Module 5: Data Wrangling | Module 5:Test Your Knowledge | in progress | 1/2 | - | 8 |
 
 ## Extracted Answer Sheets
 - [[Module 01 - Quizzes]]
 - [[Module 02 - Quizzes]]
 - [[Module 03 - Quizzes]]
 - [[Module 04 - Quizzes]]
+- [[Module 05 - Quizzes]]
 
 ## Question Extraction Status
 
@@ -42,6 +44,7 @@ Read-only Moodle check. No quiz attempt was started, saved, or submitted during 
 | Module 2: Introduction to Pandas | Module 2_end quiz | Yes | Read from in-progress attempt |
 | Module 3: Data Loading and File Formats in Pandas | Module 3 Mastery quiz | Yes | Read from in-progress attempt |
 | Module 4: Data Cleaning and Preparation | Module 4 Mastery quiz | Yes | Read from in-progress attempt |
+| Module 5: Data Wrangling | Module 5:Test Your Knowledge | Yes | Read from in-progress attempt |
 
 ## Module 1: Numpy
 
@@ -101,6 +104,15 @@ Read-only Moodle check. No quiz attempt was started, saved, or submitted during 
 - Grade: 10
 - Sum grades: 5
 - Attempt 1: in progress, started 2026-06-19 14:39:06 +03:00
+
+## Module 5: Data Wrangling
+
+### Module 5:Test Your Knowledge
+- Status: in progress
+- Attempts: 1 of 2
+- Grade: 8
+- Sum grades: 8
+- Attempt 1: in progress, started 2026-06-19 15:25:32 +03:00
 
 ## Not Included In Module Workflow
 

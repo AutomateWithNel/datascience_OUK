@@ -9,7 +9,7 @@ source: Moodle API
 # Moodle Exposure Report
 
 ## Current Scope
-Modules 1 to 4 are currently open/exposed and should be used for the active DSC 201 workflow.
+Modules 1 to 5 are currently open/exposed and should be used for the active DSC 201 workflow.
 
 ## Course Home Page
 - Explore the Learning on SOMAS Tutorial (optional) - page
@@ -92,8 +92,26 @@ Local processing status:
 - Moodle learning resource imported into `01 Source Materials`.
 - Module note created in `02 Notes`.
 
+## Module 5: Data Wrangling
+Status: open
+
+Exposed activities:
+- Watch and Discover - URL
+- Data wrangling notes - resource
+- Recordings- Data Wrangling - URL
+- Module 5: Practical - assignment
+- Join the Conversation - forum
+- Reflect on Your Journey - journal
+- Module 5:Test Your Knowledge - quiz
+
+Quiz details exposed:
+- Module 5:Test Your Knowledge: 2 attempts, grade 8, sumgrades 8
+
+Local processing status:
+- Moodle learning resource imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+
 ## Later Sections
-- Module 5: Data Wrangling - visible but no activities exposed
 - Module 6: Visualization and Plotting - visible but no activities exposed
 - Module 7: Aggregation and Group Operations - visible but no activities exposed
 - Module 8: Exploratory Data Analysis (Deep Dive) - visible but no activities exposed

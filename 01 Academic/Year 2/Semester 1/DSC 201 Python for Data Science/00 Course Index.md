@@ -43,11 +43,12 @@ tags:
 - [[02 Notes/Module 02 - Introduction to Pandas/Module 02 - Introduction to Pandas|Module 2: Introduction to Pandas]]
 - [[02 Notes/Module 03 - Data Loading and File Formats in Pandas/Module 03 - Data Loading and File Formats in Pandas|Module 3: Data Loading and File Formats in Pandas]]
 - [[02 Notes/Module 04 - Data Cleaning and Preparation/Module 04 - Data Cleaning and Preparation|Module 4: Data Cleaning and Preparation]]
+- [[02 Notes/Module 05 - Data Wrangling/Module 05 - Data Wrangling|Module 5: Data Wrangling]]
 
 ## Current Moodle Scope
-- Modules 1 to 4 are currently open/exposed.
-- Use Modules 1 to 4 for current note extraction, quiz answering, and assignment tracking.
-- Do not assume Modules 5 to 10 have usable materials until their sections contain activities or files.
+- Modules 1 to 5 are currently open/exposed.
+- Use Modules 1 to 5 for current note extraction, quiz answering, and assignment tracking.
+- Do not assume Modules 6 to 10 have usable materials until their sections contain activities or files.
 
 ## Supporting Python Foundation
 - [[02 Notes/Foundation - Introduction to Python/Foundation - Introduction to Python|Foundation - Introduction to Python]]

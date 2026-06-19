@@ -24,6 +24,7 @@ tags:
 | Module 2 | Module 2_end quiz | in progress | 7 | Questions and answers below |
 | Module 3 | Module 3 Mastery quiz | in progress | 8 | Questions and answers below |
 | Module 4 | Module 4 Mastery quiz | in progress | 5 | Questions and answers below |
+| Module 5 | Module 5:Test Your Knowledge | in progress | 8 | Questions and answers below |
 
 ---
 

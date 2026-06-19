@@ -1,0 +1,1468 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        
+            <meta charset="utf-8">
+            <meta name="robots" content="noindex">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="author" content="" />
+            <meta name="date" content="2024-08-27" />
+        
+
+        <title>Document: DSC 211_module5.md | </title>
+
+        
+    
+    
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="static/styles.css">
+            <link rel="stylesheet" id="customiseCSS" href="static/light.css">
+            
+            
+        
+    <link rel="stylesheet" id="customiseCodeCSS" href="static/pygmentize.light.css">
+    <link rel="stylesheet" href="static/codemirror-5.26.0/lib/codemirror.css">
+    <link rel="stylesheet" href="static/code.css">
+    <link rel="stylesheet" href="static/numbasEmbed.css">
+
+    <link rel="stylesheet" href="static/bootstrap-toc.css?v=3">
+    <link rel="stylesheet" href="static/print.css">
+
+
+        
+    
+    
+			<script>
+				var chirun_static_url="static/.";
+			</script>
+            <script defer src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+            <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script defer src="static/mathjax_config.js"></script>
+            <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            <script defer src="static/customisation.js"></script>
+            <script defer src="static/mp4.js"></script>
+            
+            
+			</script>
+        
+    <script defer src="static/jquery.flexibleArea.js"></script>
+    <script defer src="static/spin.min.js"></script>
+    <script defer src="static/codemirror-5.26.0/lib/codemirror.js"></script>
+    <script defer src="static/codemirror-5.26.0/mode/octave/octave.js"></script>
+    <script defer src="static/codemirror-5.26.0/mode/python/python.js"></script>
+    <script defer src="static/codemirror-5.26.0/mode/r/r.js"></script>
+    <script defer src="static/code.js"></script>
+    <script defer src="static/numbasEmbed.js"></script>
+
+    <script defer src="static/bootstrap-toc.js"></script>
+
+    </head>
+    <body data-spy="scroll" data-target="#chapterTOC" data-offset="50">
+        
+<div class="collapse" id="navbarToggleCustomise">
+	<div class="bg-secondary text-white p-3">
+		<form onsubmit="return false;" id="navbarCustomise">
+			<div class="form-row">
+				<label>Theme Customisation</label>
+				<div id="themeSelector" class="form-group col-md-12">
+					<button class="btn btn-dark mr-2" value="dark">Dark</button>
+					<button class="btn btn-pastel mr-2" value="pastel">Pastel</button>
+					<button class="btn btn-light mr-4" value="light">Light</button>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<label style="display: block" for="font-scale">Font size (<span id="font-size-display">100%</span>)</label>
+					<input type="range" class="form-control-range col-9 mr-2" id="font-scale" min="50" max="600" value="100">
+					<button id="font-scale-reset" class="btn btn-sm">Reset</button>
+				</div>
+				<div class="form-group col-md-4">
+					<label style="display: block" for="p-space">Spacing (<span id="p-space-display">100%</span>)</label>
+					<input type="range" class="form-control-range col-9 mr-2" id="p-space" min="0" max="600" value="100">
+					<button id="p-space-reset" class="btn btn-sm">Reset</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<button class="navbar-toggler standalone-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleCustomise" aria-controls="navbarToggleCustomise" aria-expanded="false" aria-label="Toggle customisations panel">
+	<span class="fa fa-cog"></span>
+</button>
+
+
+        <header>
+            
+            
+        </header>
+        <main>
+            
+    <div class="container mt-3">
+        <div class="row">
+            
+            <div class="col-md-12">
+			<div class="standalone-nav">
+                
+                
+				
+				<a id="standalone-pdf-link" class="standalone-navitem" href="document_dsc_211_mod.pdf" target="_blank"><i class="fa fa-file-pdf-o"></i>&nbsp;Download as PDF</a>
+				
+			</div>
+            
+            <p><strong><h1 style="color:#037b90">Module 5: Data wrangling</h1></strong></p>
+<p>This module delves into the essential concepts and techniques of data wrangling using Pandas. You will learn how to perform various data wrangling tasks, such as joining, combining, reshaping, filtering, and reducing data. At the end of the module, you are expected to have acquired the skills necessary to clean, reshape, and prepare datasets for analysis.</p>
+<p><strong>Learning outcomes</strong></p>
+<ol>
+<li>Indetify the different data wrangling operations available in Pandas</li>
+<li>Explain the purpose and functionality of data joins, reshaping techniques, and filtering methods in Pandas.</li>
+<li>Apply data wrangling techniques to real-world datasets using Pandas</li>
+<li>Evaluate the effectiveness of different data wrangling techniques in achieving specific data manipulation objectives</li>
+</ol>
+<p><strong>Learning content</strong></p>
+<p>Data wrangling: Join; combine; reshape; filter; data reduction</p>
+<p><strong><h3 style="color:#ff7f50">Learning activities</h3></strong></p>
+<p><strong><h3 style="color:#ff7f50">WHY DATA WRANGLING</h3></strong></p>
+<p>In real life applications, data comes from different sources in different formats. There is always a need to rearrange, combine, reshape, filter the data before carrying out any analysis on it. In this section we are going to be looking at the techniques for carrying out this particular tasks. 
+<strong>What is data wrangling</strong></p>
+<p>The process of changing, or transforming data from one particular shape to another particular shape is usually reffered to us data wrangling. Some people refer to this process as data mugging. Data wrangling involves restructuring, cleaning and converting it into a format that makes it easy to analayse the data.</p>
+<p><strong>Combining dataframes</strong>: Pyhton offers several methods for combining dataframes. You can combine dataframes using the merge() function, the join function and the concatenate function.</p>
+<p><strong>Join</strong></p>
+<p>Sometimes you might have data in different files. You can load the data into two different dataframes and use the join method to combine the two dataframes. The join function is used when you have a common column or a common index. It is more easy to use the join function using an index rather than a column.</p>
+<p>The syntax for the join method is as follows;</p>
+<div class="highlight"><pre><span></span>    DataFrame.join(other, on=None, how='left', lsuffix='', rsuffix='', sort=False)
+</pre></div>
+<p><strong>Parameters</strong></p>
+<p><strong>other</strong>: This is the name of the the other dataframe to be combined</p>
+<p><strong>how</strong>: This indicates the type of the join to be performed. There are different types of joins that will result in different dataframes.</p>
+<ol>
+<li>
+<p><strong>left</strong>: Use the keys found in the first dataframe. Get all the things from the left dataframe and only the matching values from the right(other) dataframe</p>
+</li>
+<li>
+<p><strong>right</strong>: Use the keys found in the other dataframe. Gets all the values from the right dataframes and only those that match in the right daaframes.</p>
+</li>
+<li>
+<p><strong>outer</strong>: Uses the keys from both dataframes, returns both the elements in both dataframes</p>
+</li>
+<li>
+<p><strong>inner</strong>: Uses the intersection of keys from both dataframes, it returns only the data elements that are have the same keys in both dataframes</p>
+</li>
+</ol>
+<p><strong>sort</strong>: Indicates if the resultant dataframes will be sorted. A value of "false" will indicate that the dataframe will not be sorted and a value of "True" will sort the resultant dataframe.</p>
+<p><strong>rsuffix:</strong> This is the suffix to be used for overlapping columns</p>
+<p><strong>Example</strong></p>
+<p>Lets say for example we have two dataframes, one cointaining the list of products and another one cointaining the customer list and the products they purchased. We can use the join function to combine the two dataframes to form one dataframe with the the list of all the products purchased by the different customers.</p>
+<p>To demenstrate this, we are going to generate two dataframes; the products and the customers dataframe.</p>
+<div class="highlight"><pre><span></span><span class="c1">#Products dataframe</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1">#Generating a product list</span>
+<span class="n">products</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'Product_ID'</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+    <span class="s1">'Product_name'</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'Product_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">)],</span>
+    <span class="s1">'Category'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">'Fashion'</span><span class="p">,</span> <span class="s1">'Electronics'</span><span class="p">,</span> <span class="s1">'Study'</span><span class="p">,</span> <span class="s1">'Grocery'</span><span class="p">],</span> <span class="mi">50</span><span class="p">),</span>
+    <span class="s1">'Price'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50000</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span>
+    <span class="s1">'Seller_City'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">'Nairobi'</span><span class="p">,</span> <span class="s1">'Nakuru'</span><span class="p">,</span> <span class="s1">'Mombasa'</span><span class="p">,</span> <span class="s1">'Kisumu'</span><span class="p">,</span> <span class="s1">'Eldoret'</span><span class="p">],</span> <span class="mi">50</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="n">products</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Product_ID</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>1</th>
+<td>101</td>
+<td>Product_2</td>
+<td>Study</td>
+<td>9074.69</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>2</th>
+<td>102</td>
+<td>Product_3</td>
+<td>Grocery</td>
+<td>2580.94</td>
+<td>Nakuru</td>
+</tr>
+<tr>
+<th>3</th>
+<td>103</td>
+<td>Product_4</td>
+<td>Study</td>
+<td>37801.44</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>104</td>
+<td>Product_5</td>
+<td>Electronics</td>
+<td>21120.68</td>
+<td>Eldoret</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><div class="highlight"><pre><span></span><span class="n">customer_ids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">201</span><span class="p">)</span>
+<span class="n">customer_names</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'Customer_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">'</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">customer_ids</span><span class="p">]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">product_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">products</span><span class="p">[</span><span class="s1">'Product_ID'</span><span class="p">],</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">cities</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">'Nairobi'</span><span class="p">,</span> <span class="s1">'Nakuru'</span><span class="p">,</span> <span class="s1">'Mombasa'</span><span class="p">,</span> <span class="s1">'Kisumu'</span><span class="p">,</span> <span class="s1">'Eldoret'</span><span class="p">])</span>
+<span class="c1"># Create the customer DataFrame</span>
+<span class="n">customer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'Id'</span><span class="p">:</span> <span class="n">customer_ids</span><span class="p">,</span>
+    <span class="s1">'Name'</span><span class="p">:</span> <span class="n">customer_names</span><span class="p">,</span>
+    <span class="s1">'Age'</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span>
+    <span class="s1">'Product_ID'</span><span class="p">:</span> <span class="n">product_ids</span><span class="p">,</span>
+    <span class="s1">'City'</span><span class="p">:</span> <span class="n">cities</span>
+<span class="p">})</span>
+<span class="n">customer</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Product_ID</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>Customer_1</td>
+<td>68</td>
+<td>145</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>Customer_2</td>
+<td>60</td>
+<td>106</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>Customer_3</td>
+<td>59</td>
+<td>119</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>Customer_4</td>
+<td>63</td>
+<td>149</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>Customer_5</td>
+<td>20</td>
+<td>113</td>
+<td>Mombasa</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p>Now that we have te two dataframes, lets now combine them using the join() method</p>
+<div class="highlight"><pre><span></span><span class="n">join_innerdf</span><span class="o">=</span><span class="n">products</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'Product_ID'</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">'product_id_customer'</span><span class="p">,</span><span class="n">lsuffix</span><span class="o">=</span><span class="s2">"product_id"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span> <span class="p">)</span>
+</pre></div>
+<p><div class="highlight"><pre><span></span><span class="n">join_innerdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Product_ID</th>
+<th>Product_IDproduct_id</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Product_IDproduct_id_customer</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>100</td>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>101</td>
+<td>Customer_101</td>
+<td>67</td>
+<td>113</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>101</td>
+<td>101</td>
+<td>Product_2</td>
+<td>Study</td>
+<td>9074.69</td>
+<td>Mombasa</td>
+<td>102</td>
+<td>Customer_102</td>
+<td>33</td>
+<td>133</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>2</th>
+<td>102</td>
+<td>102</td>
+<td>Product_3</td>
+<td>Grocery</td>
+<td>2580.94</td>
+<td>Nakuru</td>
+<td>103</td>
+<td>Customer_103</td>
+<td>43</td>
+<td>129</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>3</th>
+<td>103</td>
+<td>103</td>
+<td>Product_4</td>
+<td>Study</td>
+<td>37801.44</td>
+<td>Mombasa</td>
+<td>104</td>
+<td>Customer_104</td>
+<td>32</td>
+<td>105</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>104</td>
+<td>104</td>
+<td>Product_5</td>
+<td>Electronics</td>
+<td>21120.68</td>
+<td>Eldoret</td>
+<td>105</td>
+<td>Customer_105</td>
+<td>20</td>
+<td>127</td>
+<td>Mombasa</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p><div class="highlight"><pre><span></span><span class="n">join_innerdf</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+    (50, 11)</p>
+<p><div class="highlight"><pre><span></span><span class="n">join_outer</span><span class="o">=</span><span class="n">products</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'Product_ID'</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">'_other'</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s2">"outer"</span> <span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">join_outer</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+    (200, 10)</p>
+<p>Setting the index on the dataframe makes it easier to use thejoin function</p>
+<p><div class="highlight"><pre><span></span><span class="n">new_data_index</span><span class="o">=</span><span class="n">customer</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"Product_ID"</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">products</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"Product_ID"</span><span class="p">),</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">new_data_index</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+</tr>
+<tr>
+<th>Product_ID</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>100</th>
+<td>43</td>
+<td>Customer_43</td>
+<td>58</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>100</th>
+<td>78</td>
+<td>Customer_78</td>
+<td>25</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>100</th>
+<td>169</td>
+<td>Customer_169</td>
+<td>33</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>100</th>
+<td>177</td>
+<td>Customer_177</td>
+<td>39</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>100</th>
+<td>189</td>
+<td>Customer_189</td>
+<td>23</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p><strong>merge</strong>: Simillar to the join() function, the merge function enables you to combine two dataframes. The merge function makes it easier to combine dataframes using the columns. The syntax for the merge function is as follows.</p>
+<div class="highlight"><pre><span></span>    pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None, left_index=False, right_index=False, sort=False, suffixes=('_x', '_y'), copy=True, indicator=False, validate=None)
+</pre></div>
+<p><strong>left</strong>: The first dataframe</p>
+<p><strong>right</strong>: The second dataframe</p>
+<p><strong>how</strong>: The type of join to be performed. Just like in the join function, it can be "inner","outer", "right", "left"</p>
+<p><strong>on</strong>: Indicates the column or index on which the combnation will be based on. This column must be found on both dataframes</p>
+<p><strong>sort</strong>: Indicates whether the dataframe should be sorted or not. </p>
+<p><strong>Example</strong></p>
+<p>In this example we are using the same data we generated in the previous example to demonstrate the use of the merge function.</p>
+<p><div class="highlight"><pre><span></span><span class="c1">#inner join</span>
+<span class="n">df_merger</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">customer</span><span class="p">,</span> <span class="n">products</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"Product_ID"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_merger</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Product_ID</th>
+<th>City</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>43</td>
+<td>Customer_43</td>
+<td>58</td>
+<td>100</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>1</th>
+<td>78</td>
+<td>Customer_78</td>
+<td>25</td>
+<td>100</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>2</th>
+<td>169</td>
+<td>Customer_169</td>
+<td>33</td>
+<td>100</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>3</th>
+<td>177</td>
+<td>Customer_177</td>
+<td>39</td>
+<td>100</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>4</th>
+<td>189</td>
+<td>Customer_189</td>
+<td>23</td>
+<td>100</td>
+<td>Mombasa</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p><div class="highlight"><pre><span></span><span class="n">df_merger</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+    (200, 9)</p>
+<p><div class="highlight"><pre><span></span><span class="c1">#outer join</span>
+<span class="n">df_merger_outer</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">customer</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"Product_ID"</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">"outer"</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_merger_outer</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Product_ID</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>43.0</td>
+<td>Customer_43</td>
+<td>58.0</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>78.0</td>
+<td>Customer_78</td>
+<td>25.0</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>2</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>169.0</td>
+<td>Customer_169</td>
+<td>33.0</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>3</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>177.0</td>
+<td>Customer_177</td>
+<td>39.0</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>100</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+<td>189.0</td>
+<td>Customer_189</td>
+<td>23.0</td>
+<td>Mombasa</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p><div class="highlight"><pre><span></span><span class="n">df_merger_outer</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+    (202, 9)</p>
+<p><strong>concat() function</strong></p>
+<p>The other method provided in pandas for combining two dataframes are the concat() function. As opposed to join and merge functions, concat can combine more that two dataframes. The focus of the concat method is to combine data along the axis i.e the rows and the columns.</p>
+<p>The syntax for concat function is as follows</p>
+<div class="highlight"><pre><span></span>    pd.concat(objs, axis=0, join='outer', ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, sort=False, copy=True)
+</pre></div>
+<p><strong>objs</strong>: are the dataframes or the series to be combined.</p>
+<p><strong>axis</strong>: Determines the axis a long which data is combined.0 Indicates a long the rows and 1 indicates a long the column. Along the rows stacks the rows of the dataframes together. Along the axis, stacks the collumns of the provided dataframes together.</p>
+<p><strong>verify_integrity</strong>: Check whether the new concatenated axis contains duplicates</p>
+<p><div class="highlight"><pre><span></span><span class="n">data_concat</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">customer</span><span class="p">,</span><span class="n">products</span><span class="p">]</span> <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">data_concat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div></p>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Product_ID</th>
+<th>City</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1.0</td>
+<td>Customer_1</td>
+<td>68.0</td>
+<td>145</td>
+<td>Mombasa</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2.0</td>
+<td>Customer_2</td>
+<td>60.0</td>
+<td>106</td>
+<td>Mombasa</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3.0</td>
+<td>Customer_3</td>
+<td>59.0</td>
+<td>119</td>
+<td>Mombasa</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4.0</td>
+<td>Customer_4</td>
+<td>63.0</td>
+<td>149</td>
+<td>Mombasa</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5.0</td>
+<td>Customer_5</td>
+<td>20.0</td>
+<td>113</td>
+<td>Mombasa</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><div class="highlight"><pre><span></span><span class="n">data_concat_1</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">customer</span><span class="p">,</span><span class="n">products</span><span class="p">]</span> <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_concat_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Id</th>
+<th>Name</th>
+<th>Age</th>
+<th>Product_ID</th>
+<th>City</th>
+<th>Product_ID</th>
+<th>Product_name</th>
+<th>Category</th>
+<th>Price</th>
+<th>Seller_City</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1</td>
+<td>Customer_1</td>
+<td>68</td>
+<td>145</td>
+<td>Mombasa</td>
+<td>100.0</td>
+<td>Product_1</td>
+<td>Grocery</td>
+<td>13653.12</td>
+<td>Eldoret</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2</td>
+<td>Customer_2</td>
+<td>60</td>
+<td>106</td>
+<td>Mombasa</td>
+<td>101.0</td>
+<td>Product_2</td>
+<td>Study</td>
+<td>9074.69</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3</td>
+<td>Customer_3</td>
+<td>59</td>
+<td>119</td>
+<td>Mombasa</td>
+<td>102.0</td>
+<td>Product_3</td>
+<td>Grocery</td>
+<td>2580.94</td>
+<td>Nakuru</td>
+</tr>
+<tr>
+<th>3</th>
+<td>4</td>
+<td>Customer_4</td>
+<td>63</td>
+<td>149</td>
+<td>Mombasa</td>
+<td>103.0</td>
+<td>Product_4</td>
+<td>Study</td>
+<td>37801.44</td>
+<td>Mombasa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5</td>
+<td>Customer_5</td>
+<td>20</td>
+<td>113</td>
+<td>Mombasa</td>
+<td>104.0</td>
+<td>Product_5</td>
+<td>Electronics</td>
+<td>21120.68</td>
+<td>Eldoret</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p><strong>RESHAPING</strong></p>
+<p>Reshaping a dataframe means changing the shape, structure or layout of the dataframe for the purpose of carrying out specific analysis.</p>
+<p>The common reshaping strategies include;</p>
+<ol>
+<li>Grouping</li>
+<li>Pivoting</li>
+<li>Stacking</li>
+<li>Transposing</li>
+</ol>
+<p><strong>Grouping</strong></p>
+<p>In some instances you will need to create the grouping of dataset. This can be done using the groupby() function in pandas. The groupby function, groups data into categories. Various functions can then be used to the generated groups such as culculating the mean, the sum and so on.</p>
+<p>We are going to demonstrate the use of groupby function using the airline dataset. The dataset cointains the results of a satisfaction survey done by the airlines. We will start by loading the dataset</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data_airline</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Desktop/Airline_train.csv"</span><span class="p">)</span>
+<span class="n">data_airline</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre><span></span>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 103904 entries, 0 to 103903
+Data columns (total 25 columns):
+ #   Column                             Non-Null Count   Dtype  
+---  ------                             --------------   -----  
+ 0   Unnamed: 0                         103904 non-null  int64  
+ 1   id                                 103904 non-null  int64  
+ 2   Gender                             103904 non-null  object 
+ 3   Customer Type                      103904 non-null  object 
+ 4   Age                                103904 non-null  int64  
+ 5   Type of Travel                     103904 non-null  object 
+ 6   Class                              103904 non-null  object 
+ 7   Flight Distance                    103904 non-null  int64  
+ 8   Inflight wifi service              103904 non-null  int64  
+ 9   Departure/Arrival time convenient  103904 non-null  int64  
+ 10  Ease of Online booking             103904 non-null  int64  
+ 11  Gate location                      103904 non-null  int64  
+ 12  Food and drink                     103904 non-null  int64  
+ 13  Online boarding                    103904 non-null  int64  
+ 14  Seat comfort                       103904 non-null  int64  
+ 15  Inflight entertainment             103904 non-null  int64  
+ 16  On-board service                   103904 non-null  int64  
+ 17  Leg room service                   103904 non-null  int64  
+ 18  Baggage handling                   103904 non-null  int64  
+ 19  Checkin service                    103904 non-null  int64  
+ 20  Inflight service                   103904 non-null  int64  
+ 21  Cleanliness                        103904 non-null  int64  
+ 22  Departure Delay in Minutes         103904 non-null  int64  
+ 23  Arrival Delay in Minutes           103594 non-null  float64
+ 24  satisfaction                       103904 non-null  object 
+dtypes: float64(1), int64(19), object(5)
+memory usage: 19.8+ MB
+</pre></div>
+<p>The syntax for the groupby function is as follows</p>
+<div class="highlight"><pre><span></span>DataFrame.groupby(by=None, axis=_NoDefault.no_default, level=None, as_index=True, sort=True, group_keys=True, observed=_NoDefault.no_default, dropna=True)[source]
+</pre></div>
+<p><strong>by</strong>: Indicates the column that the grouping will be based on.</p>
+<p><strong>axis</strong>: This indicates where the grouping will be split on 0 indicates a row and 1 indicates a column. The default value for  this is usually 0. That means if the axis is not provided the data will be split based on the rows.</p>
+<p>To demonstrate the gropuby function, groupby gender and lests count the number of each customer type per each gender</p>
+<div class="highlight"><pre><span></span><span class="n">data_airline</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"Gender"</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s2">"Customer Type"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Gender</th>
+<th>Customer Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>Female</td>
+<td>52727</td>
+</tr>
+<tr>
+<th>1</th>
+<td>Male</td>
+<td>51177</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can also groupby more than two columns and specify which column to count. For example if we want to get how many of each gender travelled for business or personal travel, we can groupby type of travel and gender as follows</p>
+<p><div class="highlight"><pre><span></span><span class="n">data_airline</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"Type of Travel"</span><span class="p">,</span><span class="s2">"Gender"</span><span class="p">])[</span><span class="s1">'Type of Travel'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+    Type of Travel   Gender
+    Business travel  Female    36528
+                     Male      35127
+    Personal Travel  Female    16199
+                     Male      16050
+    Name: Type of Travel, dtype: int64</p>
+<p><strong>Pivoting</strong></p>
+<p>Pivoting is a data transformation process commonly used in data analysis to reshape data. In pandas, pivoting involves converting a DataFrame from a long or tall format (where rows represent individual observations) to a wide format (where each unique value in a column becomes a new column). This is useful for creating summary tables and for visualizing data more effectively.</p>
+<p><strong>Pivot:</strong> This creates a new DataFrame by rearranging the data such that unique values from one column become the columns of the new DataFrame, and values from another column become the rows.</p>
+<p><strong>Pivot Table:</strong> This is Similar to a pivot, but it allows for the aggregation of data. For example, it can sum, average, or count values within each group of the new table. </p>
+<p><strong>Example</strong></p>
+<p>To demonstrate this concepts lets create a simple data frame below</p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">],</span>
+    <span class="s1">'region'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'North'</span><span class="p">,</span> <span class="s1">'South'</span><span class="p">,</span> <span class="s1">'North'</span><span class="p">,</span> <span class="s1">'South'</span><span class="p">],</span>
+    <span class="s1">'sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">#Pivot</span>
+<span class="n">pivot_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'sales'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pivot_df</span><span class="p">)</span>
+</pre></div></p>
+<div class="highlight"><pre><span></span>region      North  South
+date                    
+2024-06-01    100    150
+2024-06-02    200    250
+</pre></div>
+<div class="highlight"><pre><span></span><span class="c1">#Pivot_table</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-01'</span><span class="p">],</span>
+    <span class="s1">'region'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'North'</span><span class="p">,</span> <span class="s1">'South'</span><span class="p">,</span> <span class="s1">'North'</span><span class="p">,</span> <span class="s1">'South'</span><span class="p">,</span> <span class="s1">'North'</span><span class="p">],</span>
+    <span class="s1">'sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+    <span class="s1">'quantity'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">pivot_table_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'sales'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">'date'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'region'</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pivot_table_df</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>region      North  South
+date                    
+2024-06-01    400    150
+2024-06-02    200    250
+</pre></div>
+<p><strong>Stacking</strong></p>
+<p>Stacking is another data transformation process in pandas, used to convert a DataFrame from a wide format to a long format. It's the opposite of unstacking or pivoting, where you might go from a long format to a wide format. Stacking is particularly useful when you need to perform operations on data that is easier to handle in a long format or when preparing data for certain types of analyses or visualizations.</p>
+<p>There are two main concepts in stacking: Stacking and Unstacking</p>
+<p><strong>Stacking</strong>: Stacking reshapes the dataframe by converting the data into a stacked form. This involves creating a pivot of the innermost column index into the innermost row index.</p>
+<p><strong>Example</strong></p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">],</span>
+    <span class="s1">'North_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+    <span class="s1">'South_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">450</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">stacked_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'date'</span><span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stacked_df</span><span class="p">)</span>
+</pre></div>
+    date                 <br/>
+    2024-06-01  North_sales    100
+                South_sales    150
+                North_sales    200
+                South_sales    250
+    2024-06-02  North_sales    300
+                South_sales    350
+                North_sales    400
+                South_sales    450
+    dtype: int64</p>
+<p><strong>Unstacking</strong></p>
+<p>Unstacking reverses the stacking process</p>
+<p><strong>Example</strong></p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">],</span>
+    <span class="s1">'North_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+    <span class="s1">'South_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">450</span><span class="p">],</span>
+    <span class="s1">'North_quantity'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>
+    <span class="s1">'South_quantity'</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Reset the index to ensure uniqueness</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Set a new unique index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">'index'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Perform stacking</span>
+<span class="n">stacked_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stacked_df</span><span class="p">)</span>
+
+<span class="n">unstacked_df</span> <span class="o">=</span> <span class="n">stacked_df</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Unstacked DataFrame:</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">unstacked_df</span><span class="p">)</span>
+</pre></div>
+    index  date                    <br/>
+    0      2024-06-01  North_sales       100
+                       South_sales       150
+                       North_quantity     10
+                       South_quantity     15
+    1      2024-06-01  North_sales       200
+                       South_sales       250
+                       North_quantity     20
+                       South_quantity     25
+    2      2024-06-02  North_sales       300
+                       South_sales       350
+                       North_quantity     30
+                       South_quantity     35
+    3      2024-06-02  North_sales       400
+                       South_sales       450
+                       North_quantity     40
+                       South_quantity     45
+    dtype: int64</p>
+<div class="highlight"><pre><span></span>Unstacked DataFrame:
+                   North_sales  South_sales  North_quantity  South_quantity
+index date                                                                
+0     2024-06-01          100          150              10              15
+1     2024-06-01          200          250              20              25
+2     2024-06-02          300          350              30              35
+3     2024-06-02          400          450              40              45
+</pre></div>
+<p><strong>Transposing</strong></p>
+<p>It involves flipping the rows and columns of a DataFrame. It is useful when you want to change the orientation of your data for analysis or visualization.
+In pandas the The transpose() method or the .T attribute can be used to transpose a DataFrame. </p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-06-01'</span><span class="p">,</span> <span class="s1">'2024-06-02'</span><span class="p">,</span> <span class="s1">'2024-06-03'</span><span class="p">],</span>
+    <span class="s1">'North_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+    <span class="s1">'South_sales'</span><span class="p">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">350</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Original Dataset"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Transposed dataset"</span><span class="p">)</span>
+<span class="n">transposed_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">transposed_df</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>Original Dataset
+         date  North_sales  South_sales
+0  2024-06-01          100          150
+1  2024-06-02          200          250
+2  2024-06-03          300          350
+
+Transposed dataset
+                      0           1           2
+date         2024-06-01  2024-06-02  2024-06-03
+North_sales         100         200         300
+South_sales         150         250         350
+</pre></div>
+<p><strong>FILTERING</strong></p>
+<p>Filtering refers to the process of selecting a portion of the datasets based on certain conditions. For instance if you want to get the numbers of curstomers who bought commodities above certain amount, we can use filtering to achieve that. There are various ways provided for filtering data.</p>
+<p><strong>1. Filtering based on columns</strong></p>
+<p>We can select a portion of the columns or a portion of the dataset based on a condition applied to a column. </p>
+<p><strong>Example</strong></p>
+<p>We are going to demonstrate this techniques using the irish flower dataset. We are going to read the data then demonstrate the techniques</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/IRIS.csv"</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sepal_length</th>
+<th>sepal_width</th>
+<th>petal_length</th>
+<th>petal_width</th>
+<th>species</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If we want to just get the sepel_legth and sepel_width we will select using the following code</p>
+<p><div class="highlight"><pre><span></span><span class="n">dta_select</span><span class="o">=</span><span class="n">data</span><span class="p">[[</span><span class="s2">"sepal_length"</span><span class="p">,</span> <span class="s2">"sepal_width"</span><span class="p">]]</span>
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">dta_select</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div></p>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sepal_length</th>
+<th>sepal_width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>5.1</td>
+<td>3.5</td>
+</tr>
+<tr>
+<th>1</th>
+<td>4.9</td>
+<td>3.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>2. Filtering using the query() method</strong></p>
+<p>The query() method in Pandas provides a way to query the DataFrame using a boolean expression. This method can be more readable and convenient for complex conditions compared to the traditional indexing method. The syntax for the query method is </p>
+<div class="highlight"><pre><span></span>DataFrame.query('boolean_expression')
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'sepal_length &gt;=5'</span><span class="p">)</span>
+<span class="n">filtered_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sepal_length</th>
+<th>sepal_width</th>
+<th>petal_length</th>
+<th>petal_width</th>
+<th>species</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>5.0</td>
+<td>3.6</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can also use two different conditions
+<div class="highlight"><pre><span></span><span class="n">data_two_query</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'sepal_length &gt; 3 and species == "Iris-setosa"'</span><span class="p">)</span>
+<span class="n">data_two_query</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div></p>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>sepal_length</th>
+<th>sepal_width</th>
+<th>petal_length</th>
+<th>petal_width</th>
+<th>species</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>5.1</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+<tr>
+<th>1</th>
+<td>4.9</td>
+<td>3.0</td>
+<td>1.4</td>
+<td>0.2</td>
+<td>Iris-setosa</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Key things to note</strong></p>
+<p>The query() method only works if the DataFrame’s column names are valid Python identifiers (no spaces or special characters). If not, use backticks to enclose column names.</p>
+<p>When using variables inside the query string, prefix them with @.</p>
+<p>String operations like .str.contains() can be used within query() by referring to the column as a string attribute.</p>
+<ol>
+<li>Filtering based on the index</li>
+</ol>
+<p>Filtering rows based on the index in a Pandas DataFrame can be very useful when you need to select or manipulate data according to specific index values or ranges.</p>
+<p>The basic methods for filtering using index are</p>
+<ol>
+<li>loc[]</li>
+<li>iloc[]</li>
+<li>Boolean Indexing on the Index</li>
+<li>
+<p>Filtering with Index Methods</p>
+</li>
+<li>
+<p>Using .loc[]</p>
+</li>
+</ol>
+<p>The .loc[] method allows you to select rows (and columns) by label (index) or a boolean array.</p>
+<div class="highlight"><pre><span></span><span class="n">data_loc</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">10</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_loc</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>    sepal_length  sepal_width  petal_length  petal_width      species
+10           5.4          3.7           1.5          0.2  Iris-setosa
+</pre></div>
+<ol>
+<li>Using .iloc[]</li>
+</ol>
+<p>The .iloc[] method allows you to select rows (and columns) by integer-location based indexing (position).</p>
+<p><div class="highlight"><pre><span></span><span class="n">filtered_data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</pre></div>
+       sepal_length  sepal_width  petal_length  petal_width      species
+    1           4.9          3.0           1.4          0.2  Iris-setosa
+    5           5.4          3.9           1.7          0.4  Iris-setosa</p>
+<div class="highlight"><pre><span></span>
+</pre></div>
+            </div>
+        </div>
+    </div>
+
+        </main>
+	
+		
+    </body>
+</html>

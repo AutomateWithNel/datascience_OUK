@@ -9,9 +9,9 @@ source: Moodle API
 # Moodle Resource Comparison
 
 ## Summary
-Moodle exposes downloadable learning resources for Modules 1 to 4.
+Moodle exposes downloadable learning resources for Modules 1 to 5.
 
-The content already shared locally matches Moodle for Modules 1 and 2. Modules 3 and 4 have been extracted from Moodle, downloaded, and summarized into full vault notes.
+The content already shared locally matches Moodle for Modules 1 and 2. Modules 3, 4, and 5 have been extracted from Moodle, downloaded, and summarized into full vault notes.
 
 ## Module 1: Numpy
 Moodle resource: `Introduction to Numpy`
@@ -83,6 +83,23 @@ Text extraction result:
 
 Conclusion: Module 4 content can be extracted from Moodle and has now been converted into a full vault note.
 
+## Module 5: Data Wrangling
+Moodle resource: `Data wrangling notes`
+
+Extractable Moodle files:
+- `index.html`
+
+Text extraction result:
+- Extracted text length: about `21791` characters
+- Main title found: `MODULE 5: DATA WRANGLING`
+- Learning outcomes found:
+  - Identify the different data wrangling operations available in Pandas.
+  - Explain the purpose and functionality of data joins, reshaping techniques, and filtering methods in Pandas.
+  - Apply data wrangling techniques to real-world datasets using Pandas.
+  - Evaluate the effectiveness of different data wrangling techniques in achieving specific data manipulation objectives.
+
+Conclusion: Module 5 content can be extracted from Moodle and has now been converted into a full vault note.
+
 ## Quiz Content
 The course contents API exposes quiz activity names and quiz metadata, but it does not expose quiz questions directly.
 
@@ -91,5 +108,6 @@ Exposed quiz activities:
 - Module 2: `Module 2 Mastery quiz`, `Module 2: Practical task`, `Module 2_end quiz`
 - Module 3: `Module 3 Mastery quiz`
 - Module 4: `Module 4 Mastery quiz`
+- Module 5: `Module 5:Test Your Knowledge`
 
 To inspect actual Moodle quiz questions through the API, an existing attempt or a newly started attempt is usually required. Starting a new attempt can consume an allowed attempt, so do not do that unless explicitly authorized.
