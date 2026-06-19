@@ -16,20 +16,20 @@ prod_df = pd.read_csv(prod_path)
 
 # Task 1: Combine the two datasets (January and February Sales)
 print("\n--- Task 1: Combining January and February Sales datasets ---")
-combined_df = pd.concat([jan_df, feb_df], ignore_index=True)
+combined_df = pd.concat([jan_df, feb_df], axis=0, ignore_index=True)
 print(f"Combined DataFrame shape: {combined_df.shape}")
 print("First 5 rows of combined sales:")
 print(combined_df.head())
 
 # Task 2: Display the total sales for each product
 print("\n--- Task 2: Total Sales (Sales Amount) per Product ---")
-# Group by product_id and sum the sales_amount
-total_sales = combined_df.groupby("product_id")["sales_amount"].sum().reset_index()
+# Group by product_id and sum the sales_amount using coursework style
+total_sales = combined_df.groupby(by="product_id", as_index=False)["sales_amount"].sum()
 print(total_sales)
 
 # Task 3: Merge the products dataset with the concatenated dataset using product_id
 print("\n--- Task 3: Merging Combined Sales with Products Metadata ---")
-merged_df = pd.merge(combined_df, prod_df, on="product_id", how="inner")
+merged_df = pd.merge(combined_df, prod_df, on="product_id", how="inner", sort=True)
 print(f"Merged DataFrame shape: {merged_df.shape}")
 print("First 5 rows of merged sales with product details:")
 print(merged_df.head())

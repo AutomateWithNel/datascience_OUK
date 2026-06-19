@@ -43,16 +43,16 @@ feb_df = pd.read_csv(feb_path)
 prod_df = pd.read_csv(prod_path)
 
 # Task 1: Combine the two datasets (January and February Sales)
-combined_df = pd.concat([jan_df, feb_df], ignore_index=True)
+combined_df = pd.concat([jan_df, feb_df], axis=0, ignore_index=True)
 print("Combined sales DataFrame shape:", combined_df.shape)
 
 # Task 2: Display the total sales for each product
-total_sales = combined_df.groupby("product_id")["sales_amount"].sum().reset_index()
+total_sales = combined_df.groupby(by="product_id", as_index=False)["sales_amount"].sum()
 print("\nTotal Sales per Product:")
 print(total_sales.to_string(index=False))
 
 # Task 3: Merge the products dataset with the concatenated dataset using product_id
-merged_df = pd.merge(combined_df, prod_df, on="product_id", how="inner")
+merged_df = pd.merge(combined_df, prod_df, on="product_id", how="inner", sort=True)
 print("\nMerged dataset head:")
 print(merged_df.head().to_string(index=False))
 ```
