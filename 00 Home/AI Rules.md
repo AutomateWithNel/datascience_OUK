@@ -19,6 +19,7 @@ created: 2026-05-01
 - Cite the course and file name when answering from vault content.
 - Separate `From my files` from `General explanation` when both are used.
 - Do not treat unstated assumptions as facts from the vault.
+- Code should be simplified to mirror coursework exactly, not beautified or over-engineered by AI.
 
 ## File Hygiene
 - Do not leave important source files only in `99 Inbox`.

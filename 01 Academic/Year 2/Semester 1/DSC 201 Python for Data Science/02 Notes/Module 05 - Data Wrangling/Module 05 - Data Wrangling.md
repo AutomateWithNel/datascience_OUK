@@ -34,6 +34,7 @@ By the end of this module, you should be able to:
 - Data wrangling (or data munging) is the process of changing or transforming data from one shape to another.
 - Wrangling involves restructuring, cleaning, and converting data into an analysis-ready format.
 - Key operations include combining DataFrames (joining, merging, concatenating), reshaping (grouping, pivoting, stacking, transposing), and filtering.
+- Code should be simplified to coursework, not beautified by AI.
 
 ---
 

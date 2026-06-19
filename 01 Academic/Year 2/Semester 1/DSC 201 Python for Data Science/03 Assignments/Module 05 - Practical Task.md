@@ -52,6 +52,7 @@ print(merged_df.head())
 * The sales data is combined vertically using `pd.concat` with `axis=0` (default) and `ignore_index=True` to reset the index across the combined dataset.
 * Total sales per product are aggregated using `groupby('product_id')['sales_amount'].sum()`.
 * Merging with the product catalog uses `pd.merge` with an `inner` join on `product_id` to include names and categories for matching transactions.
+* Code should be simplified to coursework, not beautified by AI.
 
 ## Successful Run Result
 
