@@ -15,3 +15,6 @@ __pycache__/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Local large course datasets
+01 Academic/Year 2/Semester 1/DSC 201 Python for Data Science/03 Assignments/compact.csv

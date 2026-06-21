@@ -1,0 +1,340 @@
+--- PAGE 1 ---
+Exercise 1: SQL Database Setup & Data Insertion
+ 
+Objective
+: Create a simple SQL database and insert data into two tables: 
+customers
+ 
+and 
+orders
+.
+ 
+import sqlite3
+ 
+ 
+# Create an in
+-
+memory SQLite database
+ 
+conn = sqlite3.connect(':memory:')
+ 
+cursor = conn.cursor()
+ 
+ 
+# Create tables
+ 
+cursor.execute('''CREATE TABLE customers (
+ 
+                    
+customer_id INTEGER PRIMARY KEY,
+ 
+                    
+name TEXT NOT NULL,
+ 
+                    
+country TEXT NOT NULL
+ 
+                
+)''')
+ 
+ 
+cursor.execute('''CREATE TABLE orders 
+(
+ 
+                    
+order_id INTEGER PRIMARY KEY,
+ 
+                    
+customer_id INTEGER,
+ 
+                    
+order_date TEXT NOT NULL,
+ 
+                    
+amount REAL,
+ 
+                    
+FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
+ 
+   
+             
+)''')
+ 
+ 
+# Insert data into customers table
+ 
+customers = [(1, 'Alice', 'USA'), (2, 'Bob', 'Canada'), (3, 'Charlie', 'UK')]
+ 
+cursor.executemany('INSERT INTO customers VALUES (?, ?, ?)', customers)
+ 
+ 
+# Insert data into orders table
+ 
+orders = [(1, 1, 
+'2024
+-
+09
+-
+01', 250.5), (2, 2, '2024
+-
+09
+-
+10', 150.0), (3, 1, '2024
+-
+09
+-
+15', 350.0)]
+ 
+cursor.executemany('INSERT INTO orders VALUES (?, ?, ?, ?)', orders)
+ 
+ 
+conn.commit()
+ 
+print("Database setup complete!")
+
+--- PAGE 2 ---
+Exercise 2: SQL Query with Join
+ 
+Objective
+: Retrieve da
+ta by joining 
+customers
+ 
+and 
+orders
+ 
+tables.
+ 
+# SQL query to join customers and orders and retrieve information
+ 
+query = '''
+ 
+    
+SELECT customers.name, customers.country, orders.order_id, orders.order_date, 
+orders.amount 
+ 
+    
+FROM customers
+ 
+    
+JOIN orders ON 
+customers.customer_id = orders.customer_id
+ 
+'''
+ 
+ 
+# Execute the query
+ 
+cursor.execute(query)
+ 
+results = cursor.fetchall()
+ 
+ 
+# Display results
+ 
+for row in results:
+ 
+    
+print(row)
+ 
+ 
+Exercise 3: Exporting Data to CSV
+ 
+Objective
+: Export the result of the SQL join 
+query to a CSV file.
+ 
+import csv
+ 
+ 
+# Export results to a CSV file
+ 
+with open('orders_report.csv', 'w', newline='') as file:
+ 
+    
+writer = csv.writer(file)
+ 
+    
+writer.writerow(['Customer Name', 'Country', 'Order ID', 'Order Date', 'Amount'])
+ 
+    
+writer.writerow
+s(results)
+ 
+ 
+print("Data exported to 'orders_report.csv'!")
+
+--- PAGE 3 ---
+Exercise 4: Exporting Data to JSON
+ 
+Objective
+: Export the same SQL join query result to a JSON file.
+ 
+import json
+ 
+ 
+# Convert the results into a list of dictionaries
+ 
+data = []
+ 
+for row in results:
+ 
+    
+data.append({
+ 
+        
+'Customer Name': row[0],
+ 
+        
+'Country': row[1],
+ 
+        
+'Order ID': row[2],
+ 
+        
+'Order Date': row[3],
+ 
+        
+'Amount': row[4]
+ 
+    
+})
+ 
+ 
+# Export the data to a JSON file
+ 
+with open('orders_report.json', 'w') as file:
+ 
+    
+json
+.dump(data, file, indent=4)
+ 
+ 
+print("Data exported to 'orders_report.json'!")
+ 
+ 
+Exercise 5: Importing Data from CSV
+ 
+Objective
+: Load data from a CSV file into a database table.
+ 
+# Create a new table for imported data
+ 
+cursor.execute('''
+ 
+    
+CREATE TABLE 
+imported_orders (
+ 
+        
+order_id INTEGER,
+ 
+        
+customer_name TEXT,
+ 
+        
+country TEXT,
+ 
+        
+order_date TEXT,
+ 
+        
+amount REAL
+ 
+    
+)
+ 
+''')
+ 
+ 
+# Load data from CSV into the table
+ 
+with open('orders_report.csv', newline='') as file:
+ 
+    
+reader = csv.
+reader(file)
+ 
+    
+next(reader)  # Skip header row
+ 
+    
+cursor.executemany('INSERT INTO imported_orders VALUES (?, ?, ?, ?, ?)', reader)
+ 
+ 
+conn.commit()
+
+--- PAGE 4 ---
+# Verify that data is inserted correctly
+ 
+cursor.execute('SELECT * FROM imported_orders')
+ 
+print(cursor.fetc
+hall())
+ 
+ 
+Exercise 6: Importing Data from JSON
+ 
+Objective
+: Load data from a JSON file into a database table.
+ 
+# Create a new table for JSON
+-
+imported data
+ 
+cursor.execute('''
+ 
+    
+CREATE TABLE json_orders (
+ 
+        
+customer_name TEXT,
+ 
+        
+country TEXT,
+ 
+        
+order_id INTEGER,
+ 
+        
+order_date TEXT,
+ 
+        
+amount REAL
+ 
+    
+)
+ 
+''')
+ 
+ 
+# Load data from JSON into the table
+ 
+with open('orders_report.json', 'r') as file:
+ 
+    
+json_data = json.load(file)
+ 
+    
+for entry in json_data:
+ 
+        
+cursor.execute('INSERT
+ 
+INTO json_orders VALUES (?, ?, ?, ?, ?)',
+ 
+                       
+(entry['Customer Name'], entry['Country'], entry['Order ID'], entry['Order 
+Date'], entry['Amount']))
+ 
+ 
+conn.commit()
+ 
+ 
+# Verify the data
+ 
+cursor.execute('SELECT * FROM json_orders')
+ 
+print(
+cursor.fetchall())
+

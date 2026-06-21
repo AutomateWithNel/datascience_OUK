@@ -1,0 +1,718 @@
+Run code 
+
+/>
+
+Test Yourself
+
+Complete 
+ Incomplete 
+
+Score:
+
+Skip to content 
+
+Reset to defaults 
+
+Accessibility statement 
+
+Close
+
+Text size
+
+100% 
+
+Spacing
+
+100% 
+
+Text font
+
+Sans-serif 
+ Serif 
+ Atkinson Hyperlegible 
+ Comic Sans 
+
+Colour scheme
+
+Automatic (default) 
+ Black text on white 
+ White text on black 
+ Custom 
+
+Text colour
+
+Link colour
+
+Background colour
+
+Muted background colour
+
+Accent colour 1
+
+Accent colour 2
+
+Accent colour 3
+
+Accent colour 4
+
+Sepia filter
+
+0% 
+
+Rotate hues
+
+0 turns 
+
+Invert images in dark mode
+
+Exploratory data analysis 
+
+Module 8
+
+Download as PDF 
+
+Table of Contents
+
+Jump to content 
+
+Module 8: Exploratory Data Analysis (Deep Dive) 
+
+Sanity checks 
+
+Detecting outliers 
+
+Data Accuracy Checks 
+
+Distribution Checks
+
+Sampling Bias Checks 
+
+Temporal Consistency Checks 
+
+Contextual Checks 
+
+Data Type Checks 
+
+Module 8: Exploratory Data Analysis (Deep Dive)
+
+This module provides a comprehensive introduction to exploratory data analysis (EDA) techniques, essential for understanding and preparing datasets for further analysis. You will be able to learn various methods for conducting sanity checks, univariate analysis, bivariate analysis, missing value treatment, outlier treatment, and handling categorical data types. At the end of the module, you are expected to develop necessary skills for carrying out exploratory data anslysis using real world data.
+
+Learning Outcomes 
+
+By the end of this module the learner should be able to;
+
+Identify the key techniques used in exploratory data analysis. 
+
+Explain the importance of EDA and how it contributes to data preparation for further analysi.3. 
+
+Demonstrate the ability to perform exploratory data analysis on real-world datasets by applying appropriate EDA techniu4. es
+
+Evaluate the effectiveness of different EDA techniques
+
+Sanity checks
+
+Sanity check is a process in the exploratory data analysis that ensures the data is valid and reliable. In any data science project you will carry out, it is important to ensure that the data is reliable and consistent. 
+There are various ways for ensuring data consistency;
+
+Unique values: This ensures that the columns that are required to be unique are unique
+
+Handling duplicates
+
+Ensuring consistency in the labels of categorical data. For example using "female" verses "f", "F". There should be consistency in the values used for all the categorical columns.
+
+You are going to see how to use this methods using the black friday dataset, which is cointains customer transactions
+As a normal practice, we will start by loading the dataset as follows;
+
+import pandas as pd 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/black_friday.csv" ) 
+ data . head () 
+
+User_ID 
+ Product_ID 
+ Gender 
+ Age 
+ Occupation 
+ City_Category 
+ Stay_In_Current_City_Years 
+ Marital_Status 
+ Product_Category_1 
+ Product_Category_2 
+ Product_Category_3 
+ Purchase 
+
+0 
+ 1000001
+
+P00069042
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+3
+
+NaN
+
+NaN
+
+8370
+
+1 
+ 1000001
+
+P00248942
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+1
+
+6.0
+
+14.0
+
+15200
+
+2 
+ 1000001
+
+P00087842
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+12
+
+NaN
+
+NaN
+
+1422
+
+3 
+ 1000001
+
+P00085442
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+12
+
+14.0
+
+NaN
+
+1057
+
+4 
+ 1000002
+
+P00285442
+
+M
+
+55+
+
+16
+
+C
+
+4+
+
+0
+
+8
+
+NaN
+
+NaN
+
+7969
+
+Lets check to see if the User_ID column has duplicated valuesd
+
+# Check for duplicate IDs 
+ duplicate_ids = data [ data . duplicated ( subset = 'User_ID' , keep = False )] 
+
+duplicate_ids . head () 
+
+User_ID 
+ Product_ID 
+ Gender 
+ Age 
+ Occupation 
+ City_Category 
+ Stay_In_Current_City_Years 
+ Marital_Status 
+ Product_Category_1 
+ Product_Category_2 
+ Product_Category_3 
+ Purchase 
+
+0 
+ 1000001
+
+P00069042
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+3
+
+NaN
+
+NaN
+
+8370
+
+1 
+ 1000001
+
+P00248942
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+1
+
+6.0
+
+14.0
+
+15200
+
+2 
+ 1000001
+
+P00087842
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+12
+
+NaN
+
+NaN
+
+1422
+
+3 
+ 1000001
+
+P00085442
+
+F
+
+0-17
+
+10
+
+A
+
+2
+
+0
+
+12
+
+14.0
+
+NaN
+
+1057
+
+4 
+ 1000002
+
+P00285442
+
+M
+
+55+
+
+16
+
+C
+
+4+
+
+0
+
+8
+
+NaN
+
+NaN
+
+7969
+
+Because this data cointains the transactions, it is possible to have the same customer purchasing the different items at different times.We can check if the whole transactions are duplicated
+ duplicate_records = data [ data . duplicated ( keep = False )] 
+ duplicate_records . shape 
+
+(2, 12)
+
+data . shape 
+
+(550069, 12)
+
+As we can see we have two records that are duplicated. In this case we can drop the duplicate as follows
+
+df_cleaned = data . drop_duplicates ( keep = 'first' ) 
+
+We can then check the new dataseet to see if there are still duplicates in it
+
+df_cleaned . shape 
+
+(550068, 12)
+
+As we can see from the shape attributes results our rows have reduced by one. Not using the keep='first' attributes will delete all the records that are duplicated
+
+Ensuring consistency in the categorical variables naming 
+
+Lets check if our categorical column "City_Category" has consistent values. We can do this by checking the unique values in our column as follows
+
+data [ "City_Category" ] . unique () 
+
+array(['A', 'C', 'B', 'b'], dtype=object)
+
+From the results, we can see that the column has four unique values, with B and b which is a representation of the same thing. We can handle this by replacing the values that have "b" to "B" using the replace method as follows
+
+data [ 'City_Category' ] = data [ 'City_Category' ] . replace ( 'b' , 'B' ) 
+
+After replacing we can now check to see if our column has only three unique values as follows
+
+data [ 'City_Category' ] . unique () 
+
+array(['A', 'C', 'B'], dtype=object)
+
+Data integrity test 
+
+In addition to checking the consistency of the data, you can also check the integrity of the data by
+
+Indetifying missing data and handling it
+
+Detecting the outliers
+
+Ensurng that the numerical data fall into expected ranges. For example if the dataset cointains the records of students marks you do not expect the values for the marks to go beyond 100 and below 0
+
+In the earlier sections, we had talked about handling the missing values using the isna() function, dropna() and fillna() functions. In this section we are going to look at detecting outliers and ensuring consistent range in a dataset
+
+Detecting outliers
+
+Outliers are values in our dataset that do not lie at the normal range of the data. The most easy way to detect is to use a box plot. In this section we are using the student_performance dataset.
+
+import pandas as pd 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv" ) 
+ data . head () 
+
+Hours Studied 
+ Previous Scores 
+ Extracurricular Activities 
+ Sleep Hours 
+ Sample Question Papers Practiced 
+ Performance Index 
+
+0 
+ 7
+
+99
+
+Yes
+
+9
+
+1
+
+91
+
+1 
+ 4
+
+82
+
+No
+
+4
+
+2
+
+65
+
+2 
+ 8
+
+51
+
+Yes
+
+7
+
+2
+
+45
+
+3 
+ 5
+
+52
+
+Yes
+
+5
+
+2
+
+36
+
+4 
+ 7
+
+75
+
+No
+
+8
+
+5
+
+66
+
+Lets check if the Performance Index column has an outlier by plotting a boxplot of it
+
+import pandas as pd 
+ import seaborn as sns 
+ import matplotlib.pyplot as plt 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv" ) 
+ sns . boxplot ( x = data [ 'Performance Index' ]) 
+ plt . show () 
+
+From the boxplot, we can see we have two outliers on the right and one outlier on the left. We can remove the outliers by filtering our dataset. We can set the set the maximum value to be 100 and the minimum value to be 0
+
+import pandas as pd 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv" ) 
+ data_new = data . loc [( data [ 'Performance Index' ] <= 100 ) & ( data [ 'Performance Index' ] > 0 )] 
+ print ( "Original dataset shape" , data . shape ) 
+ print ( "Filtered dataset shape" , data_new . shape ) 
+
+Original dataset shape (10003, 6)
+ Filtered dataset shape (9999, 6)
+
+From the results we can see that our dataset has reduced by 4 elements 
+
+The other way of handling outliers is by replacing the outlier values with the a specified maximum or minimum
+
+import pandas as pd 
+ import seaborn as sns 
+ import matplotlib.pyplot as plt 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv" ) 
+ data . loc [ data [ 'Performance Index' ] > 100 ] = 100 
+ data . loc [ data [ 'Performance Index' ] < 0 ] = 0 
+ sns . boxplot ( x = data [ 'Performance Index' ]) 
+ plt . show () 
+
+By replacing the outliers, we can see from our boxplot the outliers have been removed
+
+Data Accuracy Checks
+
+Cross-Field Validation: 
+Cross validation ensures logical consistency between the variables in the dataset. For example, if you have a column of the birth date, it should be consistent with the age column. 
+
+import pandas as pd 
+ from datetime import datetime 
+
+# Sample DataFrame 
+ data = { 
+ 'Name' : [ 'Alice' , 'Bob' , 'Charlie' ], 
+ 'Birth Date' : [ '2000-01-01' , '1985-05-20' , '1990-12-15' ], 
+ 'Age' : [ 24 , 39 , 33 ] # Assuming current year is 2024 
+ } 
+
+df = pd . DataFrame ( data ) 
+
+# Convert 'Birth Date' to datetime 
+ df [ 'Birth Date' ] = pd . to_datetime ( df [ 'Birth Date' ]) 
+
+# Calculate current year and compare with 'Age' 
+ df [ 'Calculated Age' ] = datetime . now () . year - df [ 'Birth Date' ] . dt . year 
+
+# Check if 'Age' matches 'Calculated Age' 
+ df [ 'Age Matches' ] = df [ 'Age' ] == df [ 'Calculated Age' ] 
+
+print ( df ) 
+
+Name Birth Date Age Calculated Age Age Matches
+0 Alice 2000-01-01 24 24 True
+1 Bob 1985-05-20 39 39 True
+2 Charlie 1990-12-15 33 34 False
+
+Once you have noted the inconsistencies you can work on correcting them
+
+Logical Consistency: Logical consistency ensures that there is Valid logical relationships between variable (e.g., start date should be before end date).
+
+import pandas as pd 
+
+# Sample DataFrame 
+ data = { 
+ 'Task' : [ 'Task 1' , 'Task 2' , 'Task 3' , 'Task 4' ], 
+ 'Start Date' : [ '2024-01-10' , '2024-02-01' , '2024-03-15' , '2024-04-01' ], 
+ 'End Date' : [ '2024-01-15' , '2024-01-30' , '2024-03-10' , '2024-04-05' ] 
+ } 
+
+df = pd . DataFrame ( data ) 
+
+# Convert 'Start Date' and 'End Date' to datetime format 
+ df [ 'Start Date' ] = pd . to_datetime ( df [ 'Start Date' ]) 
+ df [ 'End Date' ] = pd . to_datetime ( df [ 'End Date' ]) 
+
+# Display the original DataFrame 
+ print ( "Original DataFrame:" ) 
+ print ( df ) 
+ # Validate that 'Start Date' is before 'End Date' 
+ df [ 'Valid Dates' ] = df [ 'Start Date' ] < df [ 'End Date' ] 
+
+# Display the DataFrame with the validation results 
+ print ( " \n DataFrame with Validation:" ) 
+ print ( df ) 
+ # Filter rows where 'Start Date' is not before 'End Date' 
+ inconsistent_dates = df [ df [ 'Valid Dates' ] == False ] 
+
+# Display tasks with inconsistent dates 
+ print ( " \n Tasks with Inconsistent Dates:" ) 
+ print ( inconsistent_dates ) 
+
+Original DataFrame:
+ Task Start Date End Date
+0 Task 1 2024-01-10 2024-01-15
+1 Task 2 2024-02-01 2024-01-30
+2 Task 3 2024-03-15 2024-03-10
+3 Task 4 2024-04-01 2024-04-05
+
+DataFrame with Validation:
+ Task Start Date End Date Valid Dates
+0 Task 1 2024-01-10 2024-01-15 True
+1 Task 2 2024-02-01 2024-01-30 False
+2 Task 3 2024-03-15 2024-03-10 False
+3 Task 4 2024-04-01 2024-04-05 True
+
+Tasks with Inconsistent Dates:
+ Task Start Date End Date Valid Dates
+1 Task 2 2024-02-01 2024-01-30 False
+2 Task 3 2024-03-15 2024-03-10 False
+
+Aggregation Consistency: Sum or aggregate data to ensure that totals match expected value
+
+Distribution Checks
+
+Summary Statistics: Compare summary statistics (mean, median, standard deviation) to expected values.
+
+Histograms/Boxplots: Visualize the distribution of variables to check for normality or unexpected patterns.
+
+Correlation Analysis: Check correlations between variables to identify unexpected relationships or collinearity.
+
+Sampling Bias Checks
+
+Sample Representativeness: Ensure that the sample data is representative of the population (e.g., no over-representation of a particular group).
+
+Stratification: Check that stratified samples are balanced and correctly distributed.
+
+Temporal Consistency Checks
+
+Time Series Gaps: Identify gaps or irregularities in time series data.
+
+Seasonality and Trends: Verify that any seasonal patterns or trends in the data align with expectations.
+
+Contextual Checks
+
+Domain Knowledge Validation: Cross-reference findings with domain expertise to ensure they make sense in the real-world context.
+
+Benchmarking: Compare your data against external benchmarks or industry standards where possible.
+
+Data Type Checks
+
+Correct Data Types: Ensure all variables are stored with the correct data type (e.g., dates as datetime objects, numeric data as integers/floats).
+
+Conversion Issues: Identify and correct any issues arising from data type conversions (e.g., converting a string to a numeric value).
+
+Use the generated data below and do the following tasks
+1. Check for missing values in the dataset.
+2. Verify that the Price column contains only positive values.
+3. Ensure that the Quantity column contains only non-negative integers.
+
+import pandas as pd
+
+# Generated dataset
+data = {
+ 'Product ID': [101, 102, 103, 104, 105],
+ 'Product Name': ['Widget A', 'Widget B', 'Gadget C', 'Gizmo D', 'Tool E'],
+ 'Price': [19.99, 29.99, -15.00, 25.50, None], # One negative value and one missing value
+ 'Quantity': [10, 5, 0, -3, 7] # One negative quantity
+}
+
+df = pd.DataFrame(data) 
+
+/>

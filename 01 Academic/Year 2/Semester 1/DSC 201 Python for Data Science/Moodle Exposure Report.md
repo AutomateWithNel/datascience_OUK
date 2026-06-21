@@ -2,14 +2,21 @@
 type: moodle-exposure-report
 course_code: DSC 201
 course_title: Python for Data Science
-checked: 2026-06-19
+checked: 2026-06-21
 source: Moodle API
 ---
 
 # Moodle Exposure Report
 
 ## Current Scope
-Modules 1 to 5 are currently open/exposed and should be used for the active DSC 201 workflow.
+Modules 1 to 10 are open/exposed and have been processed into the vault.
+
+## Completion Summary
+- Module notes exist as direct files in `02 Notes`.
+- Source materials are stored directly in `01 Source Materials` and listed in one course-level source index.
+- Module quiz answer sheets and practical work are stored in `03 Assignments`.
+- All DSC 201 module quizzes are complete as of the 2026-06-21 Moodle status check.
+- The final examination quiz is visible but is not part of the normal module-note workflow.
 
 ## Course Home Page
 - Explore the Learning on SOMAS Tutorial (optional) - page
@@ -111,12 +118,110 @@ Local processing status:
 - Moodle learning resource imported into `01 Source Materials`.
 - Module note created in `02 Notes`.
 
+## Module 6: Visualization and Plotting
+Status: open
+
+Exposed activities:
+- Watch and Discover - URL
+- Visualization ad plotting - resource
+- Recording-VIsualization - URL
+- Module 6: Practical task - VPL
+- Join the Conversation - forum
+- Module 6: End of module assessment - quiz
+- Reflect on Your Journey - journal
+
+Quiz details exposed:
+- Module 6: End of module assessment: 2 attempts, grade 10, sumgrades 10
+
+Local processing status:
+- Moodle learning resource imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+- Quiz answer sheet created in `03 Assignments`.
+- Practical task draft created in `03 Assignments`.
+
+## Module 7: Aggregation and Group Operations
+Status: open
+
+Exposed activities:
+- Watch and Discover - URL
+- Module 7 Notes - resource
+- Class file - resource
+- Practical Task - VPL
+- Join the Conversation - forum
+- Module 7_End of module assessment - quiz
+- Reflect on Your Journey - journal
+
+Quiz details exposed:
+- Module 7_End of module assessment: 1 attempt, grade 15, sumgrades 15
+
+Local processing status:
+- Moodle learning resource and class files imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+- Quiz answer sheet created in `03 Assignments`.
+- Practical task prompt added to `03 Assignments` from user-provided Moodle text; VPL instructions are not exposed through the available REST API.
+
+## Module 8: Exploratory Data Analysis (Deep Dive)
+Status: open
+
+Exposed activities:
+- Watch and Discover - URL
+- Module 8: Notes - resource
+- Join the Conversation - forum
+- Module 8:Test Your Knowledge - quiz
+- Reflect on Your Journey - journal
+- Module 8 Notes - resource
+
+Quiz details exposed:
+- Module 8:Test Your Knowledge: 1 attempt, grade 5, sumgrades 5
+
+Local processing status:
+- Moodle learning resource imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+- Quiz answer sheet created in `03 Assignments`.
+- No practical task activity is exposed for this module.
+
+## Module 9: Handling Time Series Data
+Status: open
+
+Exposed activities:
+- Class notes - resource
+- Recordings- Time Series - URL
+- Sampling - URL
+- Join the Conversation - forum
+- Reflect on Your Journey - journal
+- Module 9: Test Your Knowledge - quiz
+
+Quiz details exposed:
+- Module 9: Test Your Knowledge: unlimited attempts in metadata, grade 10, sumgrades 10
+
+Local processing status:
+- Moodle learning resource imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+- Quiz answer sheet created in `03 Assignments`.
+- No practical task activity is exposed for this module.
+
+## Module 10: Introduction to modelling libraries in python
+Status: open
+
+Exposed activities:
+- Introduction to modelling libraries in python - URL
+- Recordings-Introduction to Modelling Libraries - URL
+- Introduction to scikit learn - URL
+- Join the Conversation - forum
+- Reflect on Your Journey - journal
+- Test Your Knowledge - quiz
+
+Quiz details exposed:
+- Test Your Knowledge: 1 attempt, grade 10
+
+Local processing status:
+- Moodle module overview imported into `01 Source Materials`.
+- Module note created in `02 Notes`.
+- Quiz answer sheet created in `03 Assignments` after reading the existing attempt before completion.
+- No practical task activity is exposed for this module.
+
 ## Later Sections
-- Module 6: Visualization and Plotting - visible but no activities exposed
-- Module 7: Aggregation and Group Operations - visible but no activities exposed
-- Module 8: Exploratory Data Analysis (Deep Dive) - visible but no activities exposed
-- Module 9: Handling Time Series Data - visible but no activities exposed
-- Module 10: Introduction to modelling libraries in python - visible but no activities exposed
+All Moodle module sections 1 to 10 are now visible and have been checked.
 
 ## Final Examinations
 - Course/Lecturer Evaluation - questionnaire

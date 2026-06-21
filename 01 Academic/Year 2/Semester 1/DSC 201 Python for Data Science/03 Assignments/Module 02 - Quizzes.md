@@ -12,24 +12,8 @@ tags:
 
 # Module 02 - Quizzes
 
-## Availability Summary
-
-| Module | Quiz | Moodle state | Questions read | Action |
-| --- | --- | --- | --- | --- |
-| Module 1 | Comprehension Quiz | finished | 0 | Review blocked by Moodle |
-| Module 1 | Module 1 Practical Task | finished | 1 | Review readable |
-| Module 1 | Test Your Knowledge | finished | 1 | Review readable |
-| Module 2 | Module 2 Mastery quiz | in progress | 5 | Questions and answers below |
-| Module 2 | Module 2: Practical task | in progress | 4 | Questions and answers below |
-| Module 2 | Module 2_end quiz | in progress | 7 | Questions and answers below |
-| Module 3 | Module 3 Mastery quiz | in progress | 8 | Questions and answers below |
-| Module 4 | Module 4 Mastery quiz | in progress | 5 | Questions and answers below |
-| Module 5 | Module 5:Test Your Knowledge | in progress | 8 | Questions and answers below |
-
----
-
 ## Module 2 Mastery Quiz
-*Note: Read from in-progress attempt.*
+*Note: Read from existing attempt before completion.*
 
 ### Question 1
 **How do you select the `name` and `age` columns from a DataFrame `df`? Select all that apply.**
@@ -79,7 +63,7 @@ df[df["age"] > 30]
 ---
 
 ## Module 2 Practical Task
-*Note: Read from in-progress attempt. Use this setup if the quiz requires a CSV file path:*
+*Note: Read from existing attempt before completion. Use this setup if the quiz requires a CSV file path:*
 
 ```python
 import pandas as pd
@@ -175,7 +159,7 @@ Name: GRE Score, dtype: int64
 ---
 
 ## Module 2 End Quiz
-*Note: Read from in-progress attempt.*
+*Note: Read from existing attempt before completion.*
 
 ### Question 1
 **Which command creates a Pandas Series from a list `[1, 2, 3, 4]`?**

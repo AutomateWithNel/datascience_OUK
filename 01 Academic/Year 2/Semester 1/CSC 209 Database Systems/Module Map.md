@@ -13,32 +13,35 @@ created: 2026-05-01
 
 | Module | Topic | Source status | Notes |
 | --- | --- | --- | --- |
-| 1 | Introduction to Database Systems and the Database Environment | Present | Introductory PDF copied |
-| 2 | Relational and Non-Relational Models | Partial | Relational sources present, non-relational source missing |
-| 3 | Entity Relation Models | Present | ER modeling PDF copied |
-| 4 | Physical Database Design | Present | Physical design and normalization sources copied |
-| 5 | Structured Query Language (SQL) | Partial | Covered indirectly by database programming notes and relational language material |
-| 6 | Relational Algebra in SQL, Query Planning | Partial | SQL and relational algebra source present, query planning source missing |
-| 7 | Database Programming | Present | Notes, exercises, and setup guide copied |
-| 8 | Database Transactions and States of Transactions | Present | Transactions PDF copied |
-| 9 | Introduction to Data Warehousing and Business Intelligence | Present | BI PDF copied |
-| 10 | Query Optimization | Partial | Covered indirectly by relational algebra/query planning and physical design material |
-| 11 | Distributed Databases | Missing direct source | No dedicated file yet |
+| 1 | Introduction to Database Systems and the Database Environment | Present | Moodle resource and local note present |
+| 2 | Relational and Non-Relational Models | Present | Moodle resource and local note present |
+| 3 | Entity Relation Models | Present | Local source/note present; Moodle page activities visible |
+| 4 | Physical Database Design | Present | Local source/note present; Moodle page activities visible |
+| 5 | Structured Query Language (SQL) | Present via related source | Local note present; source covered through relational language and database programming materials |
+| 6 | Relational Algebra in SQL, Query Planning | Present | Local source/note present; Moodle HVP activity visible |
+| 7 | Database Programming | Present | Local source/note present; Moodle page activities visible |
+| 8 | Database Transactions and States of Transactions | Present | Local source/note present; Moodle HVP/activity visible |
+| 9 | Introduction to Data Warehousing and Business Intelligence | Present | Local source/note present; Moodle quiz/case study visible |
+| 10 | Query Optimization | Present via related source | Local note present; reference chapters and case study present |
+| 11 | Distributed Databases | Notes present | Moodle page/HVP activities visible; no direct downloadable resource exposed |
 
-## Source Folders
-- [[01 Source Materials/Module 01 - Introduction to Database Systems]]
-- [[01 Source Materials/Module 02 - Relational and Non-Relational Models]]
-- [[01 Source Materials/Module 03 - Entity Relation Models]]
-- [[01 Source Materials/Module 04 - Physical Database Design]]
-- [[01 Source Materials/Module 05 - Structured Query Language]]
-- [[01 Source Materials/Module 06 - Relational Algebra and Query Planning]]
-- [[01 Source Materials/Module 07 - Database Programming]]
-- [[01 Source Materials/Module 08 - Database Transactions]]
-- [[01 Source Materials/Module 09 - Data Warehousing and Business Intelligence]]
-- [[01 Source Materials/Module 10 - Query Optimization]]
-- [[01 Source Materials/Module 11 - Distributed Databases]]
+## Moodle Quiz Coverage
 
-## Note Folders
+- [[03 Assignments/Quiz Status]]
+- [[03 Assignments/Module 01 - Quizzes]]
+- [[03 Assignments/Module 02 - Quizzes]]
+- [[03 Assignments/Module 03 - Quizzes]]
+- [[03 Assignments/Module 04 - Quizzes]]
+- [[03 Assignments/Module 05 - Quizzes]]
+- [[03 Assignments/Module 06 - Quizzes]]
+- [[03 Assignments/Module 07 - Quizzes]]
+- [[03 Assignments/Module 09 - Quizzes]]
+- [[03 Assignments/Module 11 - Quizzes]]
+
+## Sources
+- [[01 Source Materials/Source Materials Index]]
+
+## Notes
 - [[02 Notes/Module 01 - Introduction to Database Systems]]
 - [[02 Notes/Module 02 - Relational and Non-Relational Models]]
 - [[02 Notes/Module 03 - Entity Relation Models]]
@@ -50,3 +53,6 @@ created: 2026-05-01
 - [[02 Notes/Module 09 - Data Warehousing and Business Intelligence]]
 - [[02 Notes/Module 10 - Query Optimization]]
 - [[02 Notes/Module 11 - Distributed Databases]]
+
+## Assignments
+- [[03 Assignments/Assignments Index]]

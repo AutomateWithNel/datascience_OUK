@@ -12,24 +12,8 @@ tags:
 
 # Module 03 - Quizzes
 
-## Availability Summary
-
-| Module | Quiz | Moodle state | Questions read | Action |
-| --- | --- | --- | --- | --- |
-| Module 1 | Comprehension Quiz | finished | 0 | Review blocked by Moodle |
-| Module 1 | Module 1 Practical Task | finished | 1 | Review readable |
-| Module 1 | Test Your Knowledge | finished | 1 | Review readable |
-| Module 2 | Module 2 Mastery quiz | in progress | 5 | Questions and answers below |
-| Module 2 | Module 2: Practical task | in progress | 4 | Questions and answers below |
-| Module 2 | Module 2_end quiz | in progress | 7 | Questions and answers below |
-| Module 3 | Module 3 Mastery quiz | in progress | 8 | Questions and answers below |
-| Module 4 | Module 4 Mastery quiz | in progress | 5 | Questions and answers below |
-| Module 5 | Module 5:Test Your Knowledge | in progress | 8 | Questions and answers below |
-
----
-
 ## Module 3 Mastery Quiz
-*Note: Read from in-progress attempt.*
+*Note: Read from existing attempt before completion.*
 
 ### Question 1
 **______________ is a function used to read a Json file into a Pandas DataFrame?**

@@ -1,0 +1,392 @@
+Module 7 | Aggregation ad group operations 
+
+Run code 
+
+/>
+
+Test Yourself
+
+Complete 
+ Incomplete 
+
+Score:
+
+Skip to content 
+
+Reset to defaults 
+
+Accessibility statement 
+
+Close
+
+Text size
+
+100% 
+
+Spacing
+
+100% 
+
+Text font
+
+Sans-serif 
+ Serif 
+ Atkinson Hyperlegible 
+ Comic Sans 
+
+Colour scheme
+
+Automatic (default) 
+ Black text on white 
+ White text on black 
+ Custom 
+
+Text colour
+
+Link colour
+
+Background colour
+
+Muted background colour
+
+Accent colour 1
+
+Accent colour 2
+
+Accent colour 3
+
+Accent colour 4
+
+Sepia filter
+
+0% 
+
+Rotate hues
+
+0 turns 
+
+Invert images in dark mode
+
+Aggregation ad group operations 
+
+Module 7
+
+Download as PDF 
+
+Table of Contents
+
+Jump to content 
+
+Module 7: Aggregation and group operations 
+
+Aggregation and group operations 
+
+Module 7: Aggregation and group operations
+
+This module focuses on aggregation and group operations, fundamental techniques for summarizing and analyzing data in Python. you will be able to learn about the mechanics of group-by operations, including data aggregation, applying multiple functions, and returning aggregated data. Additionally,you will learn the concept of general split-apply-combine methodology and explore advanced techniques such as pivot tables and cross-tabulation for data analysis and visualization.
+
+Learning outcomes 
+
+Recognize the mechanics of the group-by operation and the concept of data aggregation.
+
+Discuss the process of applying multiple aggregation functions to perform column-wise data aggregation
+
+Apply the split-apply-combine methodology to analyze and process data effectively.
+
+Interpret the results of pivot tables and cross-tabulations to derive meaningful insights from data.
+
+Aggregation and group operations
+
+Aggregation and grouping are important techniques that can be used for summarizing, transforming and filtering datasets. Aggregation and grouping make it possible to have efficient analysis for large datasets by grouping data based on a certain creteria. This operations usually helpful for reporting and data visualization.
+
+Pandas provides various ways that can enable you to create slices, dices summaries of a dataset in a very natural way.
+
+Groupby mechanics 
+
+Group operations follow the split-apply-combine process as coined by Hadly wickman. In the first process the data cointained in pandas object either dataframe or series is split into different groups based on the different keys that you will provide.Then a function is applied to the groups after which the results are combined to the original datarame.
+
+We are going to demonstrate this concepts in the examples below 
+
+import pandas as pd 
+ data = pd . read_csv ( "IRIS.csv" ) 
+ data . head ( 2 ) 
+
+sepal_length 
+ sepal_width 
+ petal_length 
+ petal_width 
+ species 
+
+0 
+ 5.1 
+ 3.5 
+ 1.4 
+ 0.2 
+ Iris-setosa 
+
+1 
+ 4.9 
+ 3.0 
+ 1.4 
+ 0.2 
+ Iris-setosa 
+
+data . shape 
+
+(150, 5)
+
+lets say you wanted to know the average sepel_legth for the various species
+
+grouped = data . groupby ( "species" ) 
+ grouped . mean () 
+
+sepal_length 
+ sepal_width 
+ petal_length 
+ petal_width 
+
+species 
+
+Iris-setosa 
+ 5.006 
+ 3.418 
+ 1.464 
+ 0.244 
+
+Iris-versicolor 
+ 5.936 
+ 2.770 
+ 4.260 
+ 1.326 
+
+Iris-virginica 
+ 6.588 
+ 2.974 
+ 5.552 
+ 2.026 
+
+As we can see we have applied the mean method to the grouped data. You are now able to see the avarage sepal legth, sepel width, petal legth and petel width for the various species.
+
+You can also groupby two columns. For example in the following dataset NBA dataset if we want to get the avarage age of people who playin a specific position.We can groupby both the team and the position and calculate the age of those positions as follows.
+
+import pandas as pd 
+ data = pd . read_csv ( "C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/nba.csv" ) 
+ data . head () 
+
+Name 
+ Team 
+ Number 
+ Position 
+ Age 
+ Height 
+ Weight 
+ College 
+ Salary 
+
+0 
+ Avery Bradley 
+ Boston Celtics 
+ 0.0 
+ PG 
+ 25.0 
+ 6-2 
+ 180.0 
+ Texas 
+ 7730337.0 
+
+1 
+ Jae Crowder 
+ Boston Celtics 
+ 99.0 
+ SF 
+ 25.0 
+ 6-6 
+ 235.0 
+ Marquette 
+ 6796117.0 
+
+2 
+ John Holland 
+ Boston Celtics 
+ 30.0 
+ SG 
+ 27.0 
+ 6-5 
+ 205.0 
+ Boston University 
+ NaN 
+
+3 
+ R.J. Hunter 
+ Boston Celtics 
+ 28.0 
+ SG 
+ 22.0 
+ 6-5 
+ 185.0 
+ Georgia State 
+ 1148640.0 
+
+4 
+ Jonas Jerebko 
+ Boston Celtics 
+ 8.0 
+ PF 
+ 29.0 
+ 6-10 
+ 231.0 
+ NaN 
+ 5000000.0 
+
+data_two = data . groupby ([ "Team" , "Position" ]) 
+
+data_two 
+
+Aggregation : Aggregation involves the process of computing/ calculating summary statistics for a given set of values
+
+Without the aggeregate functions, the groupby() function does not provide any output. The groupby() function works with the aggregation functions. The aggregation functions do culculations on the grouped dataset providing more insights into the data and helps in understading the data better.
+
+The following are some of the predifined aggregate functions that you can use 
+
+count(): Counts the number of non-NA values in the group
+sum(): Sum of non-NA values
+mean: Calculates the Mean of non-NA values
+median: Gets the arithmetic median of non-NA values
+std: Calculates the var Unbiased (n – 1 denominator) standard deviation and variance
+min, max: Gets the Minimum and maximum of non-NA values
+prod: Calculates the product of non-NA values
+first, last: Gets the First and last non-NA values
+
+To aggregate the data using the descrptive statistics we can use the aggregate fuction agg() with the desired function such as the "mean" and "std". We can use the grouped object we created in the previous section called data_two to demonstrate this as follows
+
+grouped1 = data_two [ "Weight" ] 
+ grouped1 . agg ( "mean" ) 
+
+Team Position
+Atlanta Hawks C 250.00
+ PF 239.50
+ PG 179.00
+ SF 210.50
+ SG 208.00
+ ... 
+Washington Wizards C 244.00
+ PF 247.50
+ PG 192.50
+ SF 208.25
+ SG 210.00
+Name: Weight, Length: 149, dtype: float64
+
+You can also pass alist of functions to your grouped objects. Doing this will create extra columns with the names of the functions applied.
+
+Example 
+
+Lets get the mean, std, min, max and the count of all the teams per position
+
+grouped1 . agg ([ "mean" , "std" , "min" , "max" , "count" ]) 
+
+mean 
+ std 
+ min 
+ max 
+ count 
+
+Team 
+ Position 
+
+Atlanta Hawks 
+ C 
+ 250.00 
+ 8.660254 
+ 245.0 
+ 260.0 
+ 3 
+
+PF 
+ 239.50 
+ 4.795832 
+ 235.0 
+ 246.0 
+ 4 
+
+PG 
+ 179.00 
+ 9.899495 
+ 172.0 
+ 186.0 
+ 2 
+
+SF 
+ 210.50 
+ 13.435029 
+ 201.0 
+ 220.0 
+ 2 
+
+SG 
+ 208.00 
+ 14.583095 
+ 190.0 
+ 225.0 
+ 4 
+
+... 
+ ... 
+ ... 
+ ... 
+ ... 
+ ... 
+ ... 
+
+Washington Wizards 
+ C 
+ 244.00 
+ 5.291503 
+ 240.0 
+ 250.0 
+ 3 
+
+PF 
+ 247.50 
+ 3.535534 
+ 245.0 
+ 250.0 
+ 2 
+
+PG 
+ 192.50 
+ 3.535534 
+ 190.0 
+ 195.0 
+ 2 
+
+SF 
+ 208.25 
+ 11.644026 
+ 198.0 
+ 225.0 
+ 4 
+
+SG 
+ 210.00 
+ 11.518102 
+ 195.0 
+ 220.0 
+ 4 
+
+149 rows × 5 columns
+
+Removing the indexing 
+
+In pandas dataframe, each row is usually assigned an index for indefification purposes. Sometimes, you might want to remove this indexes or change the indexing especially if you are doing data cleaning and preprocessing. 
+
+In pandas an index is a lebel that indetifies each row in a dataframe o a series. When loading your data, if you do not specify the index range pandas assigns a range of index starting from 0 to the total count of the rows in the dataframe -1. You can create you own custom index such as the date, names and so on.
+
+Resetting an index in pandas 
+
+In some instances when you have done some filtering or modification on your dataframe, there might be some issues such as gaps or jumbling up of the indexes in such cases, you will need to reset the index. Pandas provides a function called reset_index() that will enable you to reset the index of the dataframe.
+
+The syntax for reseting the dataframe is as follows
+
+DataFrame.reset_index(drop=False, inplace=False)
+
+/>

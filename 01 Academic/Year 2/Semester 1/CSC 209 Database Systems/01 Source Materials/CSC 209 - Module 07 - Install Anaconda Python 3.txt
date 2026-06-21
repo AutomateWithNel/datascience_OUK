@@ -1,0 +1,13 @@
+--- PAGE 1 ---
+Install the Anaconda Distribution of Python 3.12 
+available at 
+https://www.anaconda.com/download
+. 
+It comes pre
+-
+installed with most of the libraries 
+necessary for Python. Use Jupyter
+ 
+Notebooks for 
+coding and lab assignments.
+

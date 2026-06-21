@@ -1,0 +1,577 @@
+Module 6 | Data Visualization
+Run code
+/>
+Test Yourself
+Complete
+Incomplete
+Score:
+Skip to content
+Reset to defaults
+Accessibility statement
+Close
+Text size
+100%
+Spacing
+100%
+Text font
+Sans-serif
+Serif
+Atkinson Hyperlegible
+Comic Sans
+Colour scheme
+Automatic (default)
+Black text on white
+White text on black
+Custom
+Text colour
+Link colour
+Background colour
+Muted background colour
+Accent colour 1
+Accent colour 2
+Accent colour 3
+Accent colour 4
+Sepia filter
+0%
+Rotate hues
+0 turns
+Invert images in dark mode
+Data Visualization
+Module 6
+Download as PDF
+Table of Contents
+Jump to content
+Module 6: Visualisation and plotting
+Visualization and plotting
+Plotly
+Module 6: Visualisation and plotting
+In this module you will get a comprehensive overview of visualization and plotting techniques using Python libraries such as Matplotlib, Seaborn, and Plotly. You will learn how to create a wide range of plots and visualizations to effectively explore and communicate data insights.
+Leaning outcomes
+Indetify the types of basic plots and visualizations that can be created using Matplotlib, Seaborn, and Plotly
+Explain the purpose and significance of different visualization techniques in data analysis and interpretation
+Apply visualization techniques using Matplotlib, Seaborn, and Plotly to create plots and visualizations from given datasets
+Interpret visualizations to draw meaningful conclusions and insights from data.
+Visualization and plotting
+Visualization helps us understand our data better using graphs and plots. Visualization can be defined as the art of graphically representing data. In this section you will be introduced to visualization libraries available in python.
+Matplotlib
+Matplotlib is low level visualization library in python that it is based on numpy array that you were introduced to in module 1. There are very many plots that you can create using the metplotlib library such as line graph, bar graph and so on. To start using the matplotlib library, you will need to install it as follows
+pip install matplotlib
+Figure
+Matplotlib uses the figure to create the plot graphs. This is the whole space in which the whole plot will be drawn. To create a figure, we will start by importing the matplotlib library and then use the figure method to create the figure as follows
+import
+matplotlib.pyplot
+as
+plt
+fig
+=
+plt
+.
+figure
+(
+facecolor
+=
+"red"
+,
+figsize
+=
+(
+20
+,
+10
+))
+The figure plot is an object that cointains one or more plots. If we look at the import statement, you realise that there is a sub module we are improting called pyplot. Most of the functionalities of matplotlib are implemented in the pyplot submodule that is why we are importing it.
+We can set some parameters for the figure object such as.
+figsize
+: It usually a tupple of width and height
+edgecolor
+facecolor
+lineplot
+: To create a line plot, we will use the plot() function. To demostrate this we will use the we will create a simple dataset of temperature in various months
+import
+pandas
+as
+pd
+months
+=
+[
+'January'
+,
+'February'
+,
+'March'
+,
+'April'
+,
+'May'
+,
+'June'
+,
+'July'
+,
+'August'
+,
+'September'
+,
+'October'
+,
+'November'
+,
+'December'
+]
+temperatures
+=
+[
+0
+,
+2
+,
+5
+,
+9
+,
+14
+,
+18
+,
+22
+,
+21
+,
+17
+,
+11
+,
+5
+,
+1
+]
+We can put a title to the figure using the title(), the y axis label using ylabel() and the x axis using the xlabel
+fig
+=
+plt
+.
+figure
+(
+figsize
+=
+(
+15
+,
+10
+))
+plt
+.
+plot
+(
+months
+,
+temperatures
+)
+plt
+.
+title
+(
+"Months vs Temperature"
+)
+plt
+.
+ylabel
+(
+"Temperature"
+)
+plt
+.
+xlabel
+(
+"Months"
+)
+Text(0.5, 0, 'Months')
+Bar graph
+: To create a bar graph, we will use the bar() method
+import
+matplotlib.pyplot
+as
+plt
+# Example dataset
+months
+=
+[
+'January'
+,
+'February'
+,
+'March'
+,
+'April'
+,
+'May'
+,
+'June'
+,
+'July'
+,
+'August'
+,
+'September'
+,
+'October'
+,
+'November'
+,
+'December'
+]
+temperatures
+=
+[
+0
+,
+2
+,
+5
+,
+9
+,
+14
+,
+18
+,
+22
+,
+21
+,
+17
+,
+11
+,
+5
+,
+1
+]
+# Create a figure and axis
+fig
+,
+ax
+=
+plt
+.
+subplots
+(
+figsize
+=
+(
+10
+,
+6
+),
+dpi
+=
+100
+)
+# Create a bar graph
+ax
+.
+bar
+(
+months
+,
+temperatures
+,
+color
+=
+'skyblue'
+)
+# Add titles and labels
+ax
+.
+set_title
+(
+'Average Monthly Temperature'
+)
+ax
+.
+set_xlabel
+(
+'Month'
+)
+ax
+.
+set_ylabel
+(
+'Temperature (°C)'
+)
+# Rotate month labels on x-axis to 90 degrees for better readability
+plt
+.
+xticks
+(
+rotation
+=
+90
+)
+# Display the bar graph
+plt
+.
+show
+()
+Boxplot
+A box plot (or box-and-whisker plot) is a way of displaying the distribution of data based on a descriptive statistics such as the minimum, first quartile (Q1), median, third quartile (Q3), and maximum. Box plots are usually used to identify outliers and show overall distribution and spread of the data.
+The syntax for the boxplot is
+matplotlib.pyplot.boxplot(x, notch=None, sym=None, vert=None, whis=None, positions=None, widths=None, patch_artist=None, bootstrap=None, usermedians=None, conf_intervals=None, meanline=None, showmeans=None, showcaps=None, showbox=None, showfliers=None, boxprops=None, tick_labels=None, flierprops=None, medianprops=None, meanprops=None, capprops=None, whiskerprops=None, manage_ticks=True, autorange=False, zorder=None, capwidths=None, label=None, *, data=None)[source]
+Example
+#Reading the dataset
+import
+pandas
+as
+pd
+data
+=
+pd
+.
+read_csv
+(
+"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/IRIS.csv"
+)
+data
+.
+head
+(
+2
+)
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
+0
+5.1
+3.5
+1.4
+0.2
+Iris-setosa
+1
+4.9
+3.0
+1.4
+0.2
+Iris-setosa
+data_box
+=
+data
+[[
+"species"
+,
+"sepal_length"
+]]
+data_box
+.
+boxplot
+()
+We can enhance the plot further by including parameters into the boxplot function such as
+patch_artist
+: , the boxes, whiskers, medians, caps, and fliers become "patches"
+notch
+#Boxplot with the patch_artist true
+data_box
+=
+data
+[[
+"species"
+,
+"sepal_length"
+]]
+data_box
+.
+boxplot
+(
+patch_artist
+=
+True
+)
+#Boxplot with the patch_artist true and notch true
+data_box
+=
+data
+[[
+"species"
+,
+"sepal_length"
+]]
+data_box
+.
+boxplot
+(
+patch_artist
+=
+True
+,
+notch
+=
+True
+)
+Violine plot
+: Violine plot indicate the data distibution for more than one group by making use of density plots. The syntax for creating a violine plot in matplotlib is as follow
+matplotlib.pyplot.violinplot(dataset, positions=None, vert=True, widths=0.5, showmeans=False, showextrema=True, showmedians=False, quantiles=None, points=100, bw_method=None, side='both', *, data=None)
+Violine plot is used for
+showing the shape of the data distribution, including the probability density, which helps in understanding the spread and concentration of the data.
+Symmetry and Skewness: They make it easy to see if the data is symmetrical or skewed, and if there are any multimodal distributions (i.e., distributions with multiple peaks).
+Displaying ranges and outliers in the data
+Example
+normal
+=
+np
+.
+random
+.
+normal
+(
+size
+=
+100
+)
+*
+30
+plt
+.
+violinplot
+(
+data
+[
+"sepal_length"
+])
+{'bodies': [
+],
+'cmaxes':
+,
+'cmins':
+,
+'cbars':
+}
+FURTHER READING
+https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.violinplot.html
+Seaborn
+Seaborn is a statistical library that is based on matplotlib and it integreates very easily with the pandas library. Seaborn provides the functionality of creating the various plots. It provides a high-level interface for drawing attractive and informative statistical graphics. It is well-suited for visualizing complex datasets and statistical relationships.
+Seaborn features
+It provides a simpler and more intuitive interface for creating plots.
+It provide easy handling of data structures like DataFrames.
+It provides default themes and color palettes that are aesthetically pleasing and informative.
+It enables the creation of complex visualizations with minimal code.
+To use seaborn we have to install it using
+pip install seaborn
+Then we will then
+import
+seaborn
+as
+sns
+import
+matplotlib.pyplot
+as
+plt
+import
+pandas
+as
+pd
+import
+numpy
+as
+np
+Seaborn comes with some existing dataset, we are going to be using those datasets to demonstrate the functionalities in seaborn
+# Load a built-in dataset
+tips
+=
+sns
+.
+load_dataset
+(
+'tips'
+)
+print
+(
+tips
+.
+head
+())
+total_bill tip sex smoker day time size
+0 16.99 1.01 Female No Sun Dinner 2
+1 10.34 1.66 Male No Sun Dinner 3
+2 21.01 3.50 Male No Sun Dinner 3
+3 23.68 3.31 Male No Sun Dinner 2
+4 24.59 3.61 Female No Sun Dinner 4
+Scatter Plot
+A scatter plot shows the relationship between two continuous variables. As you can recall continous variables
+PLOTILY
+Plotly
+Plotly is an open source interactive ploting library that covers a wide range of of charts for statistics, finance, 3d and many others.
+To install Plotly use
+pip install plotly==5.21.0
+Let us explore how to use plotly with a flower dataset
+# First lets import the libraries pandas and plotly
+import
+pandas
+as
+pd
+import
+plotly.express
+as
+px
+We can now use plotily to draw a scatter plot. A scatter plot shows relationship between variables
+fig
+=
+px
+.
+scatter
+(
+data
+,
+x
+=
+"sepal_width"
+,
+y
+=
+"sepal_length"
+,
+color
+=
+"species"
+)
+fig
+.
+show
+()
+We can also do a box plot to see if we have outliers in our sepal_width. An outlier is a datapoint that does not fit within the normal range of values, it deviates from the other data points in the dataset.
+px
+.
+box
+(
+data
+,
+y
+=
+"sepal_width"
+)
+We can also create a line graph to check if there is a relationship between the petel width and the legth
+px
+.
+line
+(
+data
+,
+x
+=
+"petal_width"
+,
+y
+=
+"petal_length"
+,
+color
+=
+"species"
+,
+title
+=
+"Petel legth vs petel width"
+)
+FURTHER EADING ACIVITY
+https://plotly.com/python/
+/>

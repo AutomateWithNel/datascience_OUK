@@ -9,8 +9,8 @@ created: 2026-05-01
 This vault stores academic source materials and study notes with the rule that course files are the first reference point before outside knowledge.
 
 ## Main Areas
+- [[AI Rules|AI Rules - read first]]
 - [[Study Dashboard]]
-- [[AI Rules]]
 - [[Naming Rules]]
 - [[Moodle Workflow]]
 - [[../01 Academic/Year 1/Year 1 Index|Year 1 Index]]
@@ -27,5 +27,6 @@ This vault stores academic source materials and study notes with the rule that c
 For each course:
 1. Keep original PDFs, slides, and documents in `01 Source Materials`.
 2. Write your understanding in `02 Notes`.
-3. Track submissions in `03 Assignments`.
-4. Build exam prep in `04 Revision`.
+3. Track quizzes, practical tasks, submissions, and exam prep in `03 Assignments`.
+
+Any AI working in this vault should start with [[AI Rules]] before touching files.

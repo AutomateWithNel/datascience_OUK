@@ -27,15 +27,15 @@ tags:
 - [[01 Source Materials/Source Materials Index]]
 - [[02 Notes/Notes Index]]
 - [[03 Assignments/Assignments Index]]
-- [[04 Revision/Revision Index]]
-- [[05 Case Studies/Case Studies Index]]
 - [[Module Map]]
+- [[Moodle Exposure Report]]
+- [[Moodle Sync Workflow]]
 
 ## Current Workflow
-1. Put official lecture files into `01 Source Materials`.
-2. Create one note per lecture, topic, or module inside `02 Notes`.
-3. Summarize queries, normalization, ER modeling, and transactions as separate notes.
-4. Keep assignment prompts and your final submissions linked from `03 Assignments`.
+1. Keep raw/reference files in `01 Source Materials`.
+2. Keep clean study notes in `02 Notes`.
+3. Keep quizzes, practicals, case studies, exam prep, and submissions in `03 Assignments`.
+4. Use root files for course navigation and Moodle/course tracking only.
 
 ## Expected Topics
 - Relational model
@@ -46,5 +46,9 @@ tags:
 - Transactions
 - Database design
 
-## Next Step
-Move the database course files here first, then we can classify them and create the first note set.
+## Current Status
+- Moodle course ID: `49`
+- Notes are organized as direct module files in `02 Notes`.
+- Source materials are organized as direct files in `01 Source Materials`.
+- Quizzes and case studies are organized in `03 Assignments`.
+- Case study details, reports/submissions, and reviews are kept together under `03 Assignments/Case Studies`.

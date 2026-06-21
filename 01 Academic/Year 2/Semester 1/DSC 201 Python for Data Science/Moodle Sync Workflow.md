@@ -10,9 +10,17 @@ created: 2026-06-19
 Use this course-specific workflow together with [[../../../../00 Home/Moodle Workflow]].
 
 ## Current Scope
-- Active open modules: 1, 2, 3, 4, and 5.
-- Do not treat Modules 6 to 10 as active until Moodle exposes files or activities inside them.
+- Modules 1 to 10 were open/exposed and processed.
+- All DSC 201 module quizzes are complete as of the 2026-06-21 Moodle status check.
 - Do not use the final examination quiz in normal module-note work.
+
+## Course Folder Design
+- Keep source files directly in `01 Source Materials`.
+- Keep one course-level source index at [[01 Source Materials/Source Materials Index]].
+- Keep module notes directly in `02 Notes` as `Module NN - Official Module Name.md`.
+- Keep quiz files, practical tasks, practical scripts, and quiz status in `03 Assignments`.
+- Keep quiz availability/status summaries only in [[03 Assignments/Quiz Status]], not inside individual module quiz files.
+- Do not keep processed raw extracts or scratch scripts.
 
 ## Read-Only Sync Checklist
 1. Query `core_course_get_contents` for course `16`.
@@ -34,10 +42,17 @@ Quiz questions before any attempt exists should come from the user as copied tex
 
 ## Current Outputs
 - [[Moodle Exposure Report]]
-- [[Moodle Resource Comparison]]
 - [[03 Assignments/Quiz Status]]
-- [[02 Notes/Module 01 - NumPy/Module 01 - NumPy]]
-- [[02 Notes/Module 02 - Introduction to Pandas/Module 02 - Introduction to Pandas]]
-- [[02 Notes/Module 03 - Data Loading and File Formats in Pandas/Module 03 - Data Loading and File Formats in Pandas]]
-- [[02 Notes/Module 04 - Data Cleaning and Preparation/Module 04 - Data Cleaning and Preparation]]
-- [[02 Notes/Module 05 - Data Wrangling/Module 05 - Data Wrangling]]
+- [[02 Notes/Module 01 - NumPy]]
+- [[02 Notes/Module 02 - Introduction to Pandas]]
+- [[02 Notes/Module 03 - Data Loading and File Formats in Pandas]]
+- [[02 Notes/Module 04 - Data Cleaning and Preparation]]
+- [[02 Notes/Module 05 - Data Wrangling]]
+- [[02 Notes/Module 06 - Visualization and Plotting]]
+- [[02 Notes/Module 07 - Aggregation and Group Operations]]
+- [[02 Notes/Module 08 - Exploratory Data Analysis (Deep Dive)]]
+- [[02 Notes/Module 09 - Handling Time Series Data]]
+- [[02 Notes/Module 10 - Introduction to modelling libraries in python]]
+
+## Removed Audit File
+`Moodle Resource Comparison.md` was an early local-vs-Moodle audit artifact. It is not part of the normal course folder design and was removed after the course materials were processed.

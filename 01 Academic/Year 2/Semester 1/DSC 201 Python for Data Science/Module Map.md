@@ -18,28 +18,28 @@ created: 2026-06-19
 | 3 | Data Loading and File Formats in Pandas | Open in Moodle / Present locally | Moodle learning resource imported and summarized; practical task and mastery quiz are exposed |
 | 4 | Data Cleaning and Preparation | Open in Moodle / Present locally | Moodle learning resource imported and summarized; mastery quiz is exposed |
 | 5 | Data Wrangling | Open in Moodle / Present locally | Moodle learning resource imported and summarized; practical assignment and test your knowledge quiz are exposed |
-| Foundation | Introduction to Python | Present | Supporting notes on Python, programming, development environments, comments, and indentation |
-| Foundation | Data Types, Variables, and Operators | Present | Supporting notes PDF, class slides, and quiz present; not counted as the official Pandas module |
+| 6 | Visualization and Plotting | Open in Moodle / Present locally | Moodle learning resource imported and summarized; practical task and end-of-module assessment are exposed |
+| 7 | Aggregation and Group Operations | Open in Moodle / Present locally | Moodle learning resource and class files imported and summarized; practical task and end-of-module assessment are exposed |
+| 8 | Exploratory Data Analysis (Deep Dive) | Open in Moodle / Present locally | Moodle learning resource imported and summarized; test your knowledge quiz is exposed |
+| 9 | Handling Time Series Data | Open in Moodle / Present locally | Moodle learning resource imported and summarized; test your knowledge quiz is exposed |
+| 10 | Introduction to modelling libraries in python | Open in Moodle / Present locally | Moodle module overview imported and summarized; quiz answer sheet created |
 
 ## Current Moodle Scope
-- Open: Modules 1, 2, 3, 4, and 5.
-- Visible but empty: Modules 6 to 10.
+- Open and processed: Modules 1, 2, 3, 4, 5, 6, 7, 8, 9, and 10.
+- All module quizzes are complete as of the 2026-06-21 Moodle status check.
 - Final examination section is visible, but it is not part of the current module-note workflow.
 
-## Source Folders
-- [[01 Source Materials/Module 01 - NumPy]]
-- [[01 Source Materials/Module 02 - Introduction to Pandas]]
-- [[01 Source Materials/Module 03 - Data Loading and File Formats in Pandas]]
-- [[01 Source Materials/Module 04 - Data Cleaning and Preparation]]
-- [[01 Source Materials/Module 05 - Data Wrangling]]
-- [[01 Source Materials/Foundation - Introduction to Python]]
-- [[01 Source Materials/Foundation - Data Types Variables and Operators]]
+## Source Materials
+- [[01 Source Materials/Source Materials Index]]
 
-## Note Folders
+## Notes
 - [[02 Notes/Module 01 - NumPy]]
 - [[02 Notes/Module 02 - Introduction to Pandas]]
 - [[02 Notes/Module 03 - Data Loading and File Formats in Pandas]]
 - [[02 Notes/Module 04 - Data Cleaning and Preparation]]
 - [[02 Notes/Module 05 - Data Wrangling]]
-- [[02 Notes/Foundation - Introduction to Python]]
-- [[02 Notes/Foundation - Data Types Variables and Operators]]
+- [[02 Notes/Module 06 - Visualization and Plotting]]
+- [[02 Notes/Module 07 - Aggregation and Group Operations]]
+- [[02 Notes/Module 08 - Exploratory Data Analysis (Deep Dive)]]
+- [[02 Notes/Module 09 - Handling Time Series Data]]
+- [[02 Notes/Module 10 - Introduction to modelling libraries in python]]

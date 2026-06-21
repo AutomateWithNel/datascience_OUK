@@ -1,0 +1,1195 @@
+
+            <link rel="stylesheet" href="../static\styles.css?build_time=1724934625.696239">
+            
+            
+        
+    <link rel="stylesheet" id="customiseCodeCSS" href="../static\pygmentize.css?build_time=1724934625.696239">
+
+    <link rel="stylesheet" href="../static\print.css?build_time=1724934625.696239">
+
+
+        
+    
+			<script>
+				var chirun_static_url = new URL('../static?build_time=1724934625.696239', location.href);
+			</script>
+
+            
+                <script defer src="../static\mathjax_config.js?build_time=1724934625.696239"></script>
+                <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+            
+
+            <script type="module" src="../static\localisation.js?build_time=1724934625.696239"></script>
+
+            <script defer src="../static\customisation.js?build_time=1724934625.696239"></script>
+
+            
+
+            
+        
+    <script defer src="../static\code.js?build_time=1724934625.696239" type="module"></script>
+    <script defer src="../static\embed_numbas.js?build_time=1724934625.696239" type="module"></script>
+    <script defer src="../static\embed_qrcode.js?build_time=1724934625.696239" type="module"></script>
+
+
+        <template id="runnable-code-template">
+            <link rel="stylesheet" href="../static\code.css?build_time=1724934625.696239">
+            <div class="runnable-code-wrapper">
+                <section class="fullscreenable code">
+                    <div id="code"></div>
+                    <button class="fullscreen icon-button" title="Fullscreen code"><svg class="icon" aria-label="Fullscreen code" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <section class="fullscreenable output">
+                    <div id="output" aria-live="polite">
+                        <pre class="stdout"></pre>
+                        <pre class="result"></pre>
+                        <div class="images"></div>
+                    </div>
+                    <button class="fullscreen icon-button" title="Fullscreen output"><svg class="icon" aria-label="Fullscreen output" viewBox="0 0 180 180">
+    <use href="#fullscreen"/>
+</svg></button>
+                </section>
+                <div class="buttons">
+                    <button type="button" class="run-code">Run code</button>
+                </div>
+                <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:var(--bg-colour);fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:var(--bg-colour);fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:var(--bg-colour);stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+            </div>
+        </template>
+
+        <template id="embed-numbas-template">
+            <link rel="stylesheet" href="../static\embed_numbas.css?build_time=1724934625.696239">
+            <details id="wrapper" data-completion-status="incomplete">
+                <summary>
+                    <h1 id="title">Test Yourself</h1>
+                    <div id="completion-status" data-completion-status="unknown">
+                        <span class="complete">Complete</span>
+                        <span class="incomplete">Incomplete</span>
+                    </div>
+                    <label id="score-feedback">
+                        Score:
+                        <progress min="0"></progress>
+                    </label>
+                </summary>
+                <iframe class="embed" title="Numbas"></iframe>
+            </details>
+        </template>
+
+    </head>
+    <body class="" >
+        
+
+        <a class="skip-to-content-link" href="#main-content">Skip to content</a>
+        
+            <form id="display-options">
+    <div class="buttons">
+        <button type="button" id="reset-display-options">Reset to defaults</button>
+
+        <a href="https://chirun.org.uk/accessibility-statement/material">Accessibility statement</a>
+
+        <button type="button" aria-controls="display-options" aria-expanded="false">
+            Close
+        </button>
+    </div>
+
+    <div class="inputs">
+        <div class="input-group">
+            <label for="display-options-font-scale">
+                Text size
+            </label>
+            <input type="range" min="50" max="600" step="5" value="100" id="display-options-font-scale">
+            <output for="display-options-font-scale">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-spacing-factor">
+                Spacing
+            </label>
+            <input type="range" min="0" max="1200" step="5" value="100" id="display-options-spacing-factor">
+            <output for="display-options-spacing-factor">100%</output>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-font-family">
+                Text font
+            </label>
+            <select id="display-options-font-family">
+                <option value="var(--sans-serif-font)" selected>Sans-serif</option>
+                <option value="var(--serif-font)">Serif</option>
+                <option value="Atkinson Hyperlegible">Atkinson Hyperlegible</option>
+                <option value="Comic Sans MS">Comic Sans</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="display-options-colour-scheme">
+                Colour scheme
+            </label>
+            <select id="display-options-colour-scheme">
+                <option value="auto" selected>Automatic (default)</option>
+                <option value="light">Black text on white</option>
+                <option value="dark">White text on black</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+
+        <section id="custom-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-text-colour">
+                    Text colour
+                </label>
+                <input type="color" value="#000000" id="display-options-text-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-link-colour">
+                    Link colour
+                </label>
+                <input type="color" value="#0000ee" id="display-options-link-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour">
+                    Background colour
+                </label>
+                <input type="color" value="#ffffff" id="display-options-bg-colour">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-off">
+                    Muted background colour
+                </label>
+                <input type="color" value="#eeeeee" id="display-options-bg-colour-off">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-1">
+                    Accent colour 1
+                </label>
+                <input type="color" value="#4caf50" id="display-options-bg-colour-accent-1">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-2">
+                    Accent colour 2
+                </label>
+                <input type="color" value="#f6f6ff" id="display-options-bg-colour-accent-2">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-3">
+                    Accent colour 3
+                </label>
+                <input type="color" value="#eeffd3" id="display-options-bg-colour-accent-3">
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-bg-colour-accent-4">
+                    Accent colour 4
+                </label>
+                <input type="color" value="#ffeeee" id="display-options-bg-colour-accent-4">
+            </div>
+        </section>
+
+        <section id="filter-colour-scheme-options" class="inputs">
+            <div class="input-group">
+                <label for="display-options-filter-sepia">
+                    Sepia filter
+                </label>
+                <input type="range" min="0" max="100" step="1" value="0" id="display-options-filter-sepia">
+                <output for="display-options-filter-sepia">0%</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-filter-hue-rotate">
+                    Rotate hues
+                </label>
+                <input type="range" min="0" max="1" step="0.01" value="0" id="display-options-filter-hue-rotate">
+                <output for="display-options-filter-hue-rotate">0 turns</output>
+            </div>
+
+            <div class="input-group">
+                <label for="display-options-invert-images">
+                    Invert images in dark mode
+                </label>
+                <input type="checkbox" id="display-options-invert-images">
+            </div>
+
+        </section>
+    </div>
+</form>
+        
+
+        <header>
+            
+<button class="icon-button" type="button" aria-controls="display-options" aria-expanded="false" title="Display options">
+    <svg class="icon" aria-label="Display options" viewBox="0 0 180 180">
+    <use href="#cog"/>
+</svg>
+</button>
+            
+    
+    <nav aria-label="breadcrumb">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="../index.html">Exploratory data analysis</a>
+            </li>
+            
+            <li class="breadcrumb-item active">
+                Module 8
+            </li>
+        </ul>
+
+        
+    </nav>
+    
+
+            
+            
+        </header>
+
+        <main id="main-content">
+            
+    <nav id="sidebar">
+        
+        <ul class="alternative-formats">
+            
+            <li><a rel="alternate" type="application/pdf" href="module_8.pdf"download><svg class="icon" aria-label="PDF" viewBox="0 0 180 180">
+    <use href="#pdf"/>
+</svg> Download as PDF</a></li>
+            
+        </ul>
+        
+
+        <h1>Table of Contents</h1>
+        <a class="jump-to-item-content" href="#item-content">Jump to content</a>
+        
+            <ol class="table-of-contents">
+                
+                    
+    <li>
+        <a href="#module_8_exploratory">Module 8: Exploratory Data Analysis (Deep Dive)</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#sanity_checks">Sanity checks</a>
+        
+    </li>
+
+    <li>
+        <a href="#detecting_outliers">Detecting outliers</a>
+        
+        <ol>
+            
+            
+    <li>
+        <a href="#data_accuracy_checks">Data Accuracy Checks</a>
+        
+    </li>
+
+    <li>
+        <a href="#_distribution_checks">
+    Distribution Checks
+</a>
+        
+    </li>
+
+    <li>
+        <a href="#sampling_bias_checks">Sampling Bias Checks</a>
+        
+    </li>
+
+    <li>
+        <a href="#temporal_consistency">Temporal Consistency Checks</a>
+        
+    </li>
+
+    <li>
+        <a href="#contextual_checks">Contextual Checks</a>
+        
+    </li>
+
+    <li>
+        <a href="#data_type_checks">Data Type Checks</a>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+            
+        </ol>
+        
+    </li>
+
+                
+            </ol>
+        
+
+    </nav>
+
+    <article class="item-content" id="item-content">
+        <section>
+<p><strong><h1 id="module_8_exploratory" style="color:#037b90">Module 8: Exploratory Data Analysis (Deep Dive)</h1></strong></p>
+<p>This module provides a comprehensive introduction to exploratory data analysis (EDA) techniques, essential for understanding and preparing datasets for further analysis. You will be able to learn various methods for conducting sanity checks, univariate analysis, bivariate analysis, missing value treatment, outlier treatment, and handling categorical data types. At the end of the module, you are expected to develop  necessary skills for carrying out exploratory data anslysis using real world data.</p>
+<p><strong>Learning Outcomes</strong></p>
+<p>By the end of this module the learner should be able to;</p>
+<ol>
+<li>Identify the key techniques used in exploratory data analysis. </li>
+<li>Explain the importance of EDA  and how it contributes to data preparation for further analysi.3. </li>
+<li>Demonstrate the ability to perform exploratory data analysis on real-world datasets by applying appropriate EDA techniu4. es</li>
+<li>Evaluate the effectiveness of different EDA techniques</li>
+</ol>
+<p><strong><h3 id="sanity_checks" style="color:#ff7f50">Sanity checks</h3></strong>
+Sanity check is a process in the exploratory data analysis that ensures the data is valid and reliable. In any data science project you will carry out, it is important to ensure that the data is reliable and consistent. 
+There are various ways for ensuring data consistency;</p>
+<ol>
+<li>Unique values: This ensures that the columns that are required to be unique are unique</li>
+<li>Handling duplicates</li>
+<li>Ensuring consistency in the labels of categorical data. For example using "female" verses "f", "F". There should be consistency in the values used for all the categorical columns.</li>
+</ol>
+<p>You are going to see how to use this methods using the black friday dataset, which is cointains customer transactions
+As a normal practice, we will start by loading the dataset as follows;</p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/black_friday.csv"</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>User_ID</th>
+<th>Product_ID</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Occupation</th>
+<th>City_Category</th>
+<th>Stay_In_Current_City_Years</th>
+<th>Marital_Status</th>
+<th>Product_Category_1</th>
+<th>Product_Category_2</th>
+<th>Product_Category_3</th>
+<th>Purchase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1000001</td>
+<td>P00069042</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>8370</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1000001</td>
+<td>P00248942</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>6.0</td>
+<td>14.0</td>
+<td>15200</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1000001</td>
+<td>P00087842</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>12</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1422</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1000001</td>
+<td>P00085442</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>12</td>
+<td>14.0</td>
+<td>NaN</td>
+<td>1057</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1000002</td>
+<td>P00285442</td>
+<td>M</td>
+<td>55+</td>
+<td>16</td>
+<td>C</td>
+<td>4+</td>
+<td>0</td>
+<td>8</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7969</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p>Lets check to see if the User_ID column has duplicated valuesd</p>
+<div class="highlight"><pre><span></span><span class="c1"># Check for duplicate IDs</span>
+<span class="n">duplicate_ids</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">'User_ID'</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+
+<span class="n">duplicate_ids</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>User_ID</th>
+<th>Product_ID</th>
+<th>Gender</th>
+<th>Age</th>
+<th>Occupation</th>
+<th>City_Category</th>
+<th>Stay_In_Current_City_Years</th>
+<th>Marital_Status</th>
+<th>Product_Category_1</th>
+<th>Product_Category_2</th>
+<th>Product_Category_3</th>
+<th>Purchase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1000001</td>
+<td>P00069042</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>8370</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1000001</td>
+<td>P00248942</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>6.0</td>
+<td>14.0</td>
+<td>15200</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1000001</td>
+<td>P00087842</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>12</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1422</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1000001</td>
+<td>P00085442</td>
+<td>F</td>
+<td>0-17</td>
+<td>10</td>
+<td>A</td>
+<td>2</td>
+<td>0</td>
+<td>12</td>
+<td>14.0</td>
+<td>NaN</td>
+<td>1057</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1000002</td>
+<td>P00285442</td>
+<td>M</td>
+<td>55+</td>
+<td>16</td>
+<td>C</td>
+<td>4+</td>
+<td>0</td>
+<td>8</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7969</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Because this data cointains the transactions, it is possible to have the same customer purchasing the different items at different times.We can check if the whole transactions are duplicated
+<div class="highlight"><pre><span></span><span class="n">duplicate_records</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+<span class="n">duplicate_records</span><span class="o">.</span><span class="n">shape</span>
+</pre></div></p>
+<div class="highlight"><pre><span></span>(2, 12)
+</pre></div>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+<div class="highlight"><pre><span></span>(550069, 12)
+</pre></div>
+<p>As we can see we have two records that are duplicated. In this case we can drop the duplicate as follows</p>
+<p><div class="highlight"><pre><span></span><span class="n">df_cleaned</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="s1">'first'</span><span class="p">)</span>
+</pre></div>
+We can then check the new dataseet to see if there are still duplicates in it</p>
+<div class="highlight"><pre><span></span><span class="n">df_cleaned</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+<div class="highlight"><pre><span></span>(550068, 12)
+</pre></div>
+<p>As we can see from the shape attributes results our rows have reduced by one. Not using the keep='first' attributes will delete all the records that are duplicated</p>
+<p><strong>Ensuring consistency in the categorical variables naming</strong></p>
+<p>Lets check if our categorical column "City_Category" has consistent values. We can do this by checking the unique values in our column as follows</p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">"City_Category"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre><span></span>array(['A', 'C', 'B', 'b'], dtype=object)
+</pre></div>
+<p>From the results, we can see that the column has four unique values, with B and b which is a representation of the same thing. We can handle this by replacing the values that have "b" to "B" using the replace method as follows</p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'City_Category'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'City_Category'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'b'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">)</span>
+</pre></div>
+<p>After replacing we can now check to see if our column has only three unique values as follows</p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">'City_Category'</span><span class="p">]</span> <span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+<div class="highlight"><pre><span></span>array(['A', 'C', 'B'], dtype=object)
+</pre></div>
+<p><strong>Data integrity test</strong></p>
+<p>In addition to checking the consistency of the data, you can also check the integrity of the data by</p>
+<ol>
+<li>Indetifying missing data and handling it</li>
+<li>Detecting the outliers</li>
+<li>Ensurng that the numerical data fall into expected ranges. For example if the dataset cointains the records of students marks you do not expect the values for the marks to go beyond 100 and below 0</li>
+</ol>
+<p>In the earlier sections, we had talked about handling the missing values using the isna() function, dropna() and fillna() functions. In this section we are going to look at detecting outliers and ensuring consistent range in a dataset</p>
+<h3 id="detecting_outliers">Detecting outliers</h3>
+<p>Outliers are values in our dataset that do not lie at the normal range of the data. The most easy way to detect is to use a box plot. In this section we are using the student_performance dataset.</p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv"</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }</p>
+<div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+
+<p></style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Hours Studied</th>
+<th>Previous Scores</th>
+<th>Extracurricular Activities</th>
+<th>Sleep Hours</th>
+<th>Sample Question Papers Practiced</th>
+<th>Performance Index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>7</td>
+<td>99</td>
+<td>Yes</td>
+<td>9</td>
+<td>1</td>
+<td>91</td>
+</tr>
+<tr>
+<th>1</th>
+<td>4</td>
+<td>82</td>
+<td>No</td>
+<td>4</td>
+<td>2</td>
+<td>65</td>
+</tr>
+<tr>
+<th>2</th>
+<td>8</td>
+<td>51</td>
+<td>Yes</td>
+<td>7</td>
+<td>2</td>
+<td>45</td>
+</tr>
+<tr>
+<th>3</th>
+<td>5</td>
+<td>52</td>
+<td>Yes</td>
+<td>5</td>
+<td>2</td>
+<td>36</td>
+</tr>
+<tr>
+<th>4</th>
+<td>7</td>
+<td>75</td>
+<td>No</td>
+<td>8</td>
+<td>5</td>
+<td>66</td>
+</tr>
+</tbody>
+</table>
+</div></p>
+<p>Lets check if the Performance Index column has an outlier by plotting a boxplot of it</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv"</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<figure><img alt="png" src="images\output_22_0.png"/></figure>
+<p>From the boxplot, we can see we have two outliers on the right and one outlier on the left. We can remove the outliers by filtering our dataset. We can set the set the maximum value to be 100 and the minimum value to be 0</p>
+<p><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv"</span><span class="p">)</span>
+<span class="n">data_new</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Original dataset shape"</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Filtered dataset shape"</span><span class="p">,</span><span class="n">data_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+    Original dataset shape (10003, 6)
+    Filtered dataset shape (9999, 6)</p>
+<p>From the results we can see that our dataset has reduced by 4 elements </p>
+<p>The other way of handling outliers is by replacing the outlier values with the a specified maximum or minimum</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"C:/Users/User/Dropbox/OUK Documentts/Python for data science module development/Datasets/Student_Performance.csv"</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span> <span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">'Performance Index'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<figure><img alt="png" src="images\output_27_0.png"/></figure>
+<p>By replacing the outliers, we can see from our boxplot the outliers have been removed</p>
+<h4 id="data_accuracy_checks">Data Accuracy Checks</h4>
+<ol>
+<li>Cross-Field Validation: 
+Cross validation ensures logical consistency between the variables in the dataset. For example, if you have a column of the birth date, it should be consistent with the age column. </li>
+</ol>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="c1"># Sample DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Charlie'</span><span class="p">],</span>
+    <span class="s1">'Birth Date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2000-01-01'</span><span class="p">,</span> <span class="s1">'1985-05-20'</span><span class="p">,</span> <span class="s1">'1990-12-15'</span><span class="p">],</span>
+    <span class="s1">'Age'</span><span class="p">:</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">33</span><span class="p">]</span>  <span class="c1"># Assuming current year is 2024</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Convert 'Birth Date' to datetime</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Birth Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Birth Date'</span><span class="p">])</span>
+
+<span class="c1"># Calculate current year and compare with 'Age'</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Calculated Age'</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Birth Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+
+<span class="c1"># Check if 'Age' matches 'Calculated Age'</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Age Matches'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Age'</span><span class="p">]</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Calculated Age'</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>      Name Birth Date  Age  Calculated Age  Age Matches
+0    Alice 2000-01-01   24              24         True
+1      Bob 1985-05-20   39              39         True
+2  Charlie 1990-12-15   33              34        False
+</pre></div>
+<p>Once you have noted the inconsistencies you can work on correcting them</p>
+<p><strong>Logical Consistency:</strong> Logical consistency ensures that there is Valid logical relationships between variable (e.g., start date should be before end date).</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Sample DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Task'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Task 1'</span><span class="p">,</span> <span class="s1">'Task 2'</span><span class="p">,</span> <span class="s1">'Task 3'</span><span class="p">,</span> <span class="s1">'Task 4'</span><span class="p">],</span>
+    <span class="s1">'Start Date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-01-10'</span><span class="p">,</span> <span class="s1">'2024-02-01'</span><span class="p">,</span> <span class="s1">'2024-03-15'</span><span class="p">,</span> <span class="s1">'2024-04-01'</span><span class="p">],</span>
+    <span class="s1">'End Date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2024-01-15'</span><span class="p">,</span> <span class="s1">'2024-01-30'</span><span class="p">,</span> <span class="s1">'2024-03-10'</span><span class="p">,</span> <span class="s1">'2024-04-05'</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Convert 'Start Date' and 'End Date' to datetime format</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Start Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'Start Date'</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'End Date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'End Date'</span><span class="p">])</span>
+
+<span class="c1"># Display the original DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Original DataFrame:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># Validate that 'Start Date' is before 'End Date'</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Valid Dates'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Start Date'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">'End Date'</span><span class="p">]</span>
+
+<span class="c1"># Display the DataFrame with the validation results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">DataFrame with Validation:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># Filter rows where 'Start Date' is not before 'End Date'</span>
+<span class="n">inconsistent_dates</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'Valid Dates'</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>
+
+<span class="c1"># Display tasks with inconsistent dates</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Tasks with Inconsistent Dates:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inconsistent_dates</span><span class="p">)</span>
+</pre></div>
+<div class="highlight"><pre><span></span>Original DataFrame:
+     Task Start Date   End Date
+0  Task 1 2024-01-10 2024-01-15
+1  Task 2 2024-02-01 2024-01-30
+2  Task 3 2024-03-15 2024-03-10
+3  Task 4 2024-04-01 2024-04-05
+
+DataFrame with Validation:
+     Task Start Date   End Date  Valid Dates
+0  Task 1 2024-01-10 2024-01-15         True
+1  Task 2 2024-02-01 2024-01-30        False
+2  Task 3 2024-03-15 2024-03-10        False
+3  Task 4 2024-04-01 2024-04-05         True
+
+Tasks with Inconsistent Dates:
+     Task Start Date   End Date  Valid Dates
+1  Task 2 2024-02-01 2024-01-30        False
+2  Task 3 2024-03-15 2024-03-10        False
+</pre></div>
+<ol>
+<li>Aggregation Consistency: Sum or aggregate data to ensure that totals match expected value</li>
+</ol>
+<h4 id="_distribution_checks">
+    Distribution Checks
+</h4>
+<ol>
+<li>Summary Statistics: Compare summary statistics (mean, median, standard deviation) to expected values.</li>
+<li>Histograms/Boxplots: Visualize the distribution of variables to check for normality or unexpected patterns.</li>
+<li>Correlation Analysis: Check correlations between variables to identify unexpected relationships or collinearity.</li>
+</ol>
+<h4 id="sampling_bias_checks">Sampling Bias Checks</h4>
+<ol>
+<li>Sample Representativeness: Ensure that the sample data is representative of the population (e.g., no over-representation of a particular group).</li>
+<li>Stratification: Check that stratified samples are balanced and correctly distributed.</li>
+</ol>
+<h4 id="temporal_consistency">Temporal Consistency Checks</h4>
+<ol>
+<li>Time Series Gaps: Identify gaps or irregularities in time series data.</li>
+<li>Seasonality and Trends: Verify that any seasonal patterns or trends in the data align with expectations.</li>
+</ol>
+<h4 id="contextual_checks">Contextual Checks</h4>
+<ol>
+<li>Domain Knowledge Validation: Cross-reference findings with domain expertise to ensure they make sense in the real-world context.</li>
+<li>Benchmarking: Compare your data against external benchmarks or industry standards where possible.</li>
+</ol>
+<h4 id="data_type_checks">Data Type Checks</h4>
+<ol>
+<li>Correct Data Types: Ensure all variables are stored with the correct data type (e.g., dates as datetime objects, numeric data as integers/floats).</li>
+<li>Conversion Issues: Identify and correct any issues arising from data type conversions (e.g., converting a string to a numeric value).</li>
+</ol>
+<p>Use the generated data below and do the following tasks
+1. Check for missing values in the dataset.
+2. Verify that the Price column contains only positive values.
+3. Ensure that the Quantity column contains only non-negative integers.</p>
+<p><runnable-code class="runnable" language="python">import pandas as pd
+
+# Generated dataset
+data = {
+    'Product ID': [101, 102, 103, 104, 105],
+    'Product Name': ['Widget A', 'Widget B', 'Gadget C', 'Gizmo D', 'Tool E'],
+    'Price': [19.99, 29.99, -15.00, 25.50, None],  # One negative value and one missing value
+    'Quantity': [10, 5, 0, -3, 7]  # One negative quantity
+}
+
+df = pd.DataFrame(data)</runnable-code></p>
+</section>
+
+    </article>
+
+        </main>
+
+		
+        <svg
+   width="180"
+   height="180"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="icon-defs"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+>
+    <defs>
+        <g id="cog">
+            <path 
+                style="fill:currentColor;fill-opacity:1;stroke:none;stroke-width:2.91107"
+                d="m 97.752501,14.130132 -9.381402,13.321575 -0.875593,3.780985 0.153413,10.126218 -15.231962,2.683646 -3.320429,-9.569021 -2.115099,-3.246528 -13.372747,-9.313164 -6.817124,3.940185 1.375919,16.23265 1.756892,3.456901 6.623829,7.658625 -9.938582,11.848983 -8.693428,-5.196724 -3.712755,-1.125768 -16.226967,1.461225 -2.695014,7.397083 11.490766,11.553325 3.570636,1.518082 10.001112,1.609049 v 15.465082 l -10.001112,1.609049 -3.570636,1.51808 -11.490766,11.55333 2.695014,7.39707 16.226967,1.46124 3.712755,-1.12577 8.693428,-5.19673 9.938582,11.849 -6.623829,7.6586 -1.756892,3.4569 -1.375919,16.23267 6.817124,3.94017 13.372747,-9.31317 2.115099,-3.24651 3.320429,-9.56902 15.231962,2.68363 -0.153413,10.12623 0.875593,3.78099 9.381402,13.32157 7.749599,-1.37024 4.25858,-15.72665 -0.46624,-3.84919 -3.60472,-9.46099 13.3898,-7.73254 6.39641,7.85192 3.09872,2.33113 15.74934,4.17332 5.06027,-6.02683 -6.84557,-14.78849 -2.83716,-2.64385 -8.84125,-4.93518 5.28767,-14.532632 9.94426,1.910392 3.8777,-0.21038 14.74863,-6.925177 v -7.868995 l -14.74863,-6.925174 -3.8777,-0.210383 -9.94426,1.910392 -5.28767,-14.532629 8.84125,-4.935179 2.83716,-2.643849 6.84557,-14.788484 -5.06027,-6.026831 -15.74934,4.173298 -3.09872,2.331133 -6.39641,7.851938 -13.3898,-7.73254 3.60472,-9.460991 0.46624,-3.849211 -4.25858,-15.726624 z M 88.371099,75.44463 A 14.55537,14.55537 0 0 1 102.92647,90 14.55537,14.55537 0 0 1 88.371099,104.55537 14.55537,14.55537 0 0 1 73.815728,90 14.55537,14.55537 0 0 1 88.371099,75.44463 Z"
+            />
+        </g>
+        <g id="pdf">
+            <path
+                style="fill:var(--bg-colour);fill-opacity:1;fill-rule:nonzero;stroke:currentColor;stroke-width:5.73751;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+                d="m 115.96038,9.1011226 31.41471,31.7977544 m 0,11.232914 V 159.42386 c 0,6.35716 -5.11786,11.47502 -11.47502,11.47502 H 44.099928 c -6.35716,0 -11.475018,-5.11786 -11.475018,-11.47502 V 20.576141 c 0,-6.35716 5.117858,-11.4750184 11.475018,-11.4750184 h 71.860452 l -0.14159,20.0812814 c -0.0449,6.357008 5.11832,11.398586 11.47503,11.475018 l 20.08127,0.241455"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:4.74634;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 56.949794,109.50753 C 70.723931,123.86069 104.41318,45.431956 83.05466,47.805125 61.696136,50.178294 111.53269,116.62705 123.39853,100.01485 135.26439,83.402664 43.175657,95.15437 56.949794,109.50753 Z"
+            />
+        </g>
+        <g id="slides">
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,21.25 30,137.5"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="M 90,21.25 60,158.75"
+            />
+            <rect
+                style="fill:var(--bg-colour);fill-opacity:1;stroke:currentColor;stroke-width:10.4525;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="119.79137"
+                height="82.273766"
+                x="30.104315"
+                y="36.476234"
+                ry="4.7737675"
+                rx="4.7737675"
+            />
+            <rect
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5.90268;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                width="140"
+                height="5.2262344"
+                x="20"
+                y="31.25"
+                ry="1.6724058"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,66.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,76.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,86.25 h 50"
+            />
+            <path
+                style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+                d="m 90,56.25 h 50"
+            />
+            <path
+                style="fill:currentColor;fill-opacity:1;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+                d="M 80.000002,78.84906 A 20.099062,20.099062 0 0 1 67.592518,97.418172 20.099062,20.099062 0 0 1 45.688757,93.061243 20.099062,20.099062 0 0 1 41.331828,71.157482 20.099062,20.099062 0 0 1 59.90094,58.749998 V 78.84906 Z"
+            />
+        </g>
+
+        <g id="notebook">
+            <path
+                style="fill:var(--bg-colour);stroke:currentColor;stroke-width:4.964;stroke-linecap:butt;stroke-linejoin:round;paint-order:stroke fill markers;stroke-dasharray:none"
+                d="M 34.482063,31.89923 V 16.261703 c 0,-5.41792 4.36172,-9.7796397 9.77964,-9.7796397 H 135.7383 c 5.41792,0 9.77964,4.3617197 9.77964,9.7796397 V 163.7383 c 0,5.41792 -4.36172,9.77964 -9.77964,9.77964 H 44.261703 c -5.41792,0 -9.77964,-4.36172 -9.77964,-9.77964 v -23.96224"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="58.699139"
+               cy="59.503937"
+               r="3.8077738"
+            />
+            <circle
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="113.59385"
+               cy="52.885151"
+               r="4.9348516"
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,54.782256 C 74.053011,55.067917 59.927013,65.025096 57.261258,76.89961 69.209289,67.830932 79.817786,64.804678 88.900432,64.855157 97.983077,64.804678 108.59157,67.830932 120.53961,76.89961 117.87385,65.025096 103.74785,55.067917 88.900432,54.782256 Z"
+           
+            />
+            <path
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               d="M 88.900432,121.58085 C 74.053011,121.29519 59.927013,111.33801 57.261258,99.46349 c 11.948031,9.06868 22.556528,12.09494 31.639174,12.04445 9.082643,0.0505 19.691138,-2.97577 31.639178,-12.04445 -2.66576,11.87452 -16.79176,21.8317 -31.639178,22.11736 z"
+              
+            />
+            <ellipse
+               style="fill:currentColor;stroke-width:9.43913;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke fill markers"
+               cx="63.813011"
+               cy="125.96338"
+               rx="6.4332962"
+               ry="6.4347191"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="m 28,40 c 2.806997,-4.320074 9.452509,-3.66881 12,0"
+            />
+            <path
+                style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+                d="M 34,46.266514 V 62.316215"
+            
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,71.583335 c 2.806997,-4.320073 9.452509,-3.668809 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="M 34,77.849849 V 93.89955"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,103.16667 c 2.806997,-4.320071 9.452509,-3.668807 12,0"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 34,109.43318 v 16.0497"
+            />
+            <path
+             style="fill:none;fill-opacity:1;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             d="m 28,134.75 c 2.806997,-4.32007 9.452509,-3.66881 12,0"
+            />
+        </g>
+
+        <g id="fullscreen">
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:10;stroke-dasharray:none;paint-order:stroke markers fill"
+               d="M 19.402776,9.9953678 H 160.51388 c 5.2117,0 9.40741,4.1957032 9.40741,9.4074042 V 160.51388 c 0,5.2117 -4.19571,9.40741 -9.40741,9.40741 H 19.402776 c -5.211704,0 -9.4074082,-4.19571 -9.4074082,-9.40741 V 19.402772 c 0,-5.211701 4.1957042,-9.4074042 9.4074082,-9.4074042 z" />
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="M 150.95833,68.801471 V 28.958332 h -39.84314"
+            />
+            <path
+               style="fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+               d="m 28.958332,111.11519 v 39.84314 h 39.843139"
+            />
+        </g>
+    </defs>
+</svg>
+    </body>
+</html>
